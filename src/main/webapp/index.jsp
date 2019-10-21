@@ -10,7 +10,7 @@
 <head>
     <title>首页跳转</title>
     <script type="text/javascript">
-        location.href
+        location.href="<%=request.getContextPath()%>/"
     </script>
 </head>
 <body>
