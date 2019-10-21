@@ -7,8 +7,8 @@ spring:
     basename: message/msg
   datasource:
     username: root
-    password: liutonghui89+-
-    url: jdbc:mysql://47.98.183.4/group2_gjj?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    password: xtyqqw4822022
+    url: jdbc:mysql://192.168.124.17/gjj_demo?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
   thymeleaf:
     #模板的模式，支持 HTML, XML TEXT JAVASCRIPT
