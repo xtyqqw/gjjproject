@@ -14,32 +14,34 @@ import java.util.Date;
 @Getter
 @Setter
 public class User {
-    //编号
+    /**用户编号*/
     private String userId;
-    //姓名
+    /**用户姓名*/
     private String userName;
-    //密码
+    /**用户密码*/
     private String userPwd;
-    //证件名称
+    /**证件名称*/
     private String userCertName;
-    //证件号
+    /**证件号码*/
     private String userCertNum;
-    //手机号
+    /**用户手机号*/
     private String userPhonenum;
-    //邮箱
+    /**用户邮箱*/
     private String userEmail;
-    //用户类型
+    /**用户类型*/
     private String userType;
-    //创建时间
+    /**用户创建时间*/
     private Date userCreatetime;
-    //修改时间
+    /**用户修改时间*/
     private Date useeUpdatetime;
-    //用户状态 用于区分普通用户和认证用户
+    /**用户状态 用于区分普通用户和认证用户*/
     private String userStatus;
-    //用户所属单位编号
+    /**用户所属单位编号*/
     private String userUnitId;
 
-    public User(String userId, String userName, String userPwd, String userCertName, String userPhonenum, String userEmail, String userType, Date userCreatetime, Date useeUpdatetime, String userStatus, String userUnitId) {
+    public User(String userId, String userName, String userPwd, String userCertName,
+                String userPhonenum, String userEmail, String userType, Date userCreatetime,
+                Date useeUpdatetime, String userStatus, String userUnitId) {
         this.userId = userId;
         this.userName = userName;
         this.userPwd = userPwd;
