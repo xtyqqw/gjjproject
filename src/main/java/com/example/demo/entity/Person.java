@@ -2,11 +2,11 @@ package com.example.demo.entity;
 
 import lombok.Getter;
 import lombok.Setter;
-@Setter
 @Getter
+@Setter
 public class Person {
     /*id*/
-    private String personId;
+    private Integer personId;
     /*姓名*/
     private String personName;
     /*证件名称*/
@@ -24,7 +24,7 @@ public class Person {
     /*个人登记号*/
     private String personRegister;
 
-    public Person(String personId, String personName, String personCertname, String personCertnum, String personUnit, Double personBase, Double personRatio, Double personAmount, String personRegister) {
+    public Person(Integer personId, String personName, String personCertname, String personCertnum, String personUnit, Double personBase, Double personRatio, Double personAmount, String personRegister) {
         this.personId = personId;
         this.personName = personName;
         this.personCertName = personCertname;

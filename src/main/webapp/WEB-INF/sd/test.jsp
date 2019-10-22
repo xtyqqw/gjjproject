@@ -10,30 +10,33 @@
 <head>
     <title>测试</title>
     <%--加上方法  绝对路径--%>
-    <link rel="stylesheet" href="<%=request.getContextPath() %>/layui/css/layui.css" media="all">
+    <script src="/js/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/layui/css/layui.css"/>
+    <script src="/layui/layui.js" type="text/javascript"></script>
+
 </head>
 <body>
 <table class="layui-hide" id="person" lay-filter="test"></table>
-<script type="text/javascript">
+<script >
     layui.use(['table', 'layer', 'laydate'],
         function () {
             var $ = layui.$;
             var table = layui.table;
             var layer = layui.layer;
             table.render({
-                elem: 'person'
+                elem: '#person'
                 , url: '<%=request.getContextPath()%>/persons/personList'
                 , toolbar: 'default'
                 , cols: [[
-                    {field: 'person_id', width: 100, title: 'id', sort: true}
-                    , {field: 'person_name', width: 100, title: '姓名', sort: true}
-                    , {field: 'person_cert_name', width: 100, title: '证件名称', sort: true}
-                    , {field: 'person_num', width: 100, title: '证件号', sort: true}
-                    , {field: 'person_unit', width: 100, title: '职业', sort: true}
-                    , {field: 'person_base', width: 100, title: '缴存基数', sort: true}
-                    , {field: 'person_ratio', width: 100, title: '缴存比例', sort: true}
-                    , {field: 'person_amount', width: 100, title: '系统计算缴存额', sort: true}
-                    , {field: 'person_register', width: 100, title: '个人登记号', sort: true}
+                    {field: 'personId', width: 100, title: 'id', sort: true}
+                    , {field: 'personName', width: 100, title: '姓名', sort: true}
+                    , {field: 'personCertName', width: 100, title: '证件名称', sort: true}
+                    , {field: 'personCertNum', width: 100, title: '证件号', sort: true}
+                    , {field: 'personUnit', width: 100, title: '职业', sort: true}
+                    , {field: 'personBase', width: 100, title: '缴存基数', sort: true}
+                    , {field: 'personRatio', width: 100, title: '缴存比例', sort: true}
+                    , {field: 'personAmount', width: 100, title: '系统计算缴存额', sort: true}
+                    , {field: 'personRegister', width: 100, title: '个人登记号', sort: true}
                     , {
                         field: 'right',
                         title: '操作',
@@ -45,6 +48,13 @@
                             '</div>'
                     }
                 ]]
+                ,page:true,
+                limits:[2,2,3]
+                ,toolbar:"<div class='layui-btn-group'>"+
+                        "<button class='layui-btn' lay-event='add' >增加</button>"+
+                        "<button class='layui-btn' layui-event='up' >搜索</button>"+
+                        "<from action='<%=request.getContextPath()%>/persons/add' method='post'>"+
+                        "<div>"
             })
         })
 

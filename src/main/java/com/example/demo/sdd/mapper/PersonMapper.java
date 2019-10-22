@@ -12,4 +12,6 @@ public interface PersonMapper {
     List<Person> selectPersonAll(Pagination pagination);
     /*总条数*/
     Integer findPerson(Pagination pagination);
+    /*添加*/
+    Integer addPerson(Person person);
 }

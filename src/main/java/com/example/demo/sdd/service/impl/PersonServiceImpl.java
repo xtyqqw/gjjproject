@@ -13,17 +13,21 @@ import java.util.List;
 public class PersonServiceImpl implements PersonService {
     @Autowired
     private PersonMapper personMapper;
-    @Override
+    @Override/*查询所有*/
     public List<Person> selectPersonAll(Pagination pagination){
         Integer page=pagination.getPage();
         Integer limit=pagination.getLimit();
-        Integer starPage=(page - 1)* limit;
-        pagination.setStartPage(starPage);
+        Integer startPage=(page - 1)* limit;
+        pagination.setStartPage(startPage);
         List<Person> personList=personMapper.selectPersonAll(pagination);
         return personList;
     }
-    @Override
+    @Override/*查询总条数*/
     public Integer findPerson(Pagination pagination){
         return personMapper.findPerson(pagination);
+    }
+    @Override/*添加*/
+    public Integer addPerson(Person person){
+        return personMapper.addPerson(person);
     }
 }

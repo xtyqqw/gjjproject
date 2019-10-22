@@ -4,10 +4,10 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.sdd.mapper.PersonMapper">
     <resultMap type="com.example.demo.entity.Person" id="personMap">
-        <id property="personId" column="person_id" javaType="java.lang.String"/>
+        <id property="personId" column="person_id" javaType="java.lang.Integer"/>
         <result property="personName" column="person_name" javaType="java.lang.String"/>
         <result property="personCertName" column="person_cert_name" javaType="java.lang.String"/>
-        <result property="personCertNum" column="person_num" javaType="java.lang.String"/>
+        <result property="personCertNum" column="person_cert_num" javaType="java.lang.String"/>
         <result property="personUnit" column="person_unit" javaType="java.lang.String"/>
         <result property="personBase" column="person_base" javaType="java.lang.Double"/>
         <result property="personRatio" column="person_ratio" javaType="java.lang.Double"/>
@@ -16,12 +16,16 @@
     </resultMap>
     <!--查询所有用户-->
     <select id="selectPersonAll" resultType="com.example.demo.entity.Pagination" resultMap="personMap">
-        select * from person limit #{starPage},#{limit}
+        select * from person limit #{startPage},#{limit}
     </select>
     <!--分页查询-->
-    <select id="findPerson" parameterType="com.example.demo.entity.Pagination" resultType="java.lang.String">
+    <select id="findPerson" parameterType="com.example.demo.entity.Pagination" resultType="java.lang.Integer">
         select count(1) from person
     </select>
+    <insert id="addPerson" parameterType="com.example.demo.entity.Person">
+        insert into person (person_id,person_name,person_cert_name,person_num,person_unit,person_base,person_ratio,person_amount,person_register)
+        values (#{personId},#{personName},#{personCertName},#{personCertNum},#{personUnit},#{personBase},#{personRatio},#{personAmount},#{personRegister})
+    </insert>
 </mapper>
 
 
