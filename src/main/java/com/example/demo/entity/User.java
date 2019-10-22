@@ -28,7 +28,7 @@ public class User {
     private String userPhonenum;
     /**用户邮箱*/
     private String userEmail;
-    /**用户类型*/
+    /**用户类型 用于区分单位用户和个人用户*/
     private String userType;
     /**用户创建时间*/
     private Date userCreatetime;
