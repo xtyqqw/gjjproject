@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.xty.mapper.UnitMapper">
+    <resultMap id="accountMap" type="com.example.demo.entity.Account">
+        <id property="accountId" column="account_id"></id>
+        <result property="accountUnitId" column="account_unit_id"></result>
+        <result property="accountJtype" column="account_jtype"></result>
+        <result property="accountMfrom" column="account_mfrom"></result>
+        <result property="accountIsopen" column="account_isopen"></result>
+        <result property="accountMunit" column="account_munit"></result>
+        <result property="accountBussinessSection" column="account_bussiness_section"></result>
+        <result property="accountMdate" column="account_mdate"></result>
+        <result property="accountFirstmonth" column="account_firstmonth"></result>
+        <result property="accountClearMonth" column="account_clear_month"></result>
+        <result property="accountRatio" column="account_ratio"></result>
+        <result property="accountIsclean" column="account_isclean"></result>
+    </resultMap>
+    
+    <select id="findAccountById" resultMap="accountMap" parameterType="java.lang.String">
+        select * from account where id = #{id}
+    </select>
+</mapper>

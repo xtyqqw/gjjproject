@@ -1,0 +1,23 @@
+package com.example.demo.xty.service.impl;
+
+import com.example.demo.entity.Account;
+import com.example.demo.xty.mapper.UnitMapper;
+import com.example.demo.xty.service.AccountService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+/**
+ * @program: AccountServiceImpl
+ * @description: 单位账户service实现类
+ * @author: xty
+ * @create: 2019/10/22 10:18
+ **/
+@Service
+public class AccountServiceImpl implements AccountService {
+    @Autowired
+    UnitMapper unitMapper;
+    @Override
+    public Account findAccountById(String id) {
+        return unitMapper.findAccountById(id);
+    }
+}
