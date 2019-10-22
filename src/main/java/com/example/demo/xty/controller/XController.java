@@ -18,6 +18,8 @@ public class XController {
     AccountService accountService;
     @RequestMapping(value = "/test")
     public String test(){
-        return "test";
+        return "sdd/test";
     }
+//    @RequestMapping(value = "/")
+//    public
 }
