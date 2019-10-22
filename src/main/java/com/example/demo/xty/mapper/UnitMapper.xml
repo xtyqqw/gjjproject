@@ -17,8 +17,83 @@
         <result property="accountRatio" column="account_ratio"></result>
         <result property="accountIsclean" column="account_isclean"></result>
     </resultMap>
+
+    <resultMap id="unitmap" type="com.example.demo.entity.Unit">
+        <id property="unitId" column="unit_id" javaType="java.lang.String"></id>
+        <result property="unitName" column="unit_name" javaType="java.lang.String"></result>
+        <result property="unitNum" column="unit_num" javaType="java.lang.String"></result>
+        <result property="unitCertName" column="unit_cert_name" javaType="java.lang.String"></result>
+        <result property="unitCertNum" column="unit_cert_num" javaType="java.lang.String"></result>
+        <result property="unitType" column="unit_type" javaType="java.lang.String"></result>
+        <result property="unitLegal" column="unit_legal" javaType="java.lang.String"></result>
+        <result property="unitLegalCertName" column="unit_legal_cert_name" javaType="java.lang.String"></result>
+        <result property="unitLegalCertNum" column="unit_legal_cert_num" javaType="java.lang.String"></result>
+        <result property="unitLoginAdd" column="unit_login_add" javaType="java.lang.String"></result>
+        <result property="unitWorkAdd" column="unit_work_add" javaType="java.lang.String"></result>
+        <result property="unitCondition" column="unit_condition" javaType="java.lang.String"></result>
+        <result property="unitCreatetime" column="unit_createtime" javaType="java.util.Date"></result>
+        <result property="superUnitName" column="super_unit_name" javaType="java.lang.String"></result>
+        <result property="unitUserId" column="unit_user_id" javaType="java.lang.String"></result>
+        <result property="unitAccountNum" column="unit_account_num" javaType="java.lang.String"></result>
+    </resultMap>
     
     <select id="findAccountById" resultMap="accountMap" parameterType="java.lang.String">
         select * from account where id = #{id}
     </select>
+
+    <select id="findUnitByUnitId" resultMap="unitmap" parameterType="java.lang.String">
+        select * from unit where unit_id = #{id}
+    </select>
+
+    <update id="updateUnit" parameterType="com.example.demo.entity.Unit">
+        update gjj_demo.unit
+        <set>
+            <if test="unitName != null and unitName != ''">
+                unit_name = #{unitName},
+            </if>
+            <if test="unitNum != null and unitNum != ''">
+                unit_num = #{unitNum},
+            </if>
+            <if test="unitCertName != null and unitCertName != ''">
+                unit_cert_name = #{unitCertName},
+            </if>
+            <if test="unitCertNum != null and unitCertNum != ''">
+                unit_cert_num = #{unitCertNum},
+            </if>
+            <if test="unitType != null and unitType != ''">
+                unit_type = #{unitType},
+            </if>
+            <if test="unitLegal != null and unitLegal != ''">
+                unit_legal = #{unitLegal},
+            </if>
+            <if test="unitLegalCertName != null and unitLegalCertName != ''">
+                unit_legal_cert_name = #{unitLegalCertName},
+            </if>
+            <if test="unitLegalCertNum != null and unitLegalCertNum != ''">
+                unit_legal_cert_num = #{unitLegalCertNum},
+            </if>
+            <if test="unitLoginAdd != null and unitLoginAdd != ''">
+                unit_login_add = #{unitLoginAdd},
+            </if>
+            <if test="unitWorkAdd != null and unitWorkAdd != ''">
+                unit_work_add = #{unitWorkAdd},
+            </if>
+            <if test="unitCondition != null and unitCondition != ''">
+                unit_condition = #{unitCondition},
+            </if>
+            <if test="unitCreatetime != null">
+                unit_createtime = #{unitCreatetime},
+            </if>
+            <if test="superUnitName != null and superUnitName != ''">
+                super_unitname = #{superUnitName},
+            </if>
+            <if test="unitUserId != null and unitUserId != ''">
+                unit_user_id = #{unitUserId},
+            </if>
+            <if test="unitAccountNum != null and unitAccountNum != ''">
+                unit_account_num = #{unitAccountNum},
+            </if>
+        </set>
+        where unit_id = #{unitId}
+    </update>
 </mapper>
