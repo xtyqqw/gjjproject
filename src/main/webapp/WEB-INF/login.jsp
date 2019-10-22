@@ -18,7 +18,7 @@
         .headimg{width: 100%;height: 150px;}
         .headimg img{width: 100%;}
         .div1{width: 100%;height: 70%;}
-        .waik{background: #FFFFFF;width: 60%;height: 100%;box-shadow: 2px 2px 5px #737383;
+        .waik{background: #FFFFFF;width: 60%;height: 800px;box-shadow: 2px 2px 5px #737383;
             margin: 0px auto;padding-bottom: 20px;}
         h2{padding: 20px;letter-spacing: 20px;margin-left: 350px;}
         .box{padding-left: 250px; }
@@ -27,7 +27,7 @@
         .box li label {width: 68px;height: 50px;float: left;line-height: 50px;text-align: right;
             padding-right: 20px;}
         /* 账号 密码 验证码输入框的样式 */
-        .box li input{padding: 6px 0;font-size: 16px;width: 296px;height: 28px;line-height: 28px;
+        .box li input{padding: 6px 0;font-size: 16px;width: 296px;height: 40px;line-height: 28px;
             border: 1px solid #dddddd;text-indent: 0.5em;float: left;border-radius: 5px;}
         .zjname{width: 300px;height: 40px;border-radius: 5px;border: 1px solid #dddddd;}
         .error{clear: both;display: block;color: red;padding-left: 90px;padding-bottom: 5px;
@@ -152,7 +152,7 @@
 </div>
 
 <div class="div1">
-    <form action="<%=request.getContextPath()%>/WEB-INF/home.jsp" class="waik">
+    <form action="<%=request.getContextPath()%>/login/toHome" class="waik">
         <h2>单位用户注册</h2><br />
         <ul class="box box2">
             <li>

@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>首页</title>
+    <title>北京住房公积金网</title>
     <script src="js/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="layui/css/layui.css"/>
     <script src="layui/layui.js" type="text/javascript"></script>

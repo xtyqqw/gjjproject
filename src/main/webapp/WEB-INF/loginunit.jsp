@@ -22,7 +22,7 @@
         .p1{color: #555555;font-size: 25px;font-weight: bold;
             padding: 20px 150px 0px 150px;}
         .userpwd{padding: 10px 80px;}
-        .input{width: 150px;height: 20px;}
+        .input{width: 150px;height: 40px;}
         .btn a{height: 40px;background-color: #01AAED;padding: 1px 20px;margin-left: 75px;
             display: inline-block;line-height: 35px;}
         a{color: #FFFFFF;text-decoration: none;font-size: 17px;}
@@ -37,7 +37,7 @@
     </div>
 
     <div class="div1">
-        <form class="form1" action="<%=request.getContextPath()%>/WEB-INF/home.jsp" method="post">
+        <form class="form1" action="<%=request.getContextPath()%>/login/toHome" method="post">
             <p class="p1">单&nbsp;位&nbsp;登&nbsp;录</p>
             <%--错误信息--%>
             <span style="color: red;padding: 0px 70px;"><%--${wrong}--%></span>
@@ -47,7 +47,7 @@
                 <br /><br /><br />
             </div>
             <div class="btn">
-                <a href="<%=request.getContextPath()%>/WEB-INF/login.jsp" id="aa" target="_blank">注&nbsp;&nbsp;&nbsp;&nbsp;册</a>
+                <a href="<%=request.getContextPath()%>/login/toLogin" id="aa" target="_blank">注&nbsp;&nbsp;&nbsp;&nbsp;册</a>
                 <input class="login" type="submit" value="登&nbsp;&nbsp;&nbsp;&nbsp;录" />
             </div>
 

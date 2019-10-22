@@ -13,9 +13,34 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/login")
 public class LoginController {
 
+    /**
+     * 跳转到单位登录页面
+     * @return
+     * @throws Exception
+     */
     @RequestMapping("/toLoginunit")
-    public String toLogin()throws Exception{
+    public String toLoginunit()throws Exception{
         return "loginunit";
+    }
+
+    /**
+     * 跳转到单位注册页面
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/toLogin")
+    public String toLogin()throws Exception{
+        return "login";
+    }
+
+    /**
+     * 登录成功跳转到主页面
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/toHome")
+    public String toHome()throws Exception{
+        return "home";
     }
 
 }

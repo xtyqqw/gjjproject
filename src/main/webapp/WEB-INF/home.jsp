@@ -37,7 +37,7 @@
                     <dd><a href="javascript:;">安全设置</a></dd>
                 </dl>
             </li>
-            <li class="layui-nav-item"><a href="logout">退出</a></li>
+            <li class="layui-nav-item"><a href="/index.jsp">退出</a></li>
         </ul>
     </div>
 
@@ -45,13 +45,25 @@
         <div class="layui-side-scroll">
             <ul class="layui-nav layui-nav-tree" lay-filter="demoNav">
                 <li class="layui-nav-item">
-                    <dd><a href="">单位经办人网上授权</a></dd>
-                    <dd><a href="">二级管理辅助信息定义</a></dd>
-                    <dd><a href="">单位编辑汇缴清册</a></dd>
-                    <dd><a href="">个人登记功能（无单位）</a></dd>
-                    <dd><a href="">公积金制卡情况查询</a></dd>
-                    <dd><a href="">单位登记信息变更</a></dd>
-                    <dd><a href="">单位开户信息变更</a></dd>
+                    <a href="javascript:;">单位经办人网上授权</a>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">二级管理辅助信息定义</a>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">单位编辑汇缴清册</a>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">个人登记功能（无单位）</a>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">公积金制卡情况查询</a>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">单位登记信息变更</a>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">单位开户信息变更</a>
                 </li>
             </ul>
         </div>
