@@ -12,10 +12,11 @@
     <script src="js/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="layui/css/layui.css"/>
     <script src="layui/layui.js" type="text/javascript"></script>
+
     <style type="text/css">
         body{background: #F2F2F2;padding: 0;margin: 0;}
-        .div1{width: 100%;height: 150px;}
-        .div1 img{width: 100%;}
+        .headimg{width: 100%;height: 150px;}
+        .headimg img{width: 100%;}
         .div2{width: 100%;height: 70%;}
         .div3{background: #FFFFFF;width: 400px;height: 350px;margin: 0 auto;margin-top: 50px;
             box-shadow: 2px 2px 5px #737383;}
@@ -26,20 +27,31 @@
         a{color: #FFFFFF;text-decoration: none;}
         .div32{background: url(img/unit.png) no-repeat;width: 230px;height: 115px;}
     </style>
+
+    <%--个人公积金弹窗--%>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#persons,#person").click(function(){
+                alert("温馨提示：个人住房公积金请到各网点办理！");
+            })
+        });
+    </script>
+
 </head>
 <body>
-    <div class="div1">
+
+    <div class="headimg">
         <img src="img/head.png">
     </div>
 
     <div class="div2">
         <div class="div3">
             <div class="ddi">
-                <div class="div31">
-                    <a class="aa" href="" target="_blank">个人网上业务平台</a>
+                <div class="div31" id="persons">
+                    <a id="person" href="#">个人网上业务平台</a>
                 </div>
                 <div class="div32">
-                    <a class="aa" href="" target="_blank">单位网上业务平台</a>
+                    <a class="aa" href="<%=request.getContextPath()%>/login/toLoginunit" target="_blank">单位网上业务平台</a>
                 </div>
             </div>
         </div>
