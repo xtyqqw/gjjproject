@@ -1,12 +1,14 @@
 package com.example.demo.user.service.serviceimpl;
 
 import com.example.demo.entity.User;
+import com.example.demo.user.mapper.UnitMapper;
 import com.example.demo.user.mapper.UserMapper;
 import com.example.demo.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @ClassName： UserServiceImpl
@@ -21,5 +23,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findUserByNameAndPwd(User user) {
         return userMapper.findUserByNameAndPwd(user);
+    }
+
+    @Override
+    public List<User> findUserAll() {
+        return userMapper.findUserAll();
+    }
+
+    @Override
+    public Integer addUser(User user) {
+        return userMapper.addUser(user);
     }
 }

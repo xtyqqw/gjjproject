@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.user.mapper.UnitMapper">
+    <resultMap id="unitmap" type="com.example.demo.entity.Unit">
+        <id property="unitId" column="unit_id" javaType="java.lang.String"></id>
+        <result property="unitName" column="unit_name" javaType="java.lang.String"></result>
+        <result property="unitNum" column="unit_num" javaType="java.lang.String"></result>
+        <result property="unitCertName" column="unit_cert_name" javaType="java.lang.String"></result>
+        <result property="unitCertNum" column="unit_cert_num" javaType="java.lang.String"></result>
+        <result property="unitType" column="unit_type" javaType="java.lang.String"></result>
+        <result property="unitLegal" column="unit_legal" javaType="java.lang.String"></result>
+        <result property="unitLegalCertName" column="unit_legal_cert_name" javaType="java.lang.String"></result>
+        <result property="unitLegalCertNum" column="unit_legal_cert_num" javaType="java.lang.String"></result>
+        <result property="unitLoginAdd" column="unit_login_add" javaType="java.lang.String"></result>
+        <result property="unitWorkAdd" column="unit_work_add" javaType="java.lang.String"></result>
+        <result property="unitCondition" column="unit_condition" javaType="java.lang.String"></result>
+        <result property="unitCreatetime" column="unit_createtime" javaType="java.util.Date"></result>
+        <result property="superUnitName" column="super_unit_name" javaType="java.lang.String"></result>
+        <result property="unitUserId" column="unit_user_id" javaType="java.lang.String"></result>
+        <result property="unitAccountNum" column="unit_account_num" javaType="java.lang.String"></result>
+    </resultMap>
+    <insert id="addUnit" parameterType="com.example.demo.entity.Unit">
+        insert into unit(unit_id,unit_name,unit_num,unit_cert_name,unit_cert_num,unit_type,
+        unit_legal,unit_legal_cert_name,unit_legal_cert_num,unit_login_add,unit_work_add,unit_condition,
+        unit_createtime,super_unitname,unit_user_id,unit_account_num)
+        values (#{unitId},#{unitName},#{unitNum},#{unitCertName},#{unitCertNum},#{unitType},#{unitLegal},
+        #{unitLegalCertName},#{unitLegalCertNum},#{unitLoginAdd},#{unitWorkAdd},#{unitCondition},
+        #{unitCreatetime},#{superUnitName},#{unitUserId},{unitAccountNum})
+    </insert>
+</mapper>
