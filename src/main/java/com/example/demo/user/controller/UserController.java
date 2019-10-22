@@ -1,5 +1,6 @@
 package com.example.demo.user.controller;
 
+import com.example.demo.entity.User;
 import com.example.demo.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,12 +21,22 @@ public class UserController {
     private UserService userService;
 
     /**
-     * 跳转至首页方法
+     * 跳转至登录页方法
      * @return
      * @throws Exception
      */
     @RequestMapping("/toLogin")
     public String toLogin() throws Exception{
         return "yzh/login";
+    }
+
+    /**
+     * 单位用户登录方法
+     * @param user
+     * @throws Exception
+     */
+    @RequestMapping("/login")
+    public void login(User user)throws Exception{
+        User user1 = userService.findUserByNameAndPwd(user);
     }
 }
