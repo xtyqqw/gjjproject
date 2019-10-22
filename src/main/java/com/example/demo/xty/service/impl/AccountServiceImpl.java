@@ -2,7 +2,7 @@ package com.example.demo.xty.service.impl;
 
 import com.example.demo.entity.Account;
 import com.example.demo.entity.Unit;
-import com.example.demo.xty.mapper.UnitMapper;
+import com.example.demo.xty.mapper.XtyUnitMapper;
 import com.example.demo.xty.service.UnitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class AccountServiceImpl implements UnitService {
     @Autowired
-    UnitMapper unitMapper;
+    XtyUnitMapper unitMapper;
     @Override
     public Account findAccountById(String id) {
         return unitMapper.findAccountById(id);

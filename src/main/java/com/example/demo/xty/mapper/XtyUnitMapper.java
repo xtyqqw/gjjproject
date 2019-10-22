@@ -5,7 +5,7 @@ import com.example.demo.entity.Unit;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public interface UnitMapper {
+public interface XtyUnitMapper {
     Account findAccountById(String id);
     Unit findUnitByUnitId(String id);
     void updateUnit(Unit unit);

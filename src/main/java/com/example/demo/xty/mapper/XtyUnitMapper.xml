@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.demo.xty.mapper.UnitMapper">
+<mapper namespace="com.example.demo.xty.mapper.XtyUnitMapper">
     <resultMap id="accountMap" type="com.example.demo.entity.Account">
         <id property="accountId" column="account_id"></id>
         <result property="accountUnitId" column="account_unit_id"></result>
