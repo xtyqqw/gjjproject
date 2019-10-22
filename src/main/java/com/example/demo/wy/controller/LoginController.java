@@ -43,4 +43,9 @@ public class LoginController {
         return "home";
     }
 
+    @RequestMapping("/toAuthorization")
+    public String toAuthorization()throws Exception{
+        return "authorization";
+    }
+
 }

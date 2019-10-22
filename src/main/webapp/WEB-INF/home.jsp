@@ -45,32 +45,32 @@
         <div class="layui-side-scroll">
             <ul class="layui-nav layui-nav-tree" lay-filter="demoNav">
                 <li class="layui-nav-item">
-                    <a href="javascript:;">单位经办人网上授权</a>
+                    <a href="<%=request.getContextPath()%>/login/toAuthorization" target="biao">单位经办人网上授权</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="javascript:;">二级管理辅助信息定义</a>
+                    <a href="<%=request.getContextPath()%>" target="biao">二级管理辅助信息定义</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="javascript:;">单位编辑汇缴清册</a>
+                    <a href="<%=request.getContextPath()%>" target="biao">单位编辑汇缴清册</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="javascript:;">个人登记功能（无单位）</a>
+                    <a href="<%=request.getContextPath()%>" target="biao">个人登记功能（无单位）</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="javascript:;">公积金制卡情况查询</a>
+                    <a href="<%=request.getContextPath()%>" target="biao">公积金制卡情况查询</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="javascript:;">单位登记信息变更</a>
+                    <a href="<%=request.getContextPath()%>" target="biao">单位登记信息变更</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="javascript:;">单位开户信息变更</a>
+                    <a href="<%=request.getContextPath()%>" target="biao">单位开户信息变更</a>
                 </li>
             </ul>
         </div>
     </div>
 
     <div>
-        <iframe name="" style="width: 100%; height: 90%;border: 0 none;vertical-align: middle;
+        <iframe name="biao" style="width: 100%; height: 90%;border: 0 none;vertical-align: middle;
 			            margin-left: 200px" frameborder="1"></iframe>
     </div>
 
