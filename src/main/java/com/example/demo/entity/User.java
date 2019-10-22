@@ -29,7 +29,7 @@ public class User {
     /**用户邮箱*/
     private String userEmail;
     /**用户类型 用于区分单位用户和个人用户*/
-    private String userType;
+    private Integer userType;
     /**用户创建时间*/
     private Date userCreatetime;
     /**用户修改时间*/
@@ -40,7 +40,7 @@ public class User {
     private String userUnitId;
 
     public User(String userId, String userName, String userPwd, String userCertName,
-                String userPhonenum, String userEmail, String userType, Date userCreatetime,
+                String userPhonenum, String userEmail, Integer userType, Date userCreatetime,
                 Date useeUpdatetime, String userStatus, String userUnitId) {
         this.userId = userId;
         this.userName = userName;

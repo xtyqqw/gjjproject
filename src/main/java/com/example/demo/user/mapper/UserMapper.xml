@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.user.mapper.UserMapper">
+    <resultMap id="userEntityMap" type="com.example.demo.entity.User">
+        <id property="userId" column="user_id" javaType="java.lang.String"></id>
+        <result property="userName" column="user_name" javaType="java.lang.String"></result>
+        <result property="userPwd" column="user_pwd" javaType="java.lang.String"></result>
+        <result property="userCertName" column="user_cert_name" javaType="java.lang.String"></result>
+        <result property="userCertNum" column="user_cert_num" javaType="java.lang.String"></result>
+        <result property="userPhonenum" column="user_phonenum" javaType="java.lang.String"></result>
+        <result property="userEmail" column="user_email" javaType="java.lang.String"></result>
+        <result property="userType" column="user_type" javaType="java.lang.Integer"></result>
+        <result property="userCreatetime" column="user_createtime" javaType="java.util.Date"></result>
+        <result property="useeUpdatetime" column="user_updatetime" javaType="java.util.Date"></result>
+        <result property="userStatus" column="user_status" javaType="java.lang.String"></result>
+        <result property="userUnitId" column="user_unit_id" javaType="java.lang.String"></result>
+    </resultMap>
+    <select id="findUserByNameAndPwd" parameterType="com.example.demo.entity.User" resultMap="userEntityMap">
+       select user_name,user_pwd from user where user_pwd = #{userName} and user_pwd = #{userPwd}
+    </select>
+</mapper>
