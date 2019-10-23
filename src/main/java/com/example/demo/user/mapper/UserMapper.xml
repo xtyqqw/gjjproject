@@ -27,9 +27,9 @@
 
     <insert id="addUser" parameterType="com.example.demo.entity.User">
         insert into user(user_id,user_name,user_pwd,user_cert_name,user_cert_num,user_phonenum,
-        user_email,user_createtime,user_status)
+        user_email,user_createtime,user_status,user_unit_id)
         values (#{userId},#{userName},#{userPwd},#{userCertName},#{userCertNum},#{userPhonenum},
-        #{userEmail},#{userCreatetime},#{userStatus})
+        #{userEmail},#{userCreatetime},#{userStatus},#{userUnitId})
     </insert>
 
 </mapper>

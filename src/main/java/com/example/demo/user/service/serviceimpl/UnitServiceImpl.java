@@ -21,4 +21,14 @@ public class UnitServiceImpl implements UnitService {
     public Integer addUnit(Unit unit) {
         return unitMapper.addUnit(unit);
     }
+
+    @Override
+    public Unit findUnitById(String id) {
+        return unitMapper.findUnitById(id);
+    }
+
+    @Override
+    public Integer updateUnit(Unit unit) {
+        return unitMapper.updateUnit(unit);
+    }
 }

@@ -1,9 +1,11 @@
 package com.example.demo.user.controller;
 
+import com.example.demo.entity.Account;
 import com.example.demo.entity.Unit;
 import com.example.demo.entity.User;
 import com.example.demo.user.service.UnitService;
 import com.example.demo.user.service.UserService;
+import com.example.demo.util.RandomUtil;
 import com.example.demo.util.UUIDUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -52,6 +54,10 @@ public class UserController {
                     mv.addObject("userUnitId", user1.getUserUnitId());
                     mv.setViewName("yzh/home");
                     return mv;
+                } else if(user1.getUserUnitId()!=null){
+                    mv.addObject("userUnitId", user1.getUserUnitId());
+                    mv.setViewName("yzh/openAccount");
+                    return mv;
                 } else {
                     mv.setViewName("yzh/registerUnit");
                     return mv;
@@ -77,17 +83,11 @@ public class UserController {
     @RequestMapping("/register")
     public ModelAndView addUser(User user, Unit unit)throws Exception{
         ModelAndView mv = new ModelAndView();
-        user.setUserId(UUIDUtil.getUUID());
+        String uuid1 = UUIDUtil.getUUID();
+        user.setUserId(uuid1);
+        unit.setUnitUserId(uuid1);
         user.setUserCreatetime(new Date());
         user.setUserStatus("普通");
-
-        user.setUserName("王五");
-        user.setUserPwd("123456");
-        user.setUserCertName("身份证");
-        user.setUserCertNum("555555");
-        user.setUserPhonenum("111");
-        user.setUserEmail("11@qq.com");
-        unit.setUnitName("王五集团");
 
         String uuid = UUIDUtil.getUUID();
         user.setUserUnitId(uuid);
@@ -105,12 +105,52 @@ public class UserController {
         if (flagUser == 1 && flagUnit == 1) {
             mv.addObject("unit",unit);
             mv.addObject("user",user);
-            mv.setViewName("yzh/openAnAccount");
+            mv.setViewName("yzh/login");
             return mv;
         } else {
             mv.addObject("wrong", "注册失败，请检查输入信息");
             mv.setViewName("yzh/register");
             return mv;
         }
+    }
+
+    /**
+     *单位登记
+     * @param unit
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/unitReg")
+    public ModelAndView unitReg(Unit unit)throws Exception {
+        ModelAndView mv = new ModelAndView();
+        if (unit.getUnitId() != null) {
+            Unit unit1 = unitService.findUnitById(unit.getUnitId());
+            unit1.setUnitAccountNum(RandomUtil.generateStr(9));
+            Integer flag = unitService.updateUnit(unit1);
+            if (flag == 1) {
+                mv.addObject("msg","单位账户登记成功，请进行单位开户");
+                mv.addObject("unit",unit1);
+                mv.setViewName("yzh/openAccount");
+                return mv;
+            }else {
+                mv.addObject("msg","登记失败，请检查单位信息");
+                mv.setViewName("yzh/registerUnit");
+                return mv;
+            }
+        }
+        mv.addObject("msg","信息异常，请重新登录");
+        mv.setViewName("yzh/login");
+        return mv;
+    }
+
+    /**
+     * 单位开户
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/openAccount")
+    public String openAccount(Account account)throws Exception{
+        
+        return null;
     }
 }

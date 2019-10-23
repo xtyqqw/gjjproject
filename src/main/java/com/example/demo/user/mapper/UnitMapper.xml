@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.user.mapper.UnitMapper">
-    <resultMap id="unitmap" type="com.example.demo.entity.Unit">
+    <resultMap id="unitEntityMap" type="com.example.demo.entity.Unit">
         <id property="unitId" column="unit_id" javaType="java.lang.String"></id>
         <result property="unitName" column="unit_name" javaType="java.lang.String"></result>
         <result property="unitNum" column="unit_num" javaType="java.lang.String"></result>
@@ -22,11 +22,55 @@
         <result property="unitAccountNum" column="unit_account_num" javaType="java.lang.String"></result>
     </resultMap>
     <insert id="addUnit" parameterType="com.example.demo.entity.Unit">
-        insert into unit(unit_id,unit_name,unit_num,unit_cert_name,unit_cert_num,unit_type,
+        insert into unit(unit_id,unit_name,unit_user_id,unit_num,unit_cert_name,unit_cert_num,unit_type,
         unit_legal,unit_legal_cert_name,unit_legal_cert_num,unit_login_add,unit_work_add,unit_condition,
-        unit_createtime,super_unitname,unit_user_id,unit_account_num)
-        values (#{unitId},#{unitName},#{unitNum},#{unitCertName},#{unitCertNum},#{unitType},#{unitLegal},
+        unit_createtime,super_unitname,unit_account_num)
+        values(#{unitId},#{unitName},#{unitUserId},#{unitNum},#{unitCertName},#{unitCertNum},#{unitType},#{unitLegal},
         #{unitLegalCertName},#{unitLegalCertNum},#{unitLoginAdd},#{unitWorkAdd},#{unitCondition},
-        #{unitCreatetime},#{superUnitName},#{unitUserId},{unitAccountNum})
+        #{unitCreatetime},#{superUnitName},#{unitAccountNum})
     </insert>
+    <select id="findUnitById" parameterType="com.example.demo.entity.Unit" resultMap="unitEntityMap">
+        select * from unit where unit_id = #{unitId}
+    </select>
+    <update id="updateUnit" parameterType="com.example.demo.entity.Unit">
+        update unit
+        <set>
+            <if test="unitNum!=null and unitNum!=''">
+                unit_num =#{unitNum},
+            </if>
+            <if test="unitCertName!=null and unitCertName!=''">
+                unit_cert_name =#{unitCertName},
+            </if>
+            <if test="unitCertNum!=null and unitCertNum!=''">
+                unit_cert_num =#{unitCertNum},
+            </if>
+            <if test="unitType!=null and unitType!=''">
+                unit_type =#{unitType},
+            </if>
+            <if test="unitLegal!=null and unitLegal!=''">
+                unit_legal =#{unitLegal},
+            </if>
+            <if test="unitLegalCertName!=null and unitLegalCertName!=''">
+                unit_legal_cert_name =#{unitLegalCertName},
+            </if>
+            <if test="unitLegalCertNum!=null and unitLegalCertNum!=''">
+                unit_legal_cert_num =#{unitLegalCertNum},
+            </if>
+            <if test="unitLoginAdd!=null and unitLoginAdd!=''">
+                unit_login_add =#{unitLoginAdd},
+            </if>
+            <if test="unitWorkAdd!=null and unitWorkAdd!=''">
+                unit_work_add =#{unitWorkAdd},
+            </if>
+            <if test="unitCondition!=null and unitCondition!=''">
+                unit_condition =#{unitCondition},
+            </if>
+            <if test="unitCreatetime!=null">
+                unit_createtime =#{unitCreatetime},
+            </if>
+            <if test="superUnitName!=null and superUnitName!=''">
+                super_unitname =#{superUnitName},
+            </if>
+        </set>
+    </update>
 </mapper>

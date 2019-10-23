@@ -15,4 +15,18 @@ public interface UnitMapper {
      * @return Integer
      */
     Integer addUnit(Unit unit);
+
+    /**
+     *根据单位ID查找单位
+     * @param id
+     * @return Unit
+     */
+    Unit findUnitById(String id);
+
+    /**
+     * 单位登记信息
+     * @param unit
+     * @return
+     */
+    Integer updateUnit(Unit unit);
 }
