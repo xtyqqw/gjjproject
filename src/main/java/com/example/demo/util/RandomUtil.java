@@ -91,7 +91,7 @@ public class RandomUtil {
     }
 
     public static void main(String[] args) {
-        System.out.println(toFixedLengthStr(10, 4));
+        System.out.println(generateStr(9));
     }
 
 }

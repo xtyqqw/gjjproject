@@ -22,12 +22,8 @@
         <result property="unitAccountNum" column="unit_account_num" javaType="java.lang.String"></result>
     </resultMap>
     <insert id="addUnit" parameterType="com.example.demo.entity.Unit">
-        insert into unit(unit_id,unit_name,unit_user_id,unit_num,unit_cert_name,unit_cert_num,unit_type,
-        unit_legal,unit_legal_cert_name,unit_legal_cert_num,unit_login_add,unit_work_add,unit_condition,
-        unit_createtime,super_unitname,unit_account_num)
-        values(#{unitId},#{unitName},#{unitUserId},#{unitNum},#{unitCertName},#{unitCertNum},#{unitType},#{unitLegal},
-        #{unitLegalCertName},#{unitLegalCertNum},#{unitLoginAdd},#{unitWorkAdd},#{unitCondition},
-        #{unitCreatetime},#{superUnitName},#{unitAccountNum})
+        insert into unit(unit_id,unit_name,unit_user_id)
+        values(#{unitId},#{unitName},#{unitUserId})
     </insert>
     <select id="findUnitById" parameterType="com.example.demo.entity.Unit" resultMap="unitEntityMap">
         select * from unit where unit_id = #{unitId}
@@ -72,5 +68,6 @@
                 super_unitname =#{superUnitName},
             </if>
         </set>
+        where unit_id = #{unitId}
     </update>
 </mapper>

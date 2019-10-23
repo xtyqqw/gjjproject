@@ -3,6 +3,7 @@ package com.example.demo.user.controller;
 import com.example.demo.entity.Account;
 import com.example.demo.entity.Unit;
 import com.example.demo.entity.User;
+import com.example.demo.user.service.AccountService;
 import com.example.demo.user.service.UnitService;
 import com.example.demo.user.service.UserService;
 import com.example.demo.util.RandomUtil;
@@ -28,7 +29,8 @@ public class UserController {
     private UserService userService;
     @Autowired
     private UnitService unitService;
-
+    @Autowired
+    private AccountService accountService;
     /**
      * 跳转至登录页方法
      * @return
@@ -104,7 +106,6 @@ public class UserController {
         Integer flagUnit = unitService.addUnit(unit);
         if (flagUser == 1 && flagUnit == 1) {
             mv.addObject("unit",unit);
-            mv.addObject("user",user);
             mv.setViewName("yzh/login");
             return mv;
         } else {
@@ -124,12 +125,11 @@ public class UserController {
     public ModelAndView unitReg(Unit unit)throws Exception {
         ModelAndView mv = new ModelAndView();
         if (unit.getUnitId() != null) {
-            Unit unit1 = unitService.findUnitById(unit.getUnitId());
-            unit1.setUnitAccountNum(RandomUtil.generateStr(9));
-            Integer flag = unitService.updateUnit(unit1);
+            unit.setUnitAccountNum(RandomUtil.generateStr(9));
+            Integer flag = unitService.updateUnit(unit);
             if (flag == 1) {
                 mv.addObject("msg","单位账户登记成功，请进行单位开户");
-                mv.addObject("unit",unit1);
+                mv.addObject("unit",unit);
                 mv.setViewName("yzh/openAccount");
                 return mv;
             }else {
@@ -150,7 +150,15 @@ public class UserController {
      */
     @RequestMapping("/openAccount")
     public String openAccount(Account account)throws Exception{
-        
-        return null;
+        String accId = UUIDUtil.getUUID();
+        account.setAccountId(accId);
+        Integer flag = accountService.addAccount(account);
+        if (flag==1){
+            User user = accountService.findUserByAccountId(accId);
+            user.setUserStatus("认证");
+            accountService.updateUserStatus(user);
+            return "yzh/home";
+        }
+        return "yzh/openAccount";
     }
 }

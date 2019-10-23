@@ -20,7 +20,7 @@ public class Account {
     private String accountJtype;
     /**资金来源*/
     private String accountMfrom;
-    /**是否开启耳机辅助信息  默认0关闭 1开启*/
+    /**是否开启二级辅助信息  默认0关闭 1开启*/
     private String accountIsopen;
     /**财政拨款单位*/
     private String accountMunit;
@@ -37,4 +37,24 @@ public class Account {
     /**每月是否需要确认人员清册*/
     private String accountIsclean;
 
+    public Account(String accountId, String accountUnitId, String accountJtype, String accountMfrom,
+                   String accountIsopen, String accountMunit, String accountBussinessSection,
+                   Integer accountMdate, Integer accountFirstmonth, Integer accountClearMonth,
+                   Double accountRatio, String accountIsclean) {
+        this.accountId = accountId;
+        this.accountUnitId = accountUnitId;
+        this.accountJtype = accountJtype;
+        this.accountMfrom = accountMfrom;
+        this.accountIsopen = accountIsopen;
+        this.accountMunit = accountMunit;
+        this.accountBussinessSection = accountBussinessSection;
+        this.accountMdate = accountMdate;
+        this.accountFirstmonth = accountFirstmonth;
+        this.accountClearMonth = accountClearMonth;
+        this.accountRatio = accountRatio;
+        this.accountIsclean = accountIsclean;
+    }
+
+    public Account() {
+    }
 }
