@@ -34,18 +34,53 @@ public class LoginController {
     }
 
     /**
-     * 登录成功跳转到主页面
+     * 单位注册成功跳转到单位登记页面
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/toUnitregis")
+    public String toUnitregis() throws Exception{
+        return "unitregis";
+    }
+
+    /**
+     * 登记成功跳转到开户页面
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/toOpenacc")
+    public String toOpenacc()throws Exception{
+        return "openacc";
+    }
+
+    /**
+     * 登录成功跳转到home页面
      * @return
      * @throws Exception
      */
     @RequestMapping("/toHome")
-    public String toHome()throws Exception{
+    public String toHome() throws Exception{
         return "home";
     }
 
+    /**
+     * 跳转到单位经办人网上授权
+     * @return
+     * @throws Exception
+     */
     @RequestMapping("/toAuthorization")
     public String toAuthorization()throws Exception{
         return "authorization";
+    }
+
+    /**
+     * 单位经办人网上授权跳转到单位经办人授权书
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/toAuthsecces")
+    public String toAuthsecces() throws Exception{
+        return "authsecces";
     }
 
 }

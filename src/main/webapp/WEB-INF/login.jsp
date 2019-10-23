@@ -20,22 +20,24 @@
         .div1{width: 100%;height: 70%;}
         .waik{background: #FFFFFF;width: 60%;height: 800px;box-shadow: 2px 2px 5px #737383;
             margin: 0px auto;padding-bottom: 20px;}
-        h2{padding: 20px;letter-spacing: 20px;margin-left: 350px;}
+        h2{padding: 40px;letter-spacing: 20px;margin-left: 350px;}
         .box{padding-left: 250px; }
         .box li{line-height: 44px;width: 100%;overflow: hidden;}
-        /* 账号 密码 验证码的样式 */
+        /* 字体样式 */
         .box li label {width: 68px;height: 50px;float: left;line-height: 50px;text-align: right;
             padding-right: 20px;}
-        /* 账号 密码 验证码输入框的样式 */
+        /* 输入框的样式 */
         .box li input{padding: 6px 0;font-size: 16px;width: 296px;height: 40px;line-height: 28px;
             border: 1px solid #dddddd;text-indent: 0.5em;float: left;border-radius: 5px;}
-        .zjname{width: 300px;height: 40px;border-radius: 5px;border: 1px solid #dddddd;}
+        .user_cert_name{width: 300px;height: 40px;border-radius: 5px;border: 1px solid #dddddd;}
         .error{clear: both;display: block;color: red;padding-left: 90px;padding-bottom: 5px;
-            height: 20px;float: left;font-size: 12px;line-height: 20px;}
+            height: 20px;float: left;font-size: 12px;line-height: 20px;
+        }
         .errorInput{border: 1px solid red !important;}
         .submit input{display: inline-block;width: 100px;height: 50px;background-color: #01AAED;
             color: #FFFFFF;font-size: 17px;line-height: 40px;outline: none;border: none;
             border-radius: 5px;cursor: pointer;margin-left: 400px;}
+
     </style>
 
     <!-- 验证输入框的信息 -->
@@ -43,7 +45,7 @@
         //注册验证的js
         $(function(){
             //姓名错误
-            $(".box2 #name").blur(function(){
+            $(".box2 #user_name").blur(function(){
                 var nameVal = $(this).val();
                 if(nameVal == ""){
                     $(this).addClass("errorInput");
@@ -88,7 +90,7 @@
                 }
             });
             //证件号码
-            $(".box2 #zjid").blur(function(){
+            $(".box2 #user_cert_num").blur(function(){
                 var zjidVal = $(this).val();
                 if(zjidVal == ""){
                     $(this).addClass("errorInput");
@@ -99,7 +101,7 @@
                 }
             });
             //单位名称
-            $(".box2 #uname").blur(function(){
+            $(".box2 #unit_name").blur(function(){
                 var unameVal = $(this).val();
                 if(unameVal == ""){
                     $(this).addClass("errorInput");
@@ -110,7 +112,7 @@
                 }
             });
             //验证手机号码,通过正则表达式
-            $(".box2 #phone").blur(function(){
+            $(".box2 #user_phonenum").blur(function(){
                 phoneReg = /^0{0,1}(13[0-9]|15[7-9]|153|156|18[7-9])[0-9]{8}$/;
                 var phoneVal = $(this).val();
                 if(phoneVal == ""){
@@ -125,7 +127,7 @@
                 }
             });
             //验证邮箱
-            $(".box2 #email").blur(function(){
+            $(".box2 #user_email").blur(function(){
                 emailReg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
                 var emailVal = $(this).val();
                 if(emailVal == ""){
@@ -152,12 +154,12 @@
 </div>
 
 <div class="div1">
-    <form action="<%=request.getContextPath()%>/login/toHome" class="waik">
-        <h2>单位用户注册</h2><br />
+    <form action="<%=request.getContextPath()%>/login/toUnitregis" class="waik" method="post">
+        <h2>单位用户注册</h2>
         <ul class="box box2">
             <li>
-                <label for="name">姓名</label>
-                <input type="text" placeholder="请输入姓名" class="name" id="name" />
+                <label for="user_name">姓名</label>
+                <input type="text" placeholder="请输入姓名" class="user_name" id="user_name" />
                 <span class="error"></span>
             </li>
             <li>
@@ -166,36 +168,36 @@
                 <span class="error"></span>
             </li>
             <li>
-                <label for="pwd2">密码</label>
+                <label for="pwd2">确认密码</label>
                 <input type="password" placeholder="请确认密码" class="pwd2" id="pwd2" />
                 <span class="error"></span>
             </li>
             <li>
-                <label for="zjname">证件名称</label>
-                <select name="zjname" class="zjname" id="zjname">
+                <label for="user_cert_name">证件名称</label>
+                <select name="user_cert_name" class="user_cert_name" id="user_cert_name">
                     <option value="身份证">身份证</option>
                     <option value="军官证">军官证</option>
                     <option value="护照">护照</option>
                 </select>
             </li><br />
             <li>
-                <label for="zjid">证件号码</label>
-                <input type="text" placeholder="请确认证件号码" class="zjid" id="zjid" />
+                <label for="user_cert_num">证件号码</label>
+                <input type="text" placeholder="请确认证件号码" class="user_cert_num" id="user_cert_num" />
                 <span class="error"></span>
             </li>
             <li>
-                <label for="uname">单位名称</label>
-                <input type="text" placeholder="请输入单位名称" class="uname" id="uname" />
+                <label for="unit_name">单位名称</label>
+                <input type="text" placeholder="请输入单位名称" class="unit_name" id="unit_name" />
                 <span class="error"></span>
             </li>
             <li>
-                <label for="phone">手机号码</label>
-                <input type="text" placeholder="请输入手机号码" class="phone" id="phone" />
+                <label for="user_phonenum">手机号码</label>
+                <input type="text" placeholder="请输入手机号码" class="user_phonenum" id="user_phonenum" />
                 <span class="error"></span>
             </li>
             <li>
-                <label for="email">电子邮箱</label>
-                <input type="email" placeholder="请输入电子邮箱" class="email" id="email" />
+                <label for="user_email">电子邮箱</label>
+                <input type="user_email" placeholder="请输入电子邮箱" class="user_email" id="user_email" />
                 <span class="error"></span>
             </li>
         </ul>
