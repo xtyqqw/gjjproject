@@ -17,6 +17,39 @@
     <result property="userStatus" column="user_status" javaType="java.lang.String"></result>
     <result property="userUnitId" column="user_unit_id" javaType="java.lang.String"></result>
 </resultMap>
+<resultMap id="accountEntityMap" type="com.example.demo.entity.Account">
+    <id property="accountId" column="account_id" javaType="java.lang.String"></id>
+    <result property="accountUnitId" column="account_unit_id" javaType="java.lang.String"></result>
+    <result property="accountJtype" column="account_jtype" javaType="java.lang.String"></result>
+    <result property="accountMfrom" column="account_mfrom" javaType="java.lang.String"></result>
+    <result property="accountIsopen" column="account_isopen" javaType="java.lang.String"></result>
+    <result property="accountMunit" column="account_munit" javaType="java.lang.String"></result>
+    <result property="accountBussinessSection" column="account_bussiness_section" javaType="java.lang.String"></result>
+    <result property="accountMdate" column="account_mdate" javaType="java.lang.Integer"></result>
+    <result property="accountFirstmonth" column="account_firstmonth" javaType="java.lang.Integer"></result>
+    <result property="accountClearMonth" column="account_clear_month" javaType="java.lang.Integer"></result>
+    <result property="accountRatio" column="account_ratio" javaType="java.lang.Double"></result>
+    <result property="accountIsclean" column="account_isclean" javaType="java.lang.String"></result>
+</resultMap>
+<resultMap id="unitEntityMap" type="com.example.demo.entity.Unit">
+    <id property="unitId" column="unit_id" javaType="java.lang.String"></id>
+    <result property="unitName" column="unit_name" javaType="java.lang.String"></result>
+    <result property="unitNum" column="unit_num" javaType="java.lang.String"></result>
+    <result property="unitCertName" column="unit_cert_name" javaType="java.lang.String"></result>
+    <result property="unitCertNum" column="unit_cert_num" javaType="java.lang.String"></result>
+    <result property="unitType" column="unit_type" javaType="java.lang.String"></result>
+    <result property="unitLegal" column="unit_legal" javaType="java.lang.String"></result>
+    <result property="unitLegalCertName" column="unit_legal_cert_name" javaType="java.lang.String"></result>
+    <result property="unitLegalCertNum" column="unit_legal_cert_num" javaType="java.lang.String"></result>
+    <result property="unitLoginAdd" column="unit_login_add" javaType="java.lang.String"></result>
+    <result property="unitWorkAdd" column="unit_work_add" javaType="java.lang.String"></result>
+    <result property="unitCondition" column="unit_condition" javaType="java.lang.String"></result>
+    <result property="unitCreatetime" column="unit_createtime" javaType="java.util.Date"></result>
+    <result property="superUnitName" column="super_unit_name" javaType="java.lang.String"></result>
+    <result property="unitUserId" column="unit_user_id" javaType="java.lang.String"></result>
+    <result property="unitAccountNum" column="unit_account_num" javaType="java.lang.String"></result>
+</resultMap>
+
     <select id="findUserByNameAndPwd" parameterType="com.example.demo.entity.User" resultMap="userEntityMap">
        select * from user where user_name = #{userName} and user_pwd = #{userPwd}
     </select>
@@ -32,4 +65,85 @@
         #{userEmail},#{userCreatetime},#{userStatus},#{userUnitId})
     </insert>
 
+    <insert id="addUnit" parameterType="com.example.demo.entity.Unit">
+        insert into unit(unit_id,unit_name,unit_user_id)
+        values(#{unitId},#{unitName},#{unitUserId})
+    </insert>
+    <select id="findUnitById" parameterType="com.example.demo.entity.Unit" resultMap="unitEntityMap">
+        select * from unit where unit_id = #{unitId}
+    </select>
+    <update id="updateUnit" parameterType="com.example.demo.entity.Unit">
+        update unit
+        <set>
+            <if test="unitNum!=null and unitNum!=''">
+                unit_num =#{unitNum},
+            </if>
+            <if test="unitCertName!=null and unitCertName!=''">
+                unit_cert_name =#{unitCertName},
+            </if>
+            <if test="unitCertNum!=null and unitCertNum!=''">
+                unit_cert_num =#{unitCertNum},
+            </if>
+            <if test="unitType!=null and unitType!=''">
+                unit_type =#{unitType},
+            </if>
+            <if test="unitLegal!=null and unitLegal!=''">
+                unit_legal =#{unitLegal},
+            </if>
+            <if test="unitLegalCertName!=null and unitLegalCertName!=''">
+                unit_legal_cert_name =#{unitLegalCertName},
+            </if>
+            <if test="unitLegalCertNum!=null and unitLegalCertNum!=''">
+                unit_legal_cert_num =#{unitLegalCertNum},
+            </if>
+            <if test="unitLoginAdd!=null and unitLoginAdd!=''">
+                unit_login_add =#{unitLoginAdd},
+            </if>
+            <if test="unitWorkAdd!=null and unitWorkAdd!=''">
+                unit_work_add =#{unitWorkAdd},
+            </if>
+            <if test="unitCondition!=null and unitCondition!=''">
+                unit_condition =#{unitCondition},
+            </if>
+            <if test="unitCreatetime!=null">
+                unit_createtime =#{unitCreatetime},
+            </if>
+            <if test="superUnitName!=null and superUnitName!=''">
+                super_unitname =#{superUnitName},
+            </if>
+            <if test="unitAccountNum!=null and unitAccountNum!=''">
+                unit_account_num =#{unitAccountNum},
+            </if>
+        </set>
+        where unit_id = #{unitId}
+    </update>
+
+    <insert id="addAccount" parameterType="com.example.demo.entity.Account">
+        insert into account(account_id,account_unit_id,account_jtype,account_mfrom,account_isopen,
+        account_munit,account_bussiness_section,account_mdate,account_firstmonth,account_clear_month,
+        account_ratio,account_isclean)
+        values(#{accountId},#{accountUnitId},#{accountJtype},#{accountMfrom},#{accountIsopen},
+        #{accountMunit},#{accountBussinessSection},#{accountMdate},#{accountFirstmonth},
+        #{accountClearMonth},#{accountRatio},#{accountIsclean})
+    </insert>
+
+    <select id="findUserByAccountId" parameterType="com.example.demo.entity.Account" resultMap="userEntityMap">
+        select * from user u,unit un,account a where un.unit_id = u.user_unit_id
+        and  a.account_unit_id = un.unit_id and a.account_id = #{accountId}
+    </select>
+
+    <update id="updateUserStatus" parameterType="com.example.demo.entity.User">
+        update user
+        <set>
+            <if test="userStatus!=null and userStatus!=''">
+                user_status =#{userStatus},
+            </if>
+        </set>
+        where user_id = #{userId}
+    </update>
+
+    <select id="findUnitByUser" parameterType="com.example.demo.entity.User" resultMap="unitEntityMap">
+        select unit_id,unit_name,unit_user_id,unit_account_num from user,unit where user.user_unit_id = unit.unit_id
+        and user.user_id = #{userId}
+    </select>
 </mapper>

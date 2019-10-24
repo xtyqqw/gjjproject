@@ -3,8 +3,6 @@ package com.example.demo.user.controller;
 import com.example.demo.entity.Account;
 import com.example.demo.entity.Unit;
 import com.example.demo.entity.User;
-import com.example.demo.user.service.AccountService;
-import com.example.demo.user.service.UnitService;
 import com.example.demo.user.service.UserService;
 import com.example.demo.util.RandomUtil;
 import com.example.demo.util.UUIDUtil;
@@ -27,10 +25,6 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserService userService;
-    @Autowired
-    private UnitService unitService;
-    @Autowired
-    private AccountService accountService;
     /**
      * 跳转至登录页方法
      * @return
@@ -66,7 +60,7 @@ public class UserController {
                     mv.setViewName("home");
                     return mv;
                 } else if(user1.getUserUnitId()!=null){
-                    Unit unit = accountService.findUnitByUser(user1);
+                    Unit unit = userService.findUnitByUser(user1);
                     if (unit.getUnitNum()!=null || unit.getUnitNum()!=""){
                         mv.addObject("unit",unit);
                         mv.setViewName("openacc");
@@ -118,7 +112,7 @@ public class UserController {
             }
         }
         Integer flagUser = userService.addUser(user);
-        Integer flagUnit = unitService.addUnit(unit);
+        Integer flagUnit = userService.addUnit(unit);
         if (flagUser == 1 && flagUnit == 1) {
             mv.addObject("unit",unit);
             mv.setViewName("unitregis");
@@ -141,7 +135,7 @@ public class UserController {
         ModelAndView mv = new ModelAndView();
         if (unit.getUnitId() != null) {
             unit.setUnitAccountNum(RandomUtil.generateStr(9));
-            Integer flag = unitService.updateUnit(unit);
+            Integer flag = userService.updateUnit(unit);
             if (flag == 1) {
                 mv.addObject("wrong","单位账户登记成功，请进行单位开户");
                 mv.addObject("unit",unit);
@@ -168,11 +162,11 @@ public class UserController {
         ModelAndView mv = new ModelAndView();
         String accId = UUIDUtil.getUUID();
         account.setAccountId(accId);
-        Integer flag = accountService.addAccount(account);
+        Integer flag = userService.addAccount(account);
         if (flag==1){
-            User user = accountService.findUserByAccountId(accId);
+            User user = userService.findUserByAccountId(accId);
             user.setUserStatus("认证");
-            accountService.updateUserStatus(user);
+            userService.updateUserStatus(user);
             mv.addObject("userUnitId", user.getUserUnitId());
             mv.setViewName("home");
             return mv;
