@@ -52,16 +52,18 @@ public class UserController {
     @RequestMapping("/login")
     public ModelAndView login(User user)throws Exception {
         ModelAndView mv = new ModelAndView();
+        String magic = "认证";
         if (user.getUserName()!=null && user.getUserPwd()!=null){
             User user1 = userService.findUserByNameAndPwd(user);
             if (user1 != null) {
-                if ((user1.getUserStatus()).equals("认证")) {
+                if (magic.equals(user1.getUserStatus())) {
                     mv.addObject("user", user1);
                     mv.setViewName("home");
                     return mv;
                 } else if(user1.getUserUnitId()!=null){
                     Unit unit = userService.findUnitByUser(user1);
                     if (unit.getUnitNum()!=null || unit.getUnitNum()!=""){
+                        mv.addObject("wrong", "单位登记成功，请开户");
                         mv.addObject("unit",unit);
                         mv.setViewName("openacc");
                         return mv;
@@ -167,7 +169,7 @@ public class UserController {
             User user = userService.findUserByAccountId(accId);
             user.setUserStatus("认证");
             userService.updateUserStatus(user);
-            mv.addObject("userUnitId", user.getUserUnitId());
+            mv.addObject("user",user);
             mv.setViewName("home");
             return mv;
         }else {
