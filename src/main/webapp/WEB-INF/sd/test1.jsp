@@ -25,11 +25,15 @@
             table.render({
                 elem: '#test'
                 , code: 0
-                , url: '<%=request.getContextPath()%>/test/stest'
+                , url: '<%=request.getContextPath()%>/stat/stats'
                 , cellMinWidth: 80
                 , cols: [[
-                    {field: 'id', width: 100, title: 'id', sort: true}
-                    , {field: 'name', width: 120, title: '制卡情况', sort: true}
+                    {field: 'remitPersonNum', width: 100, title: 'id', sort: true}
+                    , {field: 'name', width: 120, title: '姓名', sort: true}
+                    , {field: 'remitCertName', width: 120, title: '证件名称', sort: true}
+                    , {field: 'remitCertNum', width: 120, title: '证件号码', sort: true}
+                    , {field: 'remitCardStatus', width: 120, title: '制卡情况', sort: true}
+
                 ]]
                 ,page:false
             });

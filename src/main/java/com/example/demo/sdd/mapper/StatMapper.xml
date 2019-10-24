@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.sdd.mapper.StatMapper">
+
+    <resultMap type="com.example.demo.entity.Stat" id="caseMap">
+        <id property="remitId" column="remit_id" javaType="java.lang.String"/>
+        <result property="remitUnitAccountNum" column="remit_unit_Account_Num" javaType="java.lang.String"/>
+        <result property="remitLoginNum" column="remit_login_num" javaType="java.lang.String"/>
+        <result property="remitPersonNum" column="remit_person_num" javaType="java.lang.String"/>
+        <result property="Name" column="name" javaType="java.lang.String"/>
+        <result property="remitCertName" column="remit_cert_name" javaType="java.lang.String"/>
+        <result property="remitCountry" column="remit_country" javaType="java.lang.String"/>
+        <result property="remitCertNum" column="remit_Cert_num" javaType="java.lang.String"/>
+        <result property="remitMoney" column="remit_money" javaType="java.lang.Double"/>
+        <result property="remitMonthlyDeposit" column="remit_monthly_deposit" javaType="java.lang.Double"/>
+        <result property="personMonthlyDeposit" column="person_monthly_deposit" javaType="java.lang.Double"/>
+        <result property="monthlyDepositTotal" column="remit_deposit_total" javaType="java.lang.Double"/>
+        <result property="remitSmsgId" column="remit_smsg_id" javaType="java.lang.String"/>
+        <result property="remitCardStatus" column="remit_card_status" javaType="java.lang.String"/>
+
+    </resultMap>
+    <select id="selectStat" parameterType="java.lang.String" resultMap="caseMap">
+        select * from remit where remit_card_status=#{remitCardStatus}
+    </select>
+</mapper>
