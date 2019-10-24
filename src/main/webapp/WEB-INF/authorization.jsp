@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>单位经办人网上授权</title>
+    <title>单位网上业务授权申请</title>
     <script src="/js/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/layui/css/layui.css"/>
     <script src="/layui/layui.js" type="text/javascript"></script>
@@ -18,7 +18,7 @@
         .div1{width: 100%;height: 70%;}
         .waik{background: #FFFFFF;width: 60%;height: 800px;box-shadow: 2px 2px 5px #737383;
             margin: 10px 200px;padding-bottom: 20px;}
-        h2{padding: 40px;letter-spacing: 20px;margin-left: 250px;}
+        h2{padding: 40px;letter-spacing: 20px;margin-left: 200px;}
         .box{padding-left: 250px; }
         .box li{line-height: 44px;width: 100%;overflow: hidden;}
         /* 字体的样式 */
@@ -124,7 +124,7 @@
 <body>
 <div class="div1">
     <form class="waik" action="<%=request.getContextPath()%>/login/toAuthsecces">
-        <h2>《单位经办人授权书》</h2><br />
+        <h2>《单位网上业务授权申请书》</h2><br />
 
         <ul class="box box2">
             <li>

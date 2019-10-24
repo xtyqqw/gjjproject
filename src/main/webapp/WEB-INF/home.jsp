@@ -45,7 +45,7 @@
         <div class="layui-side-scroll">
             <ul class="layui-nav layui-nav-tree" lay-filter="demoNav">
                 <li class="layui-nav-item">
-                    <a href="<%=request.getContextPath()%>/login/toAuthorization" target="biao">单位经办人网上授权</a>
+                    <a href="<%=request.getContextPath()%>/login/toAuthorization" target="biao">单位网上业务授权申请</a>
                 </li>
                 <li class="layui-nav-item">
                     <a href="<%=request.getContextPath()%>" target="biao">二级管理辅助信息定义</a>
