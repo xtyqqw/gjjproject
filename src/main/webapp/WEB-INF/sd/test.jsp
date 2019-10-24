@@ -15,7 +15,7 @@
     <script src="/layui/layui.js" type="text/javascript"></script>
 
 </head>
-<body>
+<body style="padding: 0 10px;">
 <table class="layui-hide" id="person" lay-filter="test"></table>
 <div hidden="hidden" id="sadd"><%--添加--%>
     <form class="layui-form" action="<%=request.getContextPath()%>/persons/add" method="post">
@@ -54,19 +54,19 @@
                 , url: '<%=request.getContextPath()%>/persons/personList?personName=${slist.personName}&personCertNum=${slist.personCertNum}'
                 , toolbar: 'default'
                 , cols: [[
-                    {field: 'personId', width: 100, title: 'id', sort: true}
-                    , {field: 'personName', width: 100, title: '姓名', sort: true}
-                    , {field: 'personCertName', width: 100, title: '证件名称', sort: true}
-                    , {field: 'personCertNum', width: 100, title: '证件号', sort: true}
-                    , {field: 'personUnit', width: 100, title: '职业', sort: true}
-                    , {field: 'personBase', width: 100, title: '缴存基数', sort: true}
-                    , {field: 'personRatio', width: 100, title: '缴存比例', sort: true}
-                    , {field: 'personAmount', width: 100, title: '系统计算缴存额', sort: true}
-                    , {field: 'personRegister', width: 100, title: '个人登记号', sort: true}
+                    {field: 'personId', width: 80,align:'center', title: 'id', sort: true}
+                    , {field: 'personName', width: 100,align:'center', title: '姓名'}
+                    , {field: 'personCertName', width: 120,align:'center', title: '证件名称'}
+                    , {field: 'personCertNum', width: 200,align:'center', title: '证件号'}
+                    , {field: 'personUnit', width: 100,align:'center', title: '职业'}
+                    , {field: 'personBase', width: 120,align:'center', title: '缴存基数'}
+                    , {field: 'personRatio', width: 120,align:'center', title: '缴存比例'}
+                    , {field: 'personAmount', width: 170,align:'center', title: '系统计算缴存额'}
+                    , {field: 'personRegister', width: 240,align:'center', title: '个人登记号'}
                     , {
                         field: 'right',
                         title: '操作',
-                        width: 120,
+                        width: 140,
                         align: 'center',
                         toolbar: '<div class="layui-btn-group">' +
                             '<button type="button" class="layui-btn layui-btn-xs layui-margin" lay-event="edit">编辑</button>' +
@@ -80,9 +80,9 @@
                         "<button class='layui-btn' lay-event='add' >增加</button>"+
                         "<div class='layui-inline'>"+
                     "<form action='<%=request.getContextPath()%>/persons/dim' method='post'>"+
-                        "<input class='layui-input' name='personName' id='personName' autocomplete='off' placeholder='请输入姓名'>"+
-                        "<input class='layui-input' name='personCertNum' id='personCertNum' autocomplete='off' placeholder='请输入证件号码'>"+
-                        "<input type='submit' value='确认'/>"+
+                        "<input style='float:left;width: 200px;height: 40px;border: none;margin-left:20px;padding-left:10px;border: 1px solid #dddddd;' name='personName' id='personName' placeholder='请输入姓名'>"+
+                        "<input style='float:left;width: 200px;height: 40px;border: none;margin-left:15px;padding-left:10px;border: 1px solid #dddddd;' name='personCertNum' id='personCertNum' placeholder='请输入证件号码'>"+
+                        "<input style='float:left;width: 70px;height: 38px;border: none;margin-left:15px;background-color: #01AAED;color: #FFFFFF;' type='submit' value='确认'/>"+
                     "</form>"+
                         "</div>"+
                 "</div>"

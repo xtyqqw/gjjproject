@@ -54,7 +54,7 @@
                     <a href="<%=request.getContextPath()%>" target="biao">单位编辑汇缴清册</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="<%=request.getContextPath()%>" target="biao">个人登记功能（无单位）</a>
+                    <a href="<%=request.getContextPath()%>/persons/totest" target="biao">个人登记功能（无单位）</a>
                 </li>
                 <li class="layui-nav-item">
                     <a href="<%=request.getContextPath()%>" target="biao">公积金制卡情况查询</a>
