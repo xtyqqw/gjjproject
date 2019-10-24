@@ -31,9 +31,7 @@
             border: 1px solid #dddddd;text-indent: 0.5em;float: left;border-radius: 5px;}
         .user_cert_name{width: 300px;height: 40px;border-radius: 5px;border: 1px solid #dddddd;}
         .error{clear: both;display: block;color: red;padding-left: 90px;padding-bottom: 5px;
-            height: 20px;float: left;font-size: 12px;line-height: 20px;
-        }
-        .errorInput{border: 1px solid red !important;}
+            height: 20px;float: left;font-size: 12px;line-height: 20px;}
         .submit input{display: inline-block;width: 100px;height: 50px;background-color: #01AAED;
             color: #FFFFFF;font-size: 17px;line-height: 40px;outline: none;border: none;
             border-radius: 5px;cursor: pointer;margin-left: 400px;}
@@ -48,10 +46,8 @@
             $(".box2 #user_name").blur(function(){
                 var nameVal = $(this).val();
                 if(nameVal == ""){
-                    $(this).addClass("errorInput");
                     $(this).next().css("display","block").html("姓名不能为空");
                 }else{
-                    $(this).addClass("correctInput");
                     $(this).next().empty();
                 }
             });
@@ -60,13 +56,10 @@
                 pwd1Reg = /^[A-z0-9]{6}$/;
                 var pwd1Val = $(this).val();
                 if(pwd1Val == ""){
-                    $(this).addClass("errorInput");
                     $(this).next().css("display","block").html("密码不能为空");
                 }else if(!pwd1Reg.test(pwd1Val)){
-                    $(this).addClass("errorInput");
-                    $(this).next().css("display","block").html("请输入六位以上带有字母和数字的密码");
+                    $(this).next().css("display","block").html("请输入六位有效字符");
                 }else{
-                    $(this).addClass("correctInput");
                     $(this).next().empty();
                 }
             });
@@ -76,16 +69,12 @@
                 var pwd1Val = $(".box2 #pwd1").val();
                 var pwd2Val = $(this).val();
                 if(pwd1Val == ""){
-                    $(this).addClass("errorInput");
                     $(this).next().css("display","block").html("密码不能为空");
                 }else if(!pwd2Reg.test(pwd2Val)){
-                    $(this).addClass("errorInput");
                     $(this).next().css("display","block").html("请输入正确的密码");
                 }else if(pwd1Val != pwd2Val){
-                    $(this).addClass("errorInput");
                     $(this).next().css("display","block").html("两次输入的密码不一致");
                 }else{
-                    $(this).addClass("correctInput");
                     $(this).next().empty();
                 }
             });
@@ -93,10 +82,8 @@
             $(".box2 #user_cert_num").blur(function(){
                 var zjidVal = $(this).val();
                 if(zjidVal == ""){
-                    $(this).addClass("errorInput");
                     $(this).next().css("display","block").html("证件号码不能为空");
                 }else{
-                    $(this).addClass("correctInput");
                     $(this).next().empty();
                 }
             });
@@ -104,10 +91,8 @@
             $(".box2 #unit_name").blur(function(){
                 var unameVal = $(this).val();
                 if(unameVal == ""){
-                    $(this).addClass("errorInput");
                     $(this).next().css("display","block").html("单位名称不能为空");
                 }else{
-                    $(this).addClass("correctInput");
                     $(this).next().empty();
                 }
             });
@@ -116,13 +101,10 @@
                 phoneReg = /^0{0,1}(13[0-9]|15[7-9]|153|156|18[7-9])[0-9]{8}$/;
                 var phoneVal = $(this).val();
                 if(phoneVal == ""){
-                    $(this).addClass("errorInput");
                     $(this).next().css("display","block").html("手机号码不能为空");
                 }else if(!phoneReg.test(phoneVal)){
-                    $(this).addClass("errorInput");
                     $(this).next().css("display","block").html("请输入正确的手机号码");
                 }else{
-                    $(this).addClass("correctInput");
                     $(this).next().empty();
                 }
             });
@@ -131,13 +113,10 @@
                 emailReg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
                 var emailVal = $(this).val();
                 if(emailVal == ""){
-                    $(this).addClass("errorInput");
                     $(this).next().css("display","block").html("邮箱不能为空");
                 }else if(!emailReg.test(emailVal)){
-                    $(this).addClass("errorInput");
                     $(this).next().css("display","block").html("请输入正确的邮箱");
                 }else{
-                    $(this).addClass("errorInput");
                     $(this).next().empty();
                 }
             });
@@ -160,17 +139,17 @@
         <ul class="box box2">
             <li>
                 <label>姓名</label>
-                <input type="text" placeholder="请输入姓名" name="userName" class="user_name" id="user_name" />
+                <input type="text" placeholder="请输入姓名" name="userName" id="user_name" />
                 <span class="error"></span>
             </li>
             <li>
                 <label>密码</label>
-                <input type="password" placeholder="请输入密码" name="userPwd" class="pwd1" id="pwd1" />
+                <input type="password" placeholder="请输入密码" name="userPwd" id="pwd1" />
                 <span class="error"></span>
             </li>
             <li>
                 <label>确认密码</label>
-                <input type="password" placeholder="请确认密码" class="pwd2" id="pwd2" />
+                <input type="password" placeholder="请确认密码" id="pwd2" />
                 <span class="error"></span>
             </li>
             <li>
@@ -183,22 +162,22 @@
             </li><br />
             <li>
                 <label>证件号码</label>
-                <input type="text" placeholder="请确认证件号码" name="userCertNum" class="user_cert_num" id="user_cert_num" />
+                <input type="text" placeholder="请确认证件号码" name="userCertNum" id="user_cert_num" />
                 <span class="error"></span>
             </li>
             <li>
                 <label>单位名称</label>
-                <input type="text" placeholder="请输入单位名称" name="unitName" class="unit_name" id="unit_name" />
+                <input type="text" placeholder="请输入单位名称" name="unitName" id="unit_name" />
                 <span class="error"></span>
             </li>
             <li>
                 <label>手机号码</label>
-                <input type="text" placeholder="请输入手机号码" name="userPhonenum" class="user_phonenum" id="user_phonenum" />
+                <input type="text" placeholder="请输入手机号码" name="userPhonenum" id="user_phonenum" />
                 <span class="error"></span>
             </li>
             <li>
                 <label>电子邮箱</label>
-                <input type="user_email" placeholder="请输入电子邮箱" name="userEmail" class="user_email" id="user_email" />
+                <input type="user_email" placeholder="请输入电子邮箱" name="userEmail" id="user_email" />
                 <span class="error"></span>
             </li>
         </ul>

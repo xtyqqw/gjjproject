@@ -14,32 +14,102 @@
     <link rel="stylesheet" type="text/css" href="/layui/css/layui.css"/>
     <script src="/layui/layui.js" type="text/javascript"></script>
 
+    <style type="text/css">
+        .box{padding: 40px 80px; }
+        .box li{line-height: 44px;width: 100%;overflow: hidden;list-style: none;}
+        /* 输入框前面字体的样式 */
+        .box li label {width: 120px;height: 50px;float: left;line-height: 50px;text-align: right;
+            padding-right: 20px;}
+        /* 输入框的样式 */
+        .box li input{padding: 6px 0;font-size: 16px;width: 200px;height: 40px;line-height: 28px;
+            border: 1px solid #dddddd;text-indent: 0.5em;float: left;border-radius: 5px;}
+        .submit input{display: inline-block;width: 80px;height: 40px;background-color: #01AAED;
+            color: #FFFFFF;font-size: 17px; line-height: 40px;outline: none;border: none;
+            border-radius: 5px;cursor: pointer;margin-left: 200px;}
+    </style>
+
 </head>
-<body style="padding: 0 10px;">
+<body style="padding: 0 10px;width: 95%;height: 600px;">
 <table class="layui-hide" id="person" lay-filter="test"></table>
-<div hidden="hidden" id="sadd"><%--添加--%>
+
+<%--添加的弹出框--%>
+<div hidden="hidden" id="sadd">
     <form class="layui-form" action="<%=request.getContextPath()%>/persons/add" method="post">
-        <input class="layui-input" style="width: 50%;" type="text" name="personName" placeholder="请输入姓名"><br>
-        <input class="layui-input" style="width: 50%;" type="text" name="personCertName" placeholder="请输入证件名称"><br>
-        <input class="layui-input" style="width: 50%;" type="text" name="personCertNum" placeholder="请输入证件号码"><br>
-        <input class="layui-input" style="width: 50%;" type="text" name="personUnit" placeholder="请输入职业"><br>
-        <input class="layui-input" style="width: 50%;" type="text" name="personBase" placeholder="请输入缴存基数"><br>
-        <input class="layui-input" style="width: 50%;" type="text" name="personRatio" placeholder="请输入缴存比例"><br>
-        <input class="layui-input" style="width: 50%;" type="text" name="personAmount" placeholder="请输入系统计算缴存额"><br>
-        <input type="submit" value="提交">
+        <ul class="box box2">
+            <li>
+                <label>姓名：</label>
+                <input type="text" placeholder="请输入姓名" name="personName" /><br><br>
+            </li>
+            <li>
+                <label>证件名称：</label>
+                <input type="text" placeholder="请输入证件名称"  name="personCertName" /><br><br>
+            </li>
+            <li>
+                <label>证件号码：</label>
+                <input type="text" placeholder="请输入证件号码" name="personCertNum" /><br><br>
+            </li>
+            <li>
+                <label>职业：</label>
+                <input type="text" placeholder="请输入职业" name="personUnit" /><br><br>
+            </li>
+            <li>
+                <label>缴存基数：</label>
+                <input type="text" placeholder="请输入缴存基数" name="personBase" /><br><br>
+            </li>
+            <li>
+                <label>缴存比例：</label>
+                <input type="text" placeholder="请输入缴存比例" name="personRatio" /><br><br>
+            </li>
+            <li>
+                <label>系统计算缴存额：</label>
+                <input type="text" placeholder="请输入系统计算缴存额" name="personAmount" /><br>
+            </li>
+        </ul>
+        <div class="submit">
+            <input type="submit" value="提交" />
+        </div>
     </form>
 </div>
+<%--修改的弹出框--%>
 <div hidden="hidden" id="updates">
     <form class="layui-form" action="<%=request.getContextPath()%>/persons/update" method="post">
-        <input class="layui-input" type="text" name="personId" id="personId" style="width: 50%;" placeholder="请输入id"><br>
-        <input class="layui-input" type="text" name="personName" id="personName" style="width: 50%;" placeholder="请输入姓名"><br>
-        <input class="layui-input" type="text" name="personCertName" id="personCertName" style="width: 50%;" placeholder="请输入证件号码"><br>
-        <input class="layui-input" type="text" name="personCertNum" id="personCertNum" style="width: 50%;" placeholder="请输入证件号码"><br>
-        <input class="layui-input" type="text" name="personUnit" id="personUnit" style="width: 50%;" placeholder="请输入职业"><br>
-        <input class="layui-input" type="text" name="personBase" id="personBase" style="width: 50%;" placeholder="请输入缴存基数"><br>
-        <input class="layui-input" type="text" name="personRatio" id="personRatio" style="width: 50%;" placeholder="请输入缴存比例"><br>
-        <input class="layui-input" type="text" name="personAmount" id="personAmount" style="width: 50%;" placeholder="请输入系统计算缴存额"><br>
-        <input type="submit" value="提交">
+        <ul class="box box2">
+            <li hidden="hidden">
+                <label>id：</label>
+                <input type="text" id="personId" name="personId" /><br><br>
+            </li>
+            <li>
+                <label>姓名：</label>
+                <input type="text" id="personName" name="personName" /><br><br>
+            </li>
+            <li>
+                <label>证件名称：</label>
+                <input type="text" id="personCertName"  name="personCertName" /><br><br>
+            </li>
+            <li>
+                <label>证件号码：</label>
+                <input type="text" id="personCertNum" name="personCertNum" /><br><br>
+            </li>
+            <li>
+                <label>职业：</label>
+                <input type="text" id="personUnit" name="personUnit" /><br><br>
+            </li>
+            <li>
+                <label>缴存基数：</label>
+                <input type="text" id="personBase" name="personBase" /><br><br>
+            </li>
+            <li>
+                <label>缴存比例：</label>
+                <input type="text" id="personRatio" name="personRatio" /><br><br>
+            </li>
+            <li>
+                <label>系统计算缴存额：</label>
+                <input type="text" id="personAmount" name="personAmount" /><br>
+            </li>
+        </ul>
+        <div class="submit">
+            <input type="submit" value="提交" />
+        </div>
     </form>
 </div>
 <script >
@@ -75,7 +145,7 @@
                     }
                 ]]
                 ,page:true,
-                limits:[2,3,4]
+                limits:[10,20,30]
                 ,toolbar:"<div class='layui-btn-group'>"+
                         "<button class='layui-btn' lay-event='add' >增加</button>"+
                         "<div class='layui-inline'>"+
@@ -95,7 +165,7 @@
                         type:1
                         ,title:'添加'
                         ,btn:true
-                        ,area:'420px'
+                        ,area:['50%','80%']
                         ,content:$('#sadd')
                     });
                 }
@@ -123,7 +193,7 @@
                         type:1
                         ,title:'修改'
                         ,btn:true
-                        ,area:'420px'
+                        ,area:['50%','80%']
                         ,content:$('#updates')
                     });
                 }

@@ -30,7 +30,7 @@
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
                 <a href=" ">
-                    欢迎：${uname}
+                    欢迎：${user.userName}
                 </a>
                 <dl class="layui-nav-child">
                     <dd><a href="javascript:;">基本资料</a></dd>
