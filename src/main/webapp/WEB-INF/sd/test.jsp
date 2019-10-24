@@ -87,7 +87,7 @@
             </li>
             <li>
                 <label>姓名：</label>
-                <input type="text" id="personName" name="personName" /><br><br>
+                <input type="text" id="personNamee" name="personName" /><br><br>
             </li>
             <li>
                 <label>证件名称：</label>
@@ -99,7 +99,7 @@
             </li>
             <li>
                 <label>证件号码：</label>
-                <input type="text" id="personCertNum" name="personCertNum" /><br><br>
+                <input type="text" id="personCertNumm"value="" name="personCertNum" /><br><br>
             </li>
             <li>
                 <label>职业：</label>
@@ -197,9 +197,9 @@
                     });
                 }else if(obj.event==='edit'){/*修改*/
                     $("#personId").val(data.personId);
-                    $("#personName").val(data.personName);
+                    $("#personNamee").val(data.personName);
                     $("#personCertName").val(data.personCertName);
-                    $("#personCertNum").val(data.personCertNum);
+                    $("#personCertNumm").val(data.personCertNum);
                     $("#personUnit").val(data.personUnit);
                     $("#personBase").val(data.personBase);
                     $("#personRatio").val(data.personRatio);
