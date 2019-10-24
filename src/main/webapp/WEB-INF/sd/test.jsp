@@ -33,8 +33,12 @@
     <form class="layui-form" action="<%=request.getContextPath()%>/persons/update" method="post">
         <input class="layui-input" type="text" name="personId" id="personId" style="width: 50%;" placeholder="请输入id"><br>
         <input class="layui-input" type="text" name="personName" id="personName" style="width: 50%;" placeholder="请输入姓名"><br>
-        <input class="layui-input" type="text" name="personCertName" id="personCertName" style="width: 50%;" placeholder="请输入姓名"><br>
-        <input class="layui-input" type="text" name="personCertNum" id="personCertNum" style="width: 50%;" placeholder="请输入姓名"><br>
+        <input class="layui-input" type="text" name="personCertName" id="personCertName" style="width: 50%;" placeholder="请输入证件号码"><br>
+        <input class="layui-input" type="text" name="personCertNum" id="personCertNum" style="width: 50%;" placeholder="请输入证件号码"><br>
+        <input class="layui-input" type="text" name="personUnit" id="personUnit" style="width: 50%;" placeholder="请输入职业"><br>
+        <input class="layui-input" type="text" name="personBase" id="personBase" style="width: 50%;" placeholder="请输入缴存基数"><br>
+        <input class="layui-input" type="text" name="personRatio" id="personRatio" style="width: 50%;" placeholder="请输入缴存比例"><br>
+        <input class="layui-input" type="text" name="personAmount" id="personAmount" style="width: 50%;" placeholder="请输入系统计算缴存额"><br>
         <input type="submit" value="提交">
     </form>
 </div>
