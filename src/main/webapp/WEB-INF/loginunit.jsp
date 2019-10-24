@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>单位登录</title>
+    <title>单位用户登录</title>
     <script src="/js/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/layui/css/layui.css"/>
     <script src="/layui/layui.js" type="text/javascript"></script>
@@ -37,17 +37,17 @@
     </div>
 
     <div class="div1">
-        <form class="form1" action="<%=request.getContextPath()%>/login/toHome" method="post">
+        <form class="form1" action="<%=request.getContextPath()%>/user/login" method="post">
             <p class="p1">单&nbsp;位&nbsp;登&nbsp;录</p>
             <%--错误信息--%>
-            <span style="color: red;padding: 0px 70px;"><%--${wrong}--%></span>
+            <span style="color: red;padding: 0px 70px;">${wrong}</span>
             <div class="userpwd">
-                用户名：<input class="input" type="text" placeholder="请输入用户名" /><br /><br />
-                密&nbsp;&nbsp;&nbsp;码：<input class="input" type="text" placeholder="请输入密码" />
+                用户名：<input class="input" type="text" name="userName" placeholder="请输入用户名" /><br /><br />
+                密&nbsp;&nbsp;&nbsp;码：<input class="input" type="text" name="userPwd" placeholder="请输入密码" />
                 <br /><br /><br />
             </div>
             <div class="btn">
-                <a href="<%=request.getContextPath()%>/login/toLogin" id="aa" target="_blank">注&nbsp;&nbsp;&nbsp;&nbsp;册</a>
+                <a href="<%=request.getContextPath()%>/user/toReg" id="aa" target="_blank">注&nbsp;&nbsp;&nbsp;&nbsp;册</a>
                 <input class="login" type="submit" value="登&nbsp;&nbsp;&nbsp;&nbsp;录" />
             </div>
 

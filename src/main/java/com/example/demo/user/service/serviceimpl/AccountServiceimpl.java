@@ -1,6 +1,7 @@
 package com.example.demo.user.service.serviceimpl;
 
 import com.example.demo.entity.Account;
+import com.example.demo.entity.Unit;
 import com.example.demo.entity.User;
 import com.example.demo.user.mapper.AccountMapper;
 import com.example.demo.user.service.AccountService;
@@ -31,5 +32,10 @@ public class AccountServiceimpl implements AccountService {
     @Override
     public Integer updateUserStatus(User user) {
         return accountMapper.updateUserStatus(user);
+    }
+
+    @Override
+    public Unit findUnitByUser(User user) {
+        return accountMapper.findUnitByUser(user);
     }
 }

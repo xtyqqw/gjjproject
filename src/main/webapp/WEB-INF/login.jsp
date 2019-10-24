@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>单位注册</title>
+    <title>单位用户注册</title>
     <script src="/js/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/layui/css/layui.css"/>
     <script src="/layui/layui.js" type="text/javascript"></script>
@@ -154,17 +154,18 @@
 </div>
 
 <div class="div1">
-    <form action="<%=request.getContextPath()%>/login/toUnitregis" class="waik" method="post">
+    <form action="<%=request.getContextPath()%>/user/register" class="waik" method="post">
         <h2>单位用户注册</h2>
+        <span style="color: red;padding: 0px 70px;">${wrong}</span>
         <ul class="box box2">
             <li>
                 <label for="user_name">姓名</label>
-                <input type="text" placeholder="请输入姓名" class="user_name" id="user_name" />
+                <input type="text" placeholder="请输入姓名" name="userName" class="user_name" id="user_name" />
                 <span class="error"></span>
             </li>
             <li>
                 <label for="pwd1">密码</label>
-                <input type="password" placeholder="请输入密码" class="pwd1" id="pwd1" />
+                <input type="password" placeholder="请输入密码" name="userPwd" class="pwd1" id="pwd1" />
                 <span class="error"></span>
             </li>
             <li>
@@ -174,7 +175,7 @@
             </li>
             <li>
                 <label for="user_cert_name">证件名称</label>
-                <select name="user_cert_name" class="user_cert_name" id="user_cert_name">
+                <select name="userCertName" class="user_cert_name" id="user_cert_name">
                     <option value="身份证">身份证</option>
                     <option value="军官证">军官证</option>
                     <option value="护照">护照</option>
@@ -182,22 +183,22 @@
             </li><br />
             <li>
                 <label for="user_cert_num">证件号码</label>
-                <input type="text" placeholder="请确认证件号码" class="user_cert_num" id="user_cert_num" />
+                <input type="text" placeholder="请确认证件号码" name="userCertNum" class="user_cert_num" id="user_cert_num" />
                 <span class="error"></span>
             </li>
             <li>
                 <label for="unit_name">单位名称</label>
-                <input type="text" placeholder="请输入单位名称" class="unit_name" id="unit_name" />
+                <input type="text" placeholder="请输入单位名称" name="unitName" class="unit_name" id="unit_name" />
                 <span class="error"></span>
             </li>
             <li>
                 <label for="user_phonenum">手机号码</label>
-                <input type="text" placeholder="请输入手机号码" class="user_phonenum" id="user_phonenum" />
+                <input type="text" placeholder="请输入手机号码" name="userPhonenum" class="user_phonenum" id="user_phonenum" />
                 <span class="error"></span>
             </li>
             <li>
                 <label for="user_email">电子邮箱</label>
-                <input type="user_email" placeholder="请输入电子邮箱" class="user_email" id="user_email" />
+                <input type="user_email" placeholder="请输入电子邮箱" name="userEmail" class="user_email" id="user_email" />
                 <span class="error"></span>
             </li>
         </ul>

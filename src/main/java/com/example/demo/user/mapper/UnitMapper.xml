@@ -67,6 +67,9 @@
             <if test="superUnitName!=null and superUnitName!=''">
                 super_unitname =#{superUnitName},
             </if>
+            <if test="unitAccountNum!=null and unitAccountNum!=''">
+                unit_account_num =#{unitAccountNum},
+            </if>
         </set>
         where unit_id = #{unitId}
     </update>

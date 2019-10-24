@@ -2,6 +2,7 @@ package com.example.demo.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -39,6 +40,7 @@ public class Unit {
     /**是否具有法人资格*/
     private String unitCondition;
     /**单位成立时间*/
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date unitCreatetime;
     /**上级主管单位*/
     private String superUnitName;

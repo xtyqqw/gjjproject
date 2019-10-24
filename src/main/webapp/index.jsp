@@ -51,7 +51,7 @@
                     <a id="person" href="#">个人网上业务平台</a>
                 </div>
                 <div class="div32">
-                    <a class="aa" href="<%=request.getContextPath()%>/login/toLoginunit" target="_blank">
+                    <a class="aa" href="<%=request.getContextPath()%>/user/toLogin" target="_blank">
                         单位网上业务平台
                     </a>
                 </div>

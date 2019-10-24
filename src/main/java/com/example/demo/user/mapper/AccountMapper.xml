@@ -75,4 +75,9 @@
         </set>
         where user_id = #{userId}
     </update>
+
+    <select id="findUnitByUser" parameterType="com.example.demo.entity.User" resultMap="unitEntityMap">
+        select unit_id,unit_name,unit_user_id,unit_account_num from user,unit where user.user_unit_id = unit.unit_id
+        and user.user_id = #{userId}
+    </select>
 </mapper>

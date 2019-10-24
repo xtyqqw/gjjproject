@@ -1,6 +1,7 @@
 package com.example.demo.user.mapper;
 
 import com.example.demo.entity.Account;
+import com.example.demo.entity.Unit;
 import com.example.demo.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -30,4 +31,11 @@ public interface AccountMapper {
      * @return
      */
     Integer updateUserStatus(User user);
+
+    /**
+     * 跟据userId查询Unit对象
+     * @param user
+     * @return
+     */
+    Unit findUnitByUser(User user);
 }

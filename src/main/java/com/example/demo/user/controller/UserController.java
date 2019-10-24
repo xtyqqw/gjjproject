@@ -42,6 +42,15 @@ public class UserController {
     }
 
     /**
+     *
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/toReg")
+    public String toReg()throws Exception{
+        return "login";
+    }
+    /**
      * 单位用户登录方法
      * @param user
      * @throws Exception
@@ -52,12 +61,18 @@ public class UserController {
         if (user.getUserName()!=null && user.getUserPwd()!=null){
             User user1 = userService.findUserByNameAndPwd(user);
             if (user1 != null) {
-                if (user1.getUserStatus() == "认证") {
+                if ((user1.getUserStatus()).equals("认证")) {
                     mv.addObject("userUnitId", user1.getUserUnitId());
                     mv.setViewName("home");
                     return mv;
                 } else if(user1.getUserUnitId()!=null){
-                    mv.addObject("user", user1);
+                    Unit unit = accountService.findUnitByUser(user1);
+                    if (unit.getUnitNum()!=null || unit.getUnitNum()!=""){
+                        mv.addObject("unit",unit);
+                        mv.setViewName("openacc");
+                        return mv;
+                    }
+                    mv.addObject("unit", unit);
                     mv.setViewName("unitregis");
                     return mv;
                 } else {
@@ -128,17 +143,17 @@ public class UserController {
             unit.setUnitAccountNum(RandomUtil.generateStr(9));
             Integer flag = unitService.updateUnit(unit);
             if (flag == 1) {
-                mv.addObject("msg","单位账户登记成功，请进行单位开户");
+                mv.addObject("wrong","单位账户登记成功，请进行单位开户");
                 mv.addObject("unit",unit);
                 mv.setViewName("openacc");
                 return mv;
             }else {
-                mv.addObject("msg","登记失败，请检查单位信息");
+                mv.addObject("wrong","登记失败，请检查单位信息");
                 mv.setViewName("unitregis");
                 return mv;
             }
         }
-        mv.addObject("msg","信息异常，请重新登录");
+        mv.addObject("wrong","信息异常，请重新登录");
         mv.setViewName("loginunit");
         return mv;
     }
@@ -149,7 +164,8 @@ public class UserController {
      * @throws Exception
      */
     @RequestMapping("/openAccount")
-    public String openAccount(Account account)throws Exception{
+    public ModelAndView openAccount(Account account)throws Exception{
+        ModelAndView mv = new ModelAndView();
         String accId = UUIDUtil.getUUID();
         account.setAccountId(accId);
         Integer flag = accountService.addAccount(account);
@@ -157,8 +173,13 @@ public class UserController {
             User user = accountService.findUserByAccountId(accId);
             user.setUserStatus("认证");
             accountService.updateUserStatus(user);
-            return "home";
+            mv.addObject("userUnitId", user.getUserUnitId());
+            mv.setViewName("home");
+            return mv;
+        }else {
+            mv.addObject("wrong", "开户失败，请检查录入信息");
+            mv.setViewName("openacc");
+            return mv;
         }
-        return "openacc";
     }
 }

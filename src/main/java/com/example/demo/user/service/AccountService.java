@@ -1,6 +1,7 @@
 package com.example.demo.user.service;
 
 import com.example.demo.entity.Account;
+import com.example.demo.entity.Unit;
 import com.example.demo.entity.User;
 
 /**
@@ -26,4 +27,11 @@ public interface AccountService {
      * @return
      */
     Integer updateUserStatus(User user);
+
+    /**
+     * 跟据userId查询Unit对象
+     * @param user
+     * @return
+     */
+    Unit findUnitByUser(User user);
 }
