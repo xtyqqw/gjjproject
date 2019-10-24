@@ -29,8 +29,9 @@
             border: 1px solid #dddddd;text-indent: 0.5em;float: left;border-radius: 5px;}
         .user_cert_name{width: 300px;height: 40px;border-radius: 5px;border: 1px solid #dddddd;}
         .error{clear: both;display: block;color: red;padding-left: 120px;padding-bottom: 5px;
-            height: 20px;float: left;font-size: 12px;line-height: 20px;
-        }
+            height: 20px;float: left;font-size: 12px;line-height: 20px;}
+        .danwei{clear: both;display: none;padding-left: 120px;padding-bottom: 5px;
+            height: 20px;float: left;font-size: 12px;line-height: 20px;}
         .errorInput{border: 1px solid red !important;}
         .submit input{display: inline-block;width: 100px;height: 50px;background-color: #01AAED;
             color: #FFFFFF;font-size: 17px;line-height: 40px;outline: none;border: none;
@@ -129,18 +130,21 @@
         <ul class="box box2">
             <li>
                 <label for="unit_name">单位名称</label>
-                <input type="text" placeholder="请输入单位名称" class="unit_name" id="unit_name" />
-                <span class="error"></span>
+                <input type="text" class="unit_name" id="unit_name" disabled="true"
+                       value="${unit.unitName}" name="" />
+                <span class="danwei">单位id${userUnitId}</span>
             </li>
             <li>
                 <label for="unit_num">组织机构代码</label>
-                <input type="text" placeholder="请输入组织机构代码" class="unit_num" id="unit_num" />
+                <input type="text" class="unit_num" id="unit_num" disabled="true"
+                       value="${unit.unitNum}" name="" />
                 <span class="error"></span>
             </li>
             <li>
                 <label for="user_name">经办人姓名</label>
-                <input type="text" placeholder="请输入经办人姓名" class="user_name" id="user_name" />
-                <span class="error"></span>
+                <input type="text" placeholder="请输入经办人姓名" class="user_name" id="user_name"
+                       value="" name="" />
+                <span class="error">${wrong}</span>
             </li>
             <li>
                 <label for="user_cert_name">证件名称</label>
@@ -152,17 +156,20 @@
             </li><br />
             <li>
                 <label for="user_cert_num">证件号码</label>
-                <input type="text" placeholder="请输入证件号码" class="user_cert_num" id="user_cert_num" />
+                <input type="text" placeholder="请输入证件号码" class="user_cert_num" id="user_cert_num"
+                       value="" name="" />
                 <span class="error"></span>
             </li>
             <li>
                 <label for="user_phonenum">手机号码</label>
-                <input type="text" placeholder="请输入手机号码" class="user_phonenum" id="user_phonenum" />
+                <input type="text" placeholder="请输入手机号码" class="user_phonenum" id="user_phonenum"
+                       value="" name=""/>
                 <span class="error"></span>
             </li>
             <li>
                 <label for="user_email">电子邮箱</label>
-                <input type="email" placeholder="请输入电子邮箱" class="user_email" id="user_email" />
+                <input type="email" placeholder="请输入电子邮箱" class="user_email" id="user_email"
+                       value="" name=""/>
                 <span class="error"></span>
             </li>
         </ul>
