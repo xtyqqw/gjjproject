@@ -63,5 +63,10 @@ public class XController {
         return mv;
     }
 
+    @RequestMapping(value = "/tohome")
+    public String tohome(){
+        return "home";
+    }
+
 
 }

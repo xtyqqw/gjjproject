@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="../../layui/css/layui.css"  media="all">
 </head>
 <body>
-    <form action="<%=request.getContextPath()%>/account/updateunit" method="post">
+
+    <form style="margin-top:45px" action="<%=request.getContextPath()%>/account/updateunit" method="post">
         <div class="layui-form-item">
             <label class="layui-form-label">单位编号</label>
             <div class="layui-input-inline">
@@ -104,7 +105,7 @@
             </div>
         </div>
 
-        <button type="submit" class="layui-btn" >保存修改</button>
+        <button style="margin-left: 30px;margin-top: 40px" type="submit" class="layui-btn" >保存修改</button>
     </form>
 </body>
 </html>

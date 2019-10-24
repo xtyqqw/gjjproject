@@ -60,10 +60,10 @@
                     <a href="<%=request.getContextPath()%>" target="biao">公积金制卡情况查询</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="<%=request.getContextPath()%>" target="biao">单位登记信息变更</a>
+                    <a href="<%=request.getContextPath()%>/account/findunit" target="biao">单位登记信息变更</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="<%=request.getContextPath()%>" target="biao">单位开户信息变更</a>
+                    <a href="<%=request.getContextPath()%>/account/findaccount" target="biao">单位开户信息变更</a>
                 </li>
             </ul>
         </div>
