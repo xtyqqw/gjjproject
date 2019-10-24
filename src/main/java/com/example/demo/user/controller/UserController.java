@@ -62,7 +62,7 @@ public class UserController {
             User user1 = userService.findUserByNameAndPwd(user);
             if (user1 != null) {
                 if ((user1.getUserStatus()).equals("认证")) {
-                    mv.addObject("userUnitId", user1.getUserUnitId());
+                    mv.addObject("user", user1);
                     mv.setViewName("home");
                     return mv;
                 } else if(user1.getUserUnitId()!=null){
