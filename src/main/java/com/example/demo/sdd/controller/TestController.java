@@ -1,6 +1,5 @@
 package com.example.demo.sdd.controller;
 
-import com.example.demo.entity.Test;
 import com.example.demo.sdd.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,22 +21,22 @@ public class TestController {
     public String aa(){
         return "sd/test1";
     }
-    @RequestMapping(value = "/stest")
+    /*@RequestMapping(value = "/stest")
     @ResponseBody
     public Map<String,Object> selectTest(String name){
         Map<String,Object> map=new HashMap<>();
         List<Test> test=testService.selectTest("0");
         map.put("code","0");
-        /*map.put("count",);*/
+        *//*map.put("count",);*//*
         map.put("data",test);
         return map;
-    }
-    @RequestMapping(value = "/")
+    }*/
+    /*@RequestMapping(value = "/")
     public ModelAndView selectTest(System name){
         ModelAndView mv=new ModelAndView();
         List<Test> tests=testService.selectTest("1");
         mv.addObject("tests",tests);
         mv.setViewName("test");
         return null;
-    }
+    }*/
 }
