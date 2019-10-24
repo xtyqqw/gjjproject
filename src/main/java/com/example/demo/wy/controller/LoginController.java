@@ -1,7 +1,11 @@
 package com.example.demo.wy.controller;
 
+import com.example.demo.entity.Unit;
+import com.example.demo.xty.service.UnitService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * @ClassName： LoginController
@@ -12,7 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/login")
 public class LoginController {
-
+    @Autowired
+    UnitService unitService;
     /**
      * 跳转到单位登录页面
      * @return
@@ -69,8 +74,12 @@ public class LoginController {
      * @throws Exception
      */
     @RequestMapping("/toAuthorization")
-    public String toAuthorization()throws Exception{
-        return "authorization";
+    public ModelAndView toAuthorization(String userUnitId)throws Exception{
+        ModelAndView mv = new ModelAndView();
+        Unit unit = unitService.findUnitByUnitId(userUnitId);
+        mv.addObject("unit",unit);
+        mv.setViewName("authorization");
+        return mv;
     }
 
     /**

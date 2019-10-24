@@ -4,6 +4,8 @@ import com.example.demo.entity.Unit;
 import com.example.demo.entity.User;
 import com.example.demo.util.UUIDUtil;
 import com.example.demo.wy.service.AuthoService;
+import com.example.demo.xty.service.UnitService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -23,6 +25,8 @@ public class AuthoController {
     @Resource
     private AuthoService authoService;
 
+
+
     /**
      * 添加单位其他经办人
      * @param user
@@ -36,7 +40,6 @@ public class AuthoController {
         String uuid = UUIDUtil.getUUID();
         user.setUserId(uuid);
         user.getUserUnitId();
-
         String uuid1 = UUIDUtil.getUUID();
         user.setUserUnitId(uuid1);
         unit.setUnitId(uuid1);
