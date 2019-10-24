@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.cxr.dao.RemitDao">
+
+    <resultMap type="com.example.demo.cxr.entity.Remit" id="RemitMap">
+        <result property="remitUnitAccountNum" column="remit_unit_account_num" jdbcType="VARCHAR"/>
+        <result property="remitLoginNum" column="remit_login_num" jdbcType="VARCHAR"/>
+        <result property="remitId" column="remit_id" jdbcType="VARCHAR"/>
+        <result property="remitPersonNum" column="remit_person_num" jdbcType="VARCHAR"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="remitCertName" column="remit_cert_name" jdbcType="VARCHAR"/>
+        <result property="remitCountry" column="remit_country" jdbcType="VARCHAR"/>
+        <result property="remitCertNum" column="remit_cert_num" jdbcType="VARCHAR"/>
+        <result property="remitMoney" column="remit_money" jdbcType="OTHER"/>
+        <result property="unitMonthlyDeposit" column="unit_monthly_deposit" jdbcType="OTHER"/>
+        <result property="personMonthlyDeposit" column="person_monthly_deposit" jdbcType="OTHER"/>
+        <result property="monthlyDepositTotal" column="monthly_deposit_total" jdbcType="OTHER"/>
+        <result property="remitSmsgId" column="remit_smsg_id" jdbcType="VARCHAR"/>
+        <result property="remitCardStatus" column="remit_card_status" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="RemitMap">
+        select
+          remit_unit_account_num, remit_login_num, remit_id, remit_person_num, name, remit_cert_name, remit_country, remit_cert_num, remit_money, unit_monthly_deposit, person_monthly_deposit, monthly_deposit_total, remit_smsg_id, remit_card_status
+        from gjj_demo.remit
+        where remit_id = #{remitId}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="RemitMap">
+        select
+          remit_unit_account_num, remit_login_num, remit_id, remit_person_num, name, remit_cert_name, remit_country, remit_cert_num, remit_money, unit_monthly_deposit, person_monthly_deposit, monthly_deposit_total, remit_smsg_id, remit_card_status
+        from gjj_demo.remit
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="RemitMap">
+        select
+          remit_unit_account_num, remit_login_num, remit_id, remit_person_num, name, remit_cert_name, remit_country, remit_cert_num, remit_money, unit_monthly_deposit, person_monthly_deposit, monthly_deposit_total, remit_smsg_id, remit_card_status
+        from gjj_demo.remit
+        <where>
+            <if test="remitUnitAccountNum != null and remitUnitAccountNum != ''">
+                and remit_unit_account_num = #{remitUnitAccountNum}
+            </if>
+            <if test="remitLoginNum != null and remitLoginNum != ''">
+                and remit_login_num = #{remitLoginNum}
+            </if>
+            <if test="remitId != null and remitId != ''">
+                and remit_id = #{remitId}
+            </if>
+            <if test="remitPersonNum != null and remitPersonNum != ''">
+                and remit_person_num = #{remitPersonNum}
+            </if>
+            <if test="name != null and name != ''">
+                and name = #{name}
+            </if>
+            <if test="remitCertName != null and remitCertName != ''">
+                and remit_cert_name = #{remitCertName}
+            </if>
+            <if test="remitCountry != null and remitCountry != ''">
+                and remit_country = #{remitCountry}
+            </if>
+            <if test="remitCertNum != null and remitCertNum != ''">
+                and remit_cert_num = #{remitCertNum}
+            </if>
+            <if test="remitMoney != null">
+                and remit_money = #{remitMoney}
+            </if>
+            <if test="unitMonthlyDeposit != null">
+                and unit_monthly_deposit = #{unitMonthlyDeposit}
+            </if>
+            <if test="personMonthlyDeposit != null">
+                and person_monthly_deposit = #{personMonthlyDeposit}
+            </if>
+            <if test="monthlyDepositTotal != null">
+                and monthly_deposit_total = #{monthlyDepositTotal}
+            </if>
+            <if test="remitSmsgId != null and remitSmsgId != ''">
+                and remit_smsg_id = #{remitSmsgId}
+            </if>
+            <if test="remitCardStatus != null and remitCardStatus != ''">
+                and remit_card_status = #{remitCardStatus}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="remitId" useGeneratedKeys="true">
+        insert into gjj_demo.remit(remit_unit_account_num, remit_login_num, remit_person_num, name, remit_cert_name, remit_country, remit_cert_num, remit_money, unit_monthly_deposit, person_monthly_deposit, monthly_deposit_total, remit_smsg_id, remit_card_status)
+        values (#{remitUnitAccountNum}, #{remitLoginNum}, #{remitPersonNum}, #{name}, #{remitCertName}, #{remitCountry}, #{remitCertNum}, #{remitMoney}, #{unitMonthlyDeposit}, #{personMonthlyDeposit}, #{monthlyDepositTotal}, #{remitSmsgId}, #{remitCardStatus})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update gjj_demo.remit
+        <set>
+            <if test="remitUnitAccountNum != null and remitUnitAccountNum != ''">
+                remit_unit_account_num = #{remitUnitAccountNum},
+            </if>
+            <if test="remitLoginNum != null and remitLoginNum != ''">
+                remit_login_num = #{remitLoginNum},
+            </if>
+            <if test="remitPersonNum != null and remitPersonNum != ''">
+                remit_person_num = #{remitPersonNum},
+            </if>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="remitCertName != null and remitCertName != ''">
+                remit_cert_name = #{remitCertName},
+            </if>
+            <if test="remitCountry != null and remitCountry != ''">
+                remit_country = #{remitCountry},
+            </if>
+            <if test="remitCertNum != null and remitCertNum != ''">
+                remit_cert_num = #{remitCertNum},
+            </if>
+            <if test="remitMoney != null">
+                remit_money = #{remitMoney},
+            </if>
+            <if test="unitMonthlyDeposit != null">
+                unit_monthly_deposit = #{unitMonthlyDeposit},
+            </if>
+            <if test="personMonthlyDeposit != null">
+                person_monthly_deposit = #{personMonthlyDeposit},
+            </if>
+            <if test="monthlyDepositTotal != null">
+                monthly_deposit_total = #{monthlyDepositTotal},
+            </if>
+            <if test="remitSmsgId != null and remitSmsgId != ''">
+                remit_smsg_id = #{remitSmsgId},
+            </if>
+            <if test="remitCardStatus != null and remitCardStatus != ''">
+                remit_card_status = #{remitCardStatus},
+            </if>
+        </set>
+        where remit_id = #{remitId}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from gjj_demo.remit where remit_id = #{remitId}
+    </delete>
+
+</mapper>

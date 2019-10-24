@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.cxr.mapper.SecondmsgMapper">
+    <resultMap id="secondmsgEntityMap" type="com.example.demo.entity.Secondmsg">
+        <id property="smsgId" column="smsg_id" javaType="java.lang.String"></id>
+        <result property="smsgSectionNum" column="smsg_section_num" javaType="java.lang.String"></result>
+        <result property="smsgSectionName" column="smsg_section_name" javaType="java.lang.String"></result>
+        <result property="smsgCode" column="smsg_code" javaType="java.lang.String"></result>
+    </resultMap>
+    <!--添加二级管理方法-->
+    <insert id="insterSec" parameterType="com.example.demo.entity.Secondmsg">
+        insert into secondmsg(smsg_id,smsg_section_num,smsg_section_name,smsg_code)
+        values (#{smsgId},#{smsgSectionNum},#{smsgSectionName},#{smsgCode})
+    </insert>
+    <!--查询所有信息-->
+    <select id="selectSecAll" parameterType="com.example.demo.entity.Secondmsg" resultMap="secondmsgEntityMap">
+        select * from secondmsg
+    </select>
+    <!--根据id查询方法-->
+    <select id="selectById" parameterType="com.example.demo.entity.Secondmsg" resultMap="secondmsgEntityMap">
+        select * from secondmsg where smsg_id=#{smsgId}
+    </select>
+    <!--根据id删除方法-->
+    <delete id="deleteSec" parameterType="com.example.demo.entity.Secondmsg">
+        delete from secondmsg where smsg_id=#{smsgId}
+    </delete>
+    <!--修改方法-->
+    <update id="updateSec"  parameterType="com.example.demo.entity.Secondmsg">
+        update secondmsg
+        <set>
+            <if test="smsgSectionNum !=null and smsgSectionNum != ''">
+                smsg_section_num=#{smsgSectionNum},
+            </if>
+            <if test="smsgSectionName !=null and smsgSectionName != ''">
+                smsg_section_num=#{smsgSectionName},
+            </if>
+            <if test="smsgCode !=null and smsgCode != ''">
+                smsg_code={smsgCode},
+            </if>
+        </set>
+            where smsg_id=#{smsgId}
+    </update>
+
+</mapper>
