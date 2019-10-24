@@ -38,7 +38,7 @@ public class UserController {
      */
     @RequestMapping("/toLogin")
     public String toLogin() throws Exception{
-        return "yzh/login";
+        return "loginunit";
     }
 
     /**
@@ -54,24 +54,24 @@ public class UserController {
             if (user1 != null) {
                 if (user1.getUserStatus() == "认证") {
                     mv.addObject("userUnitId", user1.getUserUnitId());
-                    mv.setViewName("yzh/home");
+                    mv.setViewName("home");
                     return mv;
                 } else if(user1.getUserUnitId()!=null){
-                    mv.addObject("userUnitId", user1.getUserUnitId());
-                    mv.setViewName("yzh/openAccount");
+                    mv.addObject("user", user1);
+                    mv.setViewName("unitregis");
                     return mv;
                 } else {
-                    mv.setViewName("yzh/registerUnit");
+                    mv.setViewName("login");
                     return mv;
                 }
             } else {
                 mv.addObject("wrong", "用户名或密码错误！");
-                mv.setViewName("yzh/login");
+                mv.setViewName("loginunit");
                 return mv;
             }
         }else{
             mv.addObject("wrong", "用户名和密码不能为空！");
-            mv.setViewName("yzh/login");
+            mv.setViewName("loginunit");
             return mv;
         }
     }
@@ -98,7 +98,7 @@ public class UserController {
         for (User users:userList) {
             if (users.getUserCertNum().equals(user.getUserCertNum())){
                 mv.addObject("wrong", "证件号码已存在，请直接登录");
-                mv.setViewName("yzh/register");
+                mv.setViewName("loginunit");
                 return mv;
             }
         }
@@ -106,11 +106,11 @@ public class UserController {
         Integer flagUnit = unitService.addUnit(unit);
         if (flagUser == 1 && flagUnit == 1) {
             mv.addObject("unit",unit);
-            mv.setViewName("yzh/login");
+            mv.setViewName("unitregis");
             return mv;
         } else {
             mv.addObject("wrong", "注册失败，请检查输入信息");
-            mv.setViewName("yzh/register");
+            mv.setViewName("login");
             return mv;
         }
     }
@@ -130,16 +130,16 @@ public class UserController {
             if (flag == 1) {
                 mv.addObject("msg","单位账户登记成功，请进行单位开户");
                 mv.addObject("unit",unit);
-                mv.setViewName("yzh/openAccount");
+                mv.setViewName("openacc");
                 return mv;
             }else {
                 mv.addObject("msg","登记失败，请检查单位信息");
-                mv.setViewName("yzh/registerUnit");
+                mv.setViewName("unitregis");
                 return mv;
             }
         }
         mv.addObject("msg","信息异常，请重新登录");
-        mv.setViewName("yzh/login");
+        mv.setViewName("loginunit");
         return mv;
     }
 
@@ -157,8 +157,8 @@ public class UserController {
             User user = accountService.findUserByAccountId(accId);
             user.setUserStatus("认证");
             accountService.updateUserStatus(user);
-            return "yzh/home";
+            return "home";
         }
-        return "yzh/openAccount";
+        return "openacc";
     }
 }
