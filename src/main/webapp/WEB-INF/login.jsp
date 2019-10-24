@@ -159,22 +159,22 @@
         <span style="color: red;padding: 0px 70px;">${wrong}</span>
         <ul class="box box2">
             <li>
-                <label for="user_name">姓名</label>
+                <label>姓名</label>
                 <input type="text" placeholder="请输入姓名" name="userName" class="user_name" id="user_name" />
                 <span class="error"></span>
             </li>
             <li>
-                <label for="pwd1">密码</label>
+                <label>密码</label>
                 <input type="password" placeholder="请输入密码" name="userPwd" class="pwd1" id="pwd1" />
                 <span class="error"></span>
             </li>
             <li>
-                <label for="pwd2">确认密码</label>
+                <label>确认密码</label>
                 <input type="password" placeholder="请确认密码" class="pwd2" id="pwd2" />
                 <span class="error"></span>
             </li>
             <li>
-                <label for="user_cert_name">证件名称</label>
+                <label>证件名称</label>
                 <select name="userCertName" class="user_cert_name" id="user_cert_name">
                     <option value="身份证">身份证</option>
                     <option value="军官证">军官证</option>
@@ -182,22 +182,22 @@
                 </select>
             </li><br />
             <li>
-                <label for="user_cert_num">证件号码</label>
+                <label>证件号码</label>
                 <input type="text" placeholder="请确认证件号码" name="userCertNum" class="user_cert_num" id="user_cert_num" />
                 <span class="error"></span>
             </li>
             <li>
-                <label for="unit_name">单位名称</label>
+                <label>单位名称</label>
                 <input type="text" placeholder="请输入单位名称" name="unitName" class="unit_name" id="unit_name" />
                 <span class="error"></span>
             </li>
             <li>
-                <label for="user_phonenum">手机号码</label>
+                <label>手机号码</label>
                 <input type="text" placeholder="请输入手机号码" name="userPhonenum" class="user_phonenum" id="user_phonenum" />
                 <span class="error"></span>
             </li>
             <li>
-                <label for="user_email">电子邮箱</label>
+                <label>电子邮箱</label>
                 <input type="user_email" placeholder="请输入电子邮箱" name="userEmail" class="user_email" id="user_email" />
                 <span class="error"></span>
             </li>

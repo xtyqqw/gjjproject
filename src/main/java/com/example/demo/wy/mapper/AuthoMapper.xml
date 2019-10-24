@@ -20,9 +20,9 @@
 
     <insert id="addUser" parameterType="com.example.demo.entity.User">
         insert into user(user_id,user_name,user_cert_name,user_cert_num,user_phonenum,user_email,
-          user_unit_id)
+          user_createtime,user_unit_id)
         values (#{userId},#{userName},#{userCertName},#{userCertNum},#{userPhonenum},#{userEmail},
-          #{userUnitId})
+          #{userCreatetime},#{userUnitId})
     </insert>
 
     <select id="findUserAll" parameterType="com.example.demo.entity.User" resultMap="userEntityMap">

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -40,6 +41,7 @@ public class AuthoController {
         String uuid = UUIDUtil.getUUID();
         user.setUserId(uuid);
         user.getUserUnitId();
+        user.setUserCreatetime(new Date());
         String uuid1 = UUIDUtil.getUUID();
         user.setUserUnitId(uuid1);
         unit.setUnitId(uuid1);

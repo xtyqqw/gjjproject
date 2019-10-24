@@ -36,40 +36,41 @@
         <h2>《单位经办人授权书》</h2>
         <ul class="box box2">
             <li>
-                <label for="unit_name">单位名称：</label>
-                <span class="massage">智量酷</span>
+                <label>单位名称：</label>
+                <span class="massage">${unit.unitName}</span>
             </li>
             <li>
-                <label for="unit_num">组织机构代码：</label>
-                <span class="massage">123456</span>
+                <label>组织机构代码：</label>
+                <span class="massage">${unit.unitNum}</span>
             </li>
             <li>
-                <label for="user_name">经办人姓名：</label>
-                <span class="massage">哈哈</span>
+                <label>经办人姓名：</label>
+                <span class="massage">${user.userName}</span>
             </li>
             <li>
-                <label for="user_cert_name">证件名称：</label>
-                <span class="massage">身份证</span>
+                <label>证件名称：</label>
+                <span class="massage">${user.userCertName}</span>
             </li>
             <li>
-                <label for="user_cert_num">证件号码：</label>
-                <span class="massage">410928200001010000</span>
+                <label>证件号码：</label>
+                <span class="massage">${user.userCertNum}</span>
             </li>
             <li>
-                <label for="user_phonenum">手机号码：</label>
-                <span class="massage">13566668888</span>
+                <label>手机号码：</label>
+                <span class="massage">${user.userPhonenum}</span>
             </li>
             <li>
-                <label for="user_email">电子邮箱：</label>
-                <span class="massage">123456@qq.com</span>
+                <label>电子邮箱：</label>
+                <span class="massage">${user.userEmail}</span>
             </li>
         </ul>
         <div>
             <p class="paragraph">
-                我单位智量酷授权哈哈（证件号123456）为我单位及我单位所属职工代为办理住房公积金相关业务的经办人员，
-                具体权限为登记、开户、变更单位或职工信息、汇补缴、提取、封存、转移、销户等事宜。
+                我单位智量酷授权${user.userName}（证件号${user.userCertNum}）为我单位及我单位所属职工代为办理
+                住房公积金相关业务的经办人员， 具体权限为登记、开户、变更单位或职工信息、汇补缴、提取、封存、转移、
+                销户等事宜。
             </p><br />
-            <p class="date">2019年10月23日</p>
+            <p class="date">${user.userCreatetime}</p>
         </div>
 
     </div>
