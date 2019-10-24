@@ -91,7 +91,7 @@
             </li>
             <li>
                 <label>业务经办部门</label>
-                <input type="email" placeholder="请输入业务经办部门" class="input"
+                <input type="text" placeholder="请输入业务经办部门" class="input"
                        name="accountBussinessSection" id="account_bussiness_section" />
             </li><br>
             <li>

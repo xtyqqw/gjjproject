@@ -117,7 +117,7 @@
             </li>
             <li>
                 <label>法人证件号码</label>
-                <input type="email" placeholder="请输入法人证件号码" class="input"
+                <input type="text" placeholder="请输入法人证件号码" class="input"
                        id="unit_legal_cert_num" name="unitLegalCertNum" />
                 <span class="error"></span>
             </li>

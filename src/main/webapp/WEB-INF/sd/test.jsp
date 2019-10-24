@@ -23,6 +23,9 @@
         /* 输入框的样式 */
         .box li input{padding: 6px 0;font-size: 16px;width: 200px;height: 40px;line-height: 28px;
             border: 1px solid #dddddd;text-indent: 0.5em;float: left;border-radius: 5px;}
+        /*下拉框的样式*/
+        .xlInput{width: 200px;height: 40px;border: 1px solid #dddddd;border-radius: 5px;}
+        /*提交按钮的样式*/
         .submit input{display: inline-block;width: 80px;height: 40px;background-color: #01AAED;
             color: #FFFFFF;font-size: 17px; line-height: 40px;outline: none;border: none;
             border-radius: 5px;cursor: pointer;margin-left: 200px;}
@@ -34,7 +37,7 @@
 
 <%--添加的弹出框--%>
 <div hidden="hidden" id="sadd">
-    <form class="layui-form" action="<%=request.getContextPath()%>/persons/add" method="post">
+    <form action="<%=request.getContextPath()%>/persons/add" method="post">
         <ul class="box box2">
             <li>
                 <label>姓名：</label>
@@ -42,7 +45,11 @@
             </li>
             <li>
                 <label>证件名称：</label>
-                <input type="text" placeholder="请输入证件名称"  name="personCertName" /><br><br>
+                <select name="personCertName" class="xlInput">
+                    <option value="身份证">身份证</option>
+                    <option value="军官证">军官证</option>
+                    <option value="护照">护照</option>
+                </select><br><br>
             </li>
             <li>
                 <label>证件号码：</label>
@@ -66,13 +73,13 @@
             </li>
         </ul>
         <div class="submit">
-            <input type="submit" value="提交" />
+            <input type="submit" value="添加" />
         </div>
     </form>
 </div>
 <%--修改的弹出框--%>
 <div hidden="hidden" id="updates">
-    <form class="layui-form" action="<%=request.getContextPath()%>/persons/update" method="post">
+    <form action="<%=request.getContextPath()%>/persons/update" method="post">
         <ul class="box box2">
             <li hidden="hidden">
                 <label>id：</label>
@@ -84,7 +91,11 @@
             </li>
             <li>
                 <label>证件名称：</label>
-                <input type="text" id="personCertName"  name="personCertName" /><br><br>
+                <select name="personCertName" class="xlInput" id="personCertName">
+                    <option value="身份证">身份证</option>
+                    <option value="军官证">军官证</option>
+                    <option value="护照">护照</option>
+                </select><br><br>
             </li>
             <li>
                 <label>证件号码：</label>
@@ -108,7 +119,7 @@
             </li>
         </ul>
         <div class="submit">
-            <input type="submit" value="提交" />
+            <input type="submit" value="保存" />
         </div>
     </form>
 </div>
@@ -170,9 +181,9 @@
                     });
                 }
             });
-            table.on('tool(test)',function (obj) {/*删除*/
+            table.on('tool(test)',function (obj) {
                 var data=obj.data;
-                if(obj.event==='del'){
+                if(obj.event==='del'){/*删除*/
                     layer.confirm("确认删除？",function (index) {
                         obj.del();
                         $.ajax({
@@ -189,6 +200,10 @@
                     $("#personName").val(data.personName);
                     $("#personCertName").val(data.personCertName);
                     $("#personCertNum").val(data.personCertNum);
+                    $("#personUnit").val(data.personUnit);
+                    $("#personBase").val(data.personBase);
+                    $("#personRatio").val(data.personRatio);
+                    $("#personAmount").val(data.personAmount);
                     layer.open({
                         type:1
                         ,title:'修改'
