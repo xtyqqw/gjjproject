@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.sdd.mapper.TestMapper">
+    <resultMap type="com.example.demo.entity.Test" id="testMap">
+        <id property="id" column="id" javaType="java.lang.Integer"/>
+        <result property="name" column="name" javaType="java.lang.String"/>
+
+    </resultMap>
+    <select id="selectTest" parameterType="com.example.demo.entity.Test" resultMap="testMap">
+        select * from test where name=#{name}
+    </select>
+</mapper>

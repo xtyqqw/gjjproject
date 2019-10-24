@@ -16,16 +16,36 @@
     </resultMap>
     <!--查询所有用户-->
     <select id="selectPersonAll" resultType="com.example.demo.entity.Pagination" resultMap="personMap">
-        select * from person limit #{startPage},#{limit}
+        select * from person
+        <if test="personName!=null and personCertNum!=null and personName!='' and personCertNum!=''">
+        where  person_name=#{personName} and person_cert_num=#{personCertNum}
+
+        </if>
+        limit #{startPage},#{limit}
     </select>
     <!--分页查询-->
     <select id="findPerson" parameterType="com.example.demo.entity.Pagination" resultType="java.lang.Integer">
         select count(1) from person
     </select>
+    <!--添加-->
     <insert id="addPerson" parameterType="com.example.demo.entity.Person">
-        insert into person (person_id,person_name,person_cert_name,person_num,person_unit,person_base,person_ratio,person_amount,person_register)
+        insert into person (person_id,person_name,person_cert_name,person_cert_num,person_unit,person_base,person_ratio,person_amount,person_register)
         values (#{personId},#{personName},#{personCertName},#{personCertNum},#{personUnit},#{personBase},#{personRatio},#{personAmount},#{personRegister})
     </insert>
+    <!--修改-->
+    <update id="updatePerson" parameterType="com.example.demo.entity.Person">
+        update person set
+        person_name=#{personName},person_cert_name=#{personCertName},person_cert_num=#{personCertNum},person_base=#{personBase},person_ratio=#{personRatio},person_amount=#{personAmount},person_register=#{personRegister}
+        where person_id=#{personId}
+    </update>
+    <!--删除-->
+    <delete id="deletePerson" parameterType="java.lang.Integer">
+        delete from person where person_id=#{personId}
+    </delete>
+    <!--根据名字查询-->
+    <select id="dimPerson" resultMap="personMap" parameterType="com.example.demo.entity.Person">
+        select * from person where person_name =#{personName} and person_cert_num=#{personCertNum}
+    </select>
 </mapper>
 
 
