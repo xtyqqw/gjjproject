@@ -17,14 +17,14 @@
         <div class="layui-form-item">
             <label class="layui-form-label">单位编号</label>
             <div class="layui-input-inline">
-                <input style="width: 350px" type="text" name="username" disabled="true" lay-verify="required" value="${unit.unitId}"  autocomplete="off" class="layui-input">
+                <input style="width: 350px" type="text" name="unitId" readonly="readonly" lay-verify="required" value="${unit.unitId}"  autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
             <div class="layui-inline">
                 <label class="layui-form-label">单位名</label>
                 <div class="layui-input-inline">
-                    <input type="tel" name="unitName" value="${unit.unitName}" disabled="true" lay-verify="required|phone"  autocomplete="off" class="layui-input">
+                    <input type="tel" name="unitName" value="${unit.unitName}" readonly="readonly" lay-verify="required|phone"  autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-inline">

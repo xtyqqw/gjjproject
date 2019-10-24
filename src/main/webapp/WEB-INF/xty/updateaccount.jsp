@@ -12,11 +12,11 @@
     <link rel="stylesheet" href="../../layui/css/layui.css"  media="all">
 </head>
 <body>
-<form style="margin-top:45px" action="<%=request.getContextPath()%>/account/updateunit" method="post">
+<form style="margin-top:45px" action="<%=request.getContextPath()%>/account/updateaccount" method="post">
     <div class="layui-form-item">
         <label class="layui-form-label">账户编号</label>
         <div class="layui-input-inline">
-            <input style="width: 350px" type="text" name="accountId" disabled="true" lay-verify="required" value="${account.accountId}"  autocomplete="off" class="layui-input">
+            <input style="width: 350px" type="text" name="accountId" readonly="readonly" lay-verify="required" value="${account.accountId}"  autocomplete="off" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">

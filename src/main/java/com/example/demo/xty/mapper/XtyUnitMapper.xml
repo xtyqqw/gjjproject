@@ -38,7 +38,7 @@
     </resultMap>
     
     <select id="findAccountById" resultMap="accountMap" parameterType="java.lang.String">
-        select * from account where id = #{id}
+        select * from account where account_unit_id = #{id}
     </select>
 
     <select id="findUnitByUnitId" resultMap="unitmap" parameterType="java.lang.String">

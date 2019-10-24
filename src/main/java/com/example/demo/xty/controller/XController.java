@@ -4,11 +4,9 @@ import com.example.demo.entity.Account;
 import com.example.demo.entity.Unit;
 import com.example.demo.xty.service.UnitService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -20,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping(value = "/account")
 public class XController {
+
     @Autowired
     UnitService unitService;
     @RequestMapping(value = "/test")
@@ -29,9 +28,9 @@ public class XController {
     @GetMapping(value = "/findaccount")
     public ModelAndView findAccount(String id){
         ModelAndView mv = new ModelAndView();
-//        Account account = unitService.findAccountById(id);
-        Account account = new Account();
-        account.setAccountId("123");
+        Account account = unitService.findAccountById(id);
+//        Account account = new Account();
+//        account.setAccountId("123");
         mv.addObject("account",account);
         mv.setViewName("xty/updateaccount");
         return mv;
@@ -45,10 +44,10 @@ public class XController {
         return mv;
     }
 
-    @GetMapping(value = "/findunit")
+    @RequestMapping(value = "/findunit")
     public ModelAndView findUnit(String userUnitId){
         ModelAndView mv = new ModelAndView();
-        userUnitId = "08d98fba56054c5ab8a011a7546a01ab";
+//        userUnitId = "08d98fba56054c5ab8a011a7546a01ab";
         Unit unit = unitService.findUnitByUnitId(userUnitId);
         mv.addObject("unit",unit);
         mv.setViewName("xty/updateunit");
