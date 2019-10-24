@@ -17,42 +17,57 @@
         .headimg{width: 100%;height: 150px;}
         .headimg img{width: 100%;}
         .div1{width: 100%;height: 70%;}
-        .form1{background: #FFFFFF;width: 400px;height: 350px;margin: 0 auto;margin-top: 50px;
-            box-shadow: 2px 2px 5px #737383;}
-        .p1{color: #555555;font-size: 25px;font-weight: bold;
-            padding: 20px 150px 0px 150px;}
-        .userpwd{padding: 10px 80px;}
-        .input{width: 150px;height: 40px;}
-        .btn a{height: 40px;background-color: #01AAED;padding: 1px 20px;margin-left: 75px;
-            display: inline-block;line-height: 35px;}
-        a{color: #FFFFFF;text-decoration: none;font-size: 17px;}
-        .login{margin-left: 50px;background-color: #01AAED;width: 100px;height: 40px;
-            color: #FFFFFF;border: 0px none;font-size: 17px;}
+        .waik{background: #FFFFFF;width: 30%;height: 400px;box-shadow: 2px 2px 5px #737383;
+            margin: 0px auto;text-align: center;padding-bottom: 20px;}
+        h2{padding: 40px;letter-spacing: 20px;padding-bottom: 20px;}
+        .box{padding-left: 80px; }
+        .box li{line-height: 44px;width: 100%;overflow: hidden;list-style: none;}
+        /* 账号 密码 验证码的样式 */
+        .box li label {width: 68px;height: 50px;float: left;line-height: 50px;text-align: right;
+            padding-right: 20px;}
+        /* 账号 密码 验证码输入框的样式 */
+        .box li input{padding: 6px 0;font-size: 16px;width: 200px;height: 40px;line-height: 28px;
+            border: 1px solid #dddddd;text-indent: 0.5em;float: left;border-radius: 5px;}
+        .error{clear: both;display: block;color: red;padding-left: 90px;padding-bottom: 5px;
+            height: 20px;float: left;font-size: 12px;line-height: 20px;
+        }
+        .submit input{display: inline-block;width: 80px;height: 40px;background-color: #01AAED;
+            color: #FFFFFF;font-size: 17px; line-height: 40px;outline: none;border: none;
+            border-radius: 5px;cursor: pointer;margin-left: 40px;}
+        .submit a{color: #ffffff;text-decoration: none;font-size: 17px;background: #01AAED;
+            padding: 10px 23px;border-radius: 5px;}
     </style>
 
 </head>
 <body>
-    <div class="headimg">
-        <img src="../img/head.png">
-    </div>
+<div class="headimg">
+    <img src="../img/head.png">
+</div>
 
-    <div class="div1">
-        <form class="form1" action="<%=request.getContextPath()%>/user/login" method="post">
-            <p class="p1">单&nbsp;位&nbsp;登&nbsp;录</p>
-            <%--错误信息--%>
-            <span style="color: red;padding: 0px 70px;">${wrong}</span>
-            <div class="userpwd">
-                用户名：<input class="input" type="text" name="userName" placeholder="请输入用户名" /><br /><br />
-                密&nbsp;&nbsp;&nbsp;码：<input class="input" type="text" name="userPwd" placeholder="请输入密码" />
-                <br /><br /><br />
-            </div>
-            <div class="btn">
-                <a href="<%=request.getContextPath()%>/user/toReg" id="aa" target="_blank">注&nbsp;&nbsp;&nbsp;&nbsp;册</a>
-                <input class="login" type="submit" value="登&nbsp;&nbsp;&nbsp;&nbsp;录" />
-            </div>
+<div class="div1">
+    <form class="waik" action="<%=request.getContextPath()%>/user/login" method="post">
+        <h2>单位登录</h2>
+        <!-- 错误信息 -->
+        <span class="error">${wrong}</span><br />
+        <ul class="box box2">
+            <li>
+                <label>用户名：</label>
+                <input type="text" placeholder="请输入用户名" name="userName" />
+                <span class="error"></span>
+            </li>
+            <li>
+                <label>密码：</label>
+                <input type="password" placeholder="请输入密码" name="userPwd" />
+                <span class="error"></span>
+            </li>
+        </ul>
+        <div class="submit">
+            <a href="<%=request.getContextPath()%>/user/toReg" target="_blank">注册</a>
+            <input type="submit" value="登录" />
+        </div>
 
-        </form>
-    </div>
+    </form>
+</div>
 
 </body>
 </html>

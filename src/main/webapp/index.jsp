@@ -25,6 +25,7 @@
         .div31,.div32 a{font-size: 16px;font-family: "ms sans serif";text-align: center;
             line-height: 42px;display: block;padding-top: 30px;}
         a{color: #FFFFFF;text-decoration: none;}
+        a:hover{color: #FFFFFF;}
         .div32{background: url(img/unit.png) no-repeat;width: 230px;height: 115px;}
     </style>
 
