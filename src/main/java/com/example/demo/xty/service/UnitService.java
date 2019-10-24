@@ -7,4 +7,5 @@ public interface UnitService {
     Account findAccountById(String id);
     Unit findUnitByUnitId(String unitId);
     void updateUnit(Unit unit);
+    void updateAccount(Account account);
 }

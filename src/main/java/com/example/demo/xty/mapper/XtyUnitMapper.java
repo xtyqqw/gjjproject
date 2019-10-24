@@ -9,4 +9,5 @@ public interface XtyUnitMapper {
     Account findAccountById(String id);
     Unit findUnitByUnitId(String id);
     void updateUnit(Unit unit);
+    void updateAccount(Account account);
 }

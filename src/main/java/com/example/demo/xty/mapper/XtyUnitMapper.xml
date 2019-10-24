@@ -32,7 +32,7 @@
         <result property="unitWorkAdd" column="unit_work_add" javaType="java.lang.String"></result>
         <result property="unitCondition" column="unit_condition" javaType="java.lang.String"></result>
         <result property="unitCreatetime" column="unit_createtime" javaType="java.util.Date"></result>
-        <result property="superUnitName" column="super_unit_name" javaType="java.lang.String"></result>
+        <result property="superUnitName" column="super_unitname" javaType="java.lang.String"></result>
         <result property="unitUserId" column="unit_user_id" javaType="java.lang.String"></result>
         <result property="unitAccountNum" column="unit_account_num" javaType="java.lang.String"></result>
     </resultMap>
@@ -96,4 +96,45 @@
         </set>
         where unit_id = #{unitId}
     </update>
+
+    <update id="updateAccount" parameterType="com.example.demo.entity.Account">
+        update account
+        <set>
+            <if test="accountUnitId != null and accountUnitId != ''">
+                account_unit_id = #{accountUnitId},
+            </if>
+            <if test="accountJtype != null and accountJtype != ''">
+                account_jtype = #{accountJtype},
+            </if>
+            <if test="accountMfrom != null and accountMfrom != ''">
+                account_mfrom = #{accountMfrom},
+            </if>
+            <if test="accountIsopen != null and accountIsopen != ''">
+                account_isopen = #{accountIsopen},
+            </if>
+            <if test="accountMunit != null and accountMunit != ''">
+                account_munit = #{accountMunit},
+            </if>
+            <if test="accountBussinessSection != null and accountBussinessSection != ''">
+                account_bussiness_section = #{accountBussinessSection},
+            </if>
+            <if test="accountMdate != null">
+                account_mdate = #{accountMdate},
+            </if>
+            <if test="accountFirstmonth != null">
+                account_firstmonth = #{accountFirstmonth},
+            </if>
+            <if test="accountClearMonth != null">
+                account_clear_month = #{accountClearMonth},
+            </if>
+            <if test="accountRatio != null">
+                account_ratio = #{accountRatio},
+            </if>
+            <if test="accountIsclean != null and accountIsclean != ''">
+                account_isclean = #{accountIsclean},
+            </if>
+        </set>
+        where account_id = #{accountId}
+    </update>
+
 </mapper>

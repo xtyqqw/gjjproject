@@ -33,15 +33,23 @@ public class XController {
         Account account = new Account();
         account.setAccountId("123");
         mv.addObject("account",account);
-        mv.setViewName("xty/test");
+        mv.setViewName("xty/updateaccount");
+        return mv;
+    }
+
+    @PostMapping(value = "/updateaccount")
+    public ModelAndView updateAccount(Account account){
+        ModelAndView mv = new ModelAndView();
+        unitService.updateAccount(account);
+        mv.setViewName("xty/updateaccount");
         return mv;
     }
 
     @GetMapping(value = "/findunit")
-    public ModelAndView findUnit(String unitId){
+    public ModelAndView findUnit(String userUnitId){
         ModelAndView mv = new ModelAndView();
-        unitId = "08d98fba56054c5ab8a011a7546a01ab";
-        Unit unit = unitService.findUnitByUnitId(unitId);
+        userUnitId = "08d98fba56054c5ab8a011a7546a01ab";
+        Unit unit = unitService.findUnitByUnitId(userUnitId);
         mv.addObject("unit",unit);
         mv.setViewName("xty/updateunit");
         return mv;
@@ -54,5 +62,6 @@ public class XController {
         mv.setViewName("xty/updateunit");
         return mv;
     }
+
 
 }

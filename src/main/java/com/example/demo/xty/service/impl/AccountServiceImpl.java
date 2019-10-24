@@ -31,4 +31,9 @@ public class AccountServiceImpl implements UnitService {
     public void updateUnit(Unit unit) {
         unitMapper.updateUnit(unit);
     }
+
+    @Override
+    public void updateAccount(Account account) {
+        unitMapper.updateAccount(account);
+    }
 }
