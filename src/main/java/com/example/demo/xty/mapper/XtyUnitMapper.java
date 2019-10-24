@@ -6,8 +6,29 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface XtyUnitMapper {
+    /**
+     * 通过id查询账户信息
+     * @param id
+     * @return
+     */
     Account findAccountById(String id);
+
+    /**
+     * 通过unitId查询单位信息
+     * @param id
+     * @return
+     */
     Unit findUnitByUnitId(String id);
+
+    /**
+     * 修改单位注册信息
+     * @param unit
+     */
     void updateUnit(Unit unit);
+
+    /**
+     * 修改单位账户信息
+     * @param account
+     */
     void updateAccount(Account account);
 }

@@ -21,10 +21,12 @@ public class XController {
 
     @Autowired
     UnitService unitService;
-    @RequestMapping(value = "/test")
-    public String test(){
-        return "sdd/test";
-    }
+
+    /**
+     * 查询account并将数据带回页面
+     * @param id
+     * @return
+     */
     @GetMapping(value = "/findaccount")
     public ModelAndView findAccount(String id){
         ModelAndView mv = new ModelAndView();
@@ -44,6 +46,11 @@ public class XController {
         return mv;
     }
 
+    /**
+     * 根据前台传来的userUnitId查询对应的单位信息
+     * @param userUnitId
+     * @return
+     */
     @RequestMapping(value = "/findunit")
     public ModelAndView findUnit(String userUnitId){
         ModelAndView mv = new ModelAndView();
