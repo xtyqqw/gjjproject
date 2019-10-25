@@ -35,10 +35,10 @@
                 smsg_section_num=#{smsgSectionNum},
             </if>
             <if test="smsgSectionName !=null and smsgSectionName != ''">
-                smsg_section_num=#{smsgSectionName},
+                smsg_section_name=#{smsgSectionName},
             </if>
             <if test="smsgCode !=null and smsgCode != ''">
-                smsg_code={smsgCode},
+                smsg_code=#{smsgCode},
             </if>
         </set>
             where smsg_id=#{smsgId}

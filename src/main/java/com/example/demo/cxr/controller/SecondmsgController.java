@@ -59,7 +59,7 @@ public class SecondmsgController {
     @RequestMapping("/updateSec")
     @ResponseBody
     public ModelAndView update(Secondmsg secondmsg){
-        secondmsg.setSmsgId(UUIDUtil.getUUID());
+//        secondmsg.setSmsgId(UUIDUtil.getUUID());
        int update=secondmsgService.updateSec(secondmsg);
         ModelAndView mv=new ModelAndView();
         if(update>0){
@@ -126,7 +126,7 @@ public class SecondmsgController {
     @RequestMapping("/insertRemit")
     @ResponseBody
     public ModelAndView insertRemit(Remit remit){
-        remit.setRemitId(UUIDUtil.getUUID());
+//        remit.setRemitId(UUIDUtil.getUUID());
         int i=remitService.insterRemit(remit);
         ModelAndView mv=new ModelAndView();
         if(i>0){
@@ -169,7 +169,7 @@ public class SecondmsgController {
             map1.put("code",0);
             map1.put("data",list1);
             map1.put("count",count1);
-        System.out.println(123);
+
             return map1;
     }
     @RequestMapping("/toremit")

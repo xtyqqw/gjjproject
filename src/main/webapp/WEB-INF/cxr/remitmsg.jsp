@@ -39,7 +39,7 @@
 <!-- 添加信息表单 -->
 <div class="insterRemit">
     <form  id="insterRemit" style="display: none; margin-top: 1vw;" action="<%=request.getContextPath()%>/secongmsg/insertRemit" method="post">
-        序号：<input type="text" name="remitId" id="remitId1"><br>
+
         职工编号：<input type="text" name="remitPersonNum" id="remitPersonNum1"><br>
         姓名：    <input type="text" name="name" id="name1"><br>
         证件名称：<input type="text" name="remitCertName" id="remitCertName1"><br>
@@ -62,7 +62,7 @@
 <!-- 修改信息表 -->
 <div class="updateRemit">
     <form  id="updateRemit" style="display: none; margin-top: 1vw;" action="" method="post">
-        序号：<input type="text" name="remitId" id="remitId"><br>
+
         职工编号：<input type="text" name="remitPersonNum" id="remitPersonNum"><br>
         姓名：    <input type="text" name="name" id="name"><br>
         证件名称：<input type="text" name="remitCertName" id="remitCertName"><br>
@@ -94,13 +94,13 @@
 </script>
 <script type="text/html" id="barDemo">
     <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
-    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+
 </script>
 
 <script>
     layui.use('table', function(){
         var table = layui.table;
-
+        var $=layui.$;
         table.render({
             elem: '#test'
             ,url:'<%=request.getContextPath()%>/secongmsg/selectRemitAll'
@@ -128,8 +128,6 @@
 
         //工具栏事件
         table.on('toolbar(test)', function(obj){
-            var $ = layui.$;
-            var data = obj.data;
             var checkStatus = table.checkStatus(obj.config.id);
             switch(obj.event){
                 case 'getCheckData':
@@ -146,12 +144,8 @@
                         content:$("#updateRemit")
                     });
                     break;
-                case 'del':
-                    var data = checkStatus.data;
-                    layer.confirm('真的删除行么', function(index){
-                        obj.del();
-                        layer.close(index);
-                    });
+                case 'isAll':
+                    layer.msg(checkStatus.isAll ? '全选': '未全选')
                     break;
             };
         });

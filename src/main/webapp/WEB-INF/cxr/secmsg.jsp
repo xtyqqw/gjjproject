@@ -40,7 +40,7 @@
 <!--  添加二级管理表单 -->
 <div class="inster">
     <form id="insterSec" style="display: none; margin-top: 1vw;" action="<%=request.getContextPath()%>/secongmsg/insertSec" method="post" >
-        序号:<input id="smsgId1" type="text" name="smsgId" value=""><br>
+
         部门编号：<input id="smsgSectionNum1" type="text" name="smsgSectionNum" value=""><br>
         部门名称：<input id="smsgSctionName1" type="text" name="smsgSectionName" value=""><br>
         部门代码：<input id="smsgCode1" type="text" name="smsgCode" value=""><br>
@@ -53,7 +53,7 @@
 <!-- 修改二级管理表单 -->
 <div class="update">
     <form id="updateSec" style="display: none;"  action="<%=request.getContextPath()%>/secongmsg/updateSec" method="post">
-        序号:<input id="smsgId" type="text" name="smsgId" value=""><br>
+
         部门编号：<input id="smsgSectionNum" type="text" name="smsgSectionNum" value=""><br>
         部门名称：<input id="smsgSctionName" type="text" name="smsgSectionName" value=""><br>
         部门代码：<input id="smsgCode" type="text" name="smsgCode" value=""><br>
@@ -69,9 +69,8 @@
 
 <script type="text/html" id="toolbarDemo">
     <div class="layui-btn-container">
-        <button class="layui-btn layui-btn-sm" lay-event="getCheckData">获取选中行数据</button>
-        <button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button>
-        <button class="layui-btn layui-btn-sm" lay-event="isAll">验证是否全选</button>
+        <button class="layui-btn layui-btn-sm" lay-event="getCheckData">添加</button>
+
     </div>
 </script>
 <script type="text/html" id="barDemo">
@@ -91,7 +90,7 @@
             ,totalRow: true
             ,cols: [[
                 {type: 'checkbox', fixed: 'left'}
-                ,{field:'smsgId', title:'ID', width:80, fixed: 'left', unresize: true, sort: true, totalRowText: '合计'}
+                ,{field:'smsgId', title:'序号', width:120, edit: 'text'}
                 ,{field:'smsgSectionNum', title:'部门编号', width:120, edit: 'text'}
                 ,{field:'smsgSectionName', title:'部门名称', width:120, edit: 'text'}
                 ,{field:'smsgCode', title:'部门代码', width:80, sort: true, totalRow: true}
@@ -121,8 +120,28 @@
                     break;
             };
         });
+
+        //监听工具条
+        table.on('tool(demo)', function(obj){
+            var data = obj.data;
+            if(obj.event === 'detail'){
+                layer.msg('ID：'+ data.id + ' 的查看操作');
+            } else if(obj.event === 'del'){
+                layer.confirm('真的删除行么1', function(index){
+                    obj.del();
+                    layer.close(index);
+                });
+            } else if(obj.event === 'edit'){
+                layer.open({
+                    type:1,
+                    content:$("#updateRemit")
+                });
+            }
+        });
+
     });
 </script>
-
+<script>
+</script>
 </body>
 </html>

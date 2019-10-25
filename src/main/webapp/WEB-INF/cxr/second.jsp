@@ -62,9 +62,9 @@
 <!-- 修改二级管理表单 -->
 <div class="update">
     <form id="updateSec" style="display: none;"  action="<%=request.getContextPath()%>/secongmsg/updateSec" method="post">
-        序号:<input id="smsgId" type="text" name="smsgId" value=""><br>
+        序号:<input id="smsgId" readonly="readonly" type="text" name="smsgId" value=""><br>
         部门编号：<input id="smsgSectionNum" type="text" name="smsgSectionNum" value=""><br>
-        部门名称：<input id="smsgSctionName" type="text" name="smsgSectionName" value=""><br>
+        部门名称：<input id="smsgSectionName" type="text" name="smsgSectionName" value=""><br>
         部门代码：<input id="smsgCode" type="text" name="smsgCode" value=""><br>
         <button type="submit">修改</button>
     </form>
@@ -81,7 +81,7 @@
 </div>
 
 <div class="layui-btn-group demoTable">
-    <button  class="layui-btn" data-type="getCheckData" onclick="insterSecc()">添加</button>
+    <button  class="layui-btn" data-type="getCheckData" onclick="insterSec()">添加</button>
 
 </div>
 
@@ -123,13 +123,28 @@
                 layer.msg('ID：'+ data.id + ' 的查看操作');
             } else if(obj.event === 'del'){
                 layer.confirm('真的删除行么', function(index){
+                    var smsgId=data.smsgId;
+                    $.ajax({
+                        type:"post",
+                        url:"<%=request.getContextPath()%>/secongmsg/deleteSec?smsgId="+smsgId,
+                        contentType:'application/json;charset=utf-8',
+                        data:'{smsgId:'+smsgId+'}',
+                        success:function (str) {
+                            layer.msg(str);
+                        }
+                    });
                     obj.del();
                     layer.close(index);
                 });
             } else if(obj.event === 'edit'){
+                $("#smsgId").val(data.smsgId);
+                $("#smsgSectionNum").val(data.smsgSectionNum);
+                $("#smsgSectionName").val(data.smsgSectionName);
+                $("#smsgCode").val(data.smsgCode);
+
                 layer.open({
                     type:1,
-                    content:$("updateSec")
+                    content:$("#updateSec")
                 });
             }
         });
@@ -159,6 +174,9 @@
     });
 
 
+
+</script>
+<script>
 
 </script>
 </body>
