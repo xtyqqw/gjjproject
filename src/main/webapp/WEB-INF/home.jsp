@@ -63,11 +63,7 @@
                     <a class="menu" href="<%=request.getContextPath()%>/persons/totest" target="biao">个人登记功能（无单位）</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a class="menu" href="javascript:;" target="biao">公积金制卡情况查询</a>
-                    <dl class="layui-nav-child">
-                        <dd><a style="background-color: #aaaaaa;" href="<%=request.getContextPath()%>/stat/tostat" target="biao">已制卡</a></dd>
-                        <dd><a style="background-color: #aaaaaa;" href="<%=request.getContextPath()%>/stats/tostats" target="biao">未制卡</a></dd>
-                    </dl>
+                    <a class="menu" href="<%=request.getContextPath()%>/stat/tostat" target="biao">公积金制卡情况查询</a>
                 </li>
                 <li class="layui-nav-item">
                     <a class="menu" href="<%=request.getContextPath()%>/account/findunit?userUnitId=${user.userUnitId}" target="biao">单位登记信息变更</a>
