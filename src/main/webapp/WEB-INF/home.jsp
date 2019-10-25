@@ -37,12 +37,12 @@
     <div class="layui-header">
         <div class="layui-logo" style="color: #FFFFFF;">北京住房公积金管理中心</div>
         <ul class="layui-nav layui-layout-right" style="background-color: #23262E !important;border: none;">
-            <li class="layui-nav-item" style="float: right;">
-                <input value="欢迎：xx" type="button" />
+            <li class="layui-nav-item" style="float: left;">
+                <input value="欢迎：${user.userName}" type="button" />
             </li>
-            <li class="layui-nav-item" style="float: right;">
+            <li class="layui-nav-item" style="float: left;">
                 <form action="../index.html">
-                    <input style="margin-top: 20px" type="submit" value="退出" />
+                    <input style="margin-top: 20px;margin-bottom: 20px" type="submit" value="退出" />
                 </form>
             </li>
         </ul>
