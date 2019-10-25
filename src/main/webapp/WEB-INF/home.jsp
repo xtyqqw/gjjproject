@@ -54,10 +54,10 @@
                     <a class="menu" href="<%=request.getContextPath()%>/login/toAuthorization?userUnitId=${user.userUnitId}" target="biao">单位网上业务授权申请</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a class="menu" href="" target="biao">二级管理辅助信息定义</a>
+                    <a class="menu" href="<%=request.getContextPath()%>/secongmsg/tosecond" target="biao">二级管理辅助信息定义</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a class="menu" href="" target="biao">单位编辑汇缴清册</a>
+                    <a class="menu" href="<%=request.getContextPath()%>/secongmsg/toremit" target="biao">单位编辑汇缴清册</a>
                 </li>
                 <li class="layui-nav-item">
                     <a class="menu" href="<%=request.getContextPath()%>/persons/totest" target="biao">个人登记功能（无单位）</a>
