@@ -83,6 +83,7 @@ public class PersonController {
             return mv;
         }else {
             mv.addObject("msg","可以直接登记");
+            mv.setViewName("sd/person");
             return mv;
         }
     }

@@ -16,19 +16,17 @@ public class Pagination {
     private String personName;
     /*证件号码*/
     private String personCertNum;
+    private String remitUnitAccountNum;
+    private String remitCertNum;
 
-    public Pagination(Integer page, Integer limit, Integer startPage, String personName, String personCertNum) {
+    public Pagination(Integer page, Integer limit, Integer startPage, String personName, String personCertNum, String remitUnitAccountNum, String remitCertNum) {
         this.page = page;
         this.limit = limit;
         this.startPage = startPage;
         this.personName = personName;
         this.personCertNum = personCertNum;
-    }
-
-    public Pagination(Integer page, Integer limit, Integer startPage) {
-        this.page = page;
-        this.limit = limit;
-        this.startPage = startPage;
+        this.remitUnitAccountNum = remitUnitAccountNum;
+        this.remitCertNum = remitCertNum;
     }
 
     public Pagination() {

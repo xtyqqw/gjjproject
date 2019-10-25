@@ -6,13 +6,13 @@
 
     <resultMap type="com.example.demo.entity.Stat" id="caseMap">
         <id property="remitId" column="remit_id" javaType="java.lang.String"/>
-        <result property="remitUnitAccountNum" column="remit_unit_Account_Num" javaType="java.lang.String"/>
+        <result property="remitUnitAccountNum" column="remit_unit_account_num" javaType="java.lang.String"/>
         <result property="remitLoginNum" column="remit_login_num" javaType="java.lang.String"/>
         <result property="remitPersonNum" column="remit_person_num" javaType="java.lang.String"/>
-        <result property="Name" column="name" javaType="java.lang.String"/>
+        <result property="name" column="name" javaType="java.lang.String"/>
         <result property="remitCertName" column="remit_cert_name" javaType="java.lang.String"/>
         <result property="remitCountry" column="remit_country" javaType="java.lang.String"/>
-        <result property="remitCertNum" column="remit_Cert_num" javaType="java.lang.String"/>
+        <result property="remitCertNum" column="remit_cert_num" javaType="java.lang.String"/>
         <result property="remitMoney" column="remit_money" javaType="java.lang.Double"/>
         <result property="remitMonthlyDeposit" column="remit_monthly_deposit" javaType="java.lang.Double"/>
         <result property="personMonthlyDeposit" column="person_monthly_deposit" javaType="java.lang.Double"/>
@@ -25,9 +25,17 @@
         select * from remit where remit_card_status=#{remitCardStatus}
     </select>
     <select id="selectStatAll" resultType="com.example.demo.entity.Pagination" resultMap="caseMap">
-        select * from remit where limit #{startPage},#{limit}
+        select * from remit
+        <if test="remitUnitAccountNum!=null and remitCertNum!=null and remitUnitAccountNum!='' and remitCertNum!=''">
+            where  remit_unit_account_num=#{remitUnitAccountNum} and remit_cert_num=#{remitCertNum}
+
+        </if>
+        limit #{startPage},#{limit}
     </select>
-    <select id="findStat" parameterType="com.example.demo.entity.Pagination" resultMap="caseMap">
+    <select id="findStat" parameterType="com.example.demo.entity.Pagination" resultType="java.lang.Integer">
         select count(1) from remit
+    </select>
+    <select id="dimStat" resultMap="caseMap" parameterType="com.example.demo.entity.Stat">
+        select * from remit where remit_unit_account_num=#{remitUnitAccountNum} and remit_cert_num=#{remitCertNum}
     </select>
 </mapper>

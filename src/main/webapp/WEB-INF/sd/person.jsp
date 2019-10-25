@@ -34,7 +34,7 @@
 </head>
 <body style="padding: 0 10px;width: 95%;height: 600px;">
 <table class="layui-hide" id="person" lay-filter="test"></table>
-
+<span style="color: red">${msg}</span>
 <%--添加的弹出框--%>
 <div hidden="hidden" id="sadd">
     <form action="<%=request.getContextPath()%>/persons/add" method="post">

@@ -13,10 +13,10 @@ import java.util.List;
 public class StatServiceImpl implements StatService {
     @Autowired
     private StatMapper statMapper;
-    @Override
+   /* @Override
     public List<Stat> selectStat(String remitCardStatus){
         return statMapper.selectStat(remitCardStatus);
-    }
+    }*/
     @Override
     public List<Stat> selectStatAll(Pagination pagination){
         Integer page=pagination.getPage();
@@ -29,5 +29,9 @@ public class StatServiceImpl implements StatService {
     @Override
     public Integer findStat(Pagination pagination){
         return statMapper.findStat(pagination);
+    }
+    @Override
+    public Stat dimStat(Stat stat){
+        return statMapper.dimStat(stat);
     }
 }

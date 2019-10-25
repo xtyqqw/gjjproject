@@ -14,4 +14,6 @@ public interface StatMapper {
     List<Stat> selectStatAll(Pagination pagination);
     /*分页*/
     Integer findStat(Pagination pagination);
+    /*查询单位登记号和证件号码*/
+    Stat dimStat(Stat stat);
 }

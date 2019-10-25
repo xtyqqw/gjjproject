@@ -10,7 +10,7 @@ public class Stat {
     private String remitLoginNum;
     private String remitId;
     private String remitPersonNum;
-    private String Name;
+    private String name;
     private String remitCertName;
     private String remitCountry;
     private String remitCertNum;
@@ -26,7 +26,7 @@ public class Stat {
         this.remitLoginNum = remitLoginNum;
         this.remitId = remitId;
         this.remitPersonNum = remitPersonNum;
-        Name = name;
+        this.name = name;
         this.remitCertName = remitCertName;
         this.remitCountry = remitCountry;
         this.remitCertNum = remitCertNum;
