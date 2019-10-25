@@ -41,7 +41,7 @@
                 <input value="欢迎：${user.userName}" type="button" />
             </li>
             <li class="layui-nav-item" style="float: left;">
-                <form action="../index.html">
+                <form action="/index.jsp">
                     <input style="margin-top: 20px;margin-bottom: 20px" type="submit" value="退出" />
                 </form>
             </li>
