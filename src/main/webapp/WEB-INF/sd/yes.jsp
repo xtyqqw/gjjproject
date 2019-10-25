@@ -40,7 +40,7 @@
             , cols: [[
                 {type:'numbers', width:30}
                 , {field: 'remitPersonNum', width: 120,align:'center', title: '个人编号', sort: true}
-                , {field: 'remitUnitAccountNum', width: 120,align:'center', title: '单位登记号'}
+                
                 , {field: 'name', width: 120,align:'center', title: '姓名'}
                 , {field: 'remitCertName', width: 120,align:'center', title: '证件名称'}
                 , {field: 'remitCertNum', width: 120,align:'center', title: '证件号码'}
