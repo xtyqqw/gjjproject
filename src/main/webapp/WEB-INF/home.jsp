@@ -13,7 +13,8 @@
     <link rel="stylesheet" type="text/css" href="/layui/css/layui.css"/>
     <script src="/layui/layui.js" type="text/javascript"></script>
     <style type="text/css">
-
+        /*.menu{background-color: #FFFFFF;border: 1px solid #dddddd;color: #0C0C0C;}
+        a{color: #0C0C0C}*/
     </style>
     <script>
         //JavaScript代码区域
@@ -29,13 +30,9 @@
         <div class="layui-logo">北京住房公积金管理中心</div>
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
-                <a href=" ">
+                <a href="#">
                     欢迎：${user.userName}
                 </a>
-                <dl class="layui-nav-child">
-                    <dd><a href="javascript:;">基本资料</a></dd>
-                    <dd><a href="javascript:;">安全设置</a></dd>
-                </dl>
             </li>
             <li class="layui-nav-item"><a href="/index.jsp">退出</a></li>
         </ul>
@@ -45,25 +42,29 @@
         <div class="layui-side-scroll">
             <ul class="layui-nav layui-nav-tree" lay-filter="demoNav">
                 <li class="layui-nav-item">
-                    <a href="<%=request.getContextPath()%>/login/toAuthorization?userUnitId=${user.userUnitId}" target="biao">单位网上业务授权申请</a>
+                    <a class="menu" href="<%=request.getContextPath()%>/login/toAuthorization?userUnitId=${user.userUnitId}" target="biao">单位网上业务授权申请</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="<%=request.getContextPath()%>" target="biao">二级管理辅助信息定义</a>
+                    <a class="menu" href="<%=request.getContextPath()%>" target="biao">二级管理辅助信息定义</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="<%=request.getContextPath()%>" target="biao">单位编辑汇缴清册</a>
+                    <a class="menu" href="<%=request.getContextPath()%>" target="biao">单位编辑汇缴清册</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="<%=request.getContextPath()%>/persons/totest" target="biao">个人登记功能（无单位）</a>
+                    <a class="menu" href="<%=request.getContextPath()%>/persons/totest" target="biao">个人登记功能（无单位）</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="<%=request.getContextPath()%>" target="biao">公积金制卡情况查询</a>
+                    <a class="menu" href="#" target="biao">公积金制卡情况查询</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="<%=request.getContextPath()%>/stat/tostat" target="biao">已制卡</a></dd>
+                        <dd><a href="<%=request.getContextPath()%>/stats/tostats" target="biao">未制卡</a></dd>
+                    </dl>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="<%=request.getContextPath()%>/account/findunit?userUnitId=${user.userUnitId}" target="biao">单位登记信息变更</a>
+                    <a class="menu" href="<%=request.getContextPath()%>/account/findunit?userUnitId=${user.userUnitId}" target="biao">单位登记信息变更</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="<%=request.getContextPath()%>/account/findaccount?id=${user.userUnitId}" target="biao">单位开户信息变更</a>
+                    <a class="menu" href="<%=request.getContextPath()%>/account/findaccount?id=${user.userUnitId}" target="biao">单位开户信息变更</a>
                 </li>
             </ul>
         </div>

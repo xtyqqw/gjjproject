@@ -27,7 +27,7 @@
         /* 输入框的样式 */
         .box li input{padding: 6px 0;font-size: 16px;width: 296px;height: 40px;line-height: 28px;
             border: 1px solid #dddddd;text-indent: 0.5em;float: left;border-radius: 5px;}
-        .user_cert_name{width: 300px;height: 40px;border-radius: 5px;border: 1px solid #dddddd;}
+        .xlInput{width: 300px;height: 40px;border-radius: 5px;border: 1px solid #dddddd;}
         .error{clear: both;display: block;color: red;padding-left: 120px;padding-bottom: 5px;
             height: 20px;float: left;font-size: 12px;line-height: 20px;}
         .danwei{clear: both;display: none;padding-left: 120px;padding-bottom: 5px;
@@ -133,7 +133,7 @@
             </li>
             <li>
                 <label for="user_cert_name">证件名称</label>
-                <select name="user_cert_name" id="user_cert_name">
+                <select name="user_cert_name" id="user_cert_name" class="xlInput">
                     <option value="身份证">身份证</option>
                     <option value="军官证">军官证</option>
                     <option value="护照">护照</option>
