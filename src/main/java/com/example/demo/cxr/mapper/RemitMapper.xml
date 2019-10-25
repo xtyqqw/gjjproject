@@ -71,12 +71,16 @@
         where remit_id = #{remitId}
     </update>
     <!--查询所有信息-->
-    <select id="selectRemitAll" parameterType="com.example.demo.entity.Remit" resultMap="remitEntityMap">
-        select * from remit;
+    <select id="selectRemitAll" parameterType="com.example.demo.entity.CxrPagination" resultMap="remitEntityMap">
+        select * from remit limit #{startPage},#{limit};
     </select>
     <!--根据id查询单个信息-->
     <select id="selectRemitById" parameterType="com.example.demo.entity.Remit" resultMap="remitEntityMap">
         select * from remit where remit_id=#{remitId}
+    </select>
+    <!--查询总条数-->
+    <select id="findCount" parameterType="com.example.demo.entity.CxrPagination" resultType="java.lang.Integer">
+        select count(1) from remit
     </select>
 
 </mapper>

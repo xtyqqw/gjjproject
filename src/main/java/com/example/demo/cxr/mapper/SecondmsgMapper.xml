@@ -11,12 +11,12 @@
     </resultMap>
     <!--添加二级管理方法-->
     <insert id="insterSec" parameterType="com.example.demo.entity.Secondmsg">
-        insert into secondmsg(smsg_id,smsg_section_num,smsg_section_name,smsg_code)
-        values (#{smsgId},#{smsgSectionNum},#{smsgSectionName},#{smsgCode})
+        insert into secondmsg(smsg_section_num,smsg_section_name,smsg_code)
+        values (#{smsgSectionNum},#{smsgSectionName},#{smsgCode})
     </insert>
     <!--查询所有信息-->
-    <select id="selectSecAll" parameterType="com.example.demo.entity.Secondmsg" resultMap="secondmsgEntityMap">
-        select * from secondmsg
+    <select id="selectSecAll" parameterType="com.example.demo.entity.CxrPagination" resultMap="secondmsgEntityMap">
+        select * from secondmsg limit #{startPage},#{limit}
     </select>
     <!--根据id查询方法-->
     <select id="selectById" parameterType="com.example.demo.entity.Secondmsg" resultMap="secondmsgEntityMap">
@@ -30,6 +30,7 @@
     <update id="updateSec"  parameterType="com.example.demo.entity.Secondmsg">
         update secondmsg
         <set>
+
             <if test="smsgSectionNum !=null and smsgSectionNum != ''">
                 smsg_section_num=#{smsgSectionNum},
             </if>
@@ -42,5 +43,9 @@
         </set>
             where smsg_id=#{smsgId}
     </update>
+    <!--查询总条数-->
+    <select id="findCount" parameterType="com.example.demo.entity.CxrPagination" resultType="java.lang.Integer">
+        select count(1) from secondmsg
+    </select>
 
 </mapper>

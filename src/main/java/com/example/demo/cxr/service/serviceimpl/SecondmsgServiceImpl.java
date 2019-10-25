@@ -2,6 +2,8 @@ package com.example.demo.cxr.service.serviceimpl;
 
 import com.example.demo.cxr.mapper.SecondmsgMapper;
 import com.example.demo.cxr.service.SecondmsgService;
+import com.example.demo.entity.CxrPagination;
+import com.example.demo.entity.Pagination;
 import com.example.demo.entity.Secondmsg;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,12 +35,23 @@ public class SecondmsgServiceImpl implements SecondmsgService {
     }
 
     @Override
-    public List<Secondmsg> selectSecAll() {
-        return secondmsgMapper.selectSecAll();
+    public List<Secondmsg> selectSecAll(CxrPagination cxrPagination) {
+        int startPage = (cxrPagination.getPage()-1)*cxrPagination.getLimit();
+        cxrPagination.setStartPage(startPage);
+        return secondmsgMapper.selectSecAll(cxrPagination);
+
     }
 
     @Override
     public Secondmsg selectById(String smsgId) {
         return secondmsgMapper.selectById(smsgId);
     }
+
+
+    @Override
+    public Integer findCount() {
+        return secondmsgMapper.findCount();
+    }
+
+
 }

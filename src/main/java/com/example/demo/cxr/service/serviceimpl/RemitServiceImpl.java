@@ -2,6 +2,7 @@ package com.example.demo.cxr.service.serviceimpl;
 
 import com.example.demo.cxr.mapper.RemitMapper;
 import com.example.demo.cxr.service.RemitService;
+import com.example.demo.entity.CxrPagination;
 import com.example.demo.entity.Remit;
 import org.springframework.stereotype.Service;
 
@@ -26,13 +27,22 @@ public class RemitServiceImpl implements RemitService {
         return remitMapper.updateRemit(remit);
     }
 
+
+
     @Override
-    public List<Remit> selectRemitAll() {
-        return remitMapper.selectRemitAll();
+    public List<Remit> selectRemitAll(CxrPagination cxrPagination) {
+        int startPage = (cxrPagination.getPage()-1)*cxrPagination.getLimit();
+        cxrPagination.setStartPage(startPage);
+        return remitMapper.selectRemitAll(cxrPagination);
     }
 
     @Override
     public Remit selectRemitById(String remitId) {
         return remitMapper.selectRemitById(remitId);
+    }
+
+    @Override
+    public Integer findCount() {
+        return remitMapper.findCount();
     }
 }

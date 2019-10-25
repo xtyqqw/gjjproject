@@ -34,7 +34,8 @@
 <body>
 <!-- 添加信息表单 -->
 <div class="insterRemit">
-    <form  id="insterRemit" style="display: none; margin-top: 1vw;" action="" method="post">
+    <form  id="insterRemit" style="display: none; margin-top: 1vw;" action="<%=request.getContextPath()%>/secongmsg/insertRemit" method="post">
+        序号：<input type="text" name="remitId" id="remitId1"><br>
         职工编号：<input type="text" name="remitPersonNum" id="remitPersonNum1"><br>
         姓名：    <input type="text" name="name" id="name1"><br>
         证件名称：<input type="text" name="remitCertName" id="remitCertName1"><br>
@@ -44,6 +45,8 @@
         单位月缴存额：<input type="text" name="unitMonthlyDeposit" id="unitMonthlyDeposit1"><br>
         个人月缴存额：<input type="text" name="personMonthlyDeposit" id="personMonthlyDeposit1"><br>
         月缴存额合计：<input type="text" name="monthlyDepositTotal" id="monthlyDepositTotal1"><br>
+        制卡状态：<input type="text" name="remitCardStatus" id="remitCardStatus1"><br>
+
         二级管理辅助信息：<label><input type="checkbox" name="remitSmsgId" value="0">已开通</label>
         <label><input type="checkbox" name="remitSmsgId" value="1">未开通</label><br>
 
@@ -55,6 +58,7 @@
 <!-- 修改信息表 -->
 <div class="updateRemit">
     <form  id="updateRemit" style="display: none; margin-top: 1vw;" action="" method="post">
+        序号：<input type="text" name="remitId" id="remitId"><br>
         职工编号：<input type="text" name="remitPersonNum" id="remitPersonNum"><br>
         姓名：    <input type="text" name="name" id="name"><br>
         证件名称：<input type="text" name="remitCertName" id="remitCertName"><br>
@@ -64,6 +68,7 @@
         单位月缴存额：<input type="text" name="unitMonthlyDeposit" id="unitMonthlyDeposit"><br>
         个人月缴存额：<input type="text" name="personMonthlyDeposit" id="personMonthlyDeposit"><br>
         月缴存额合计：<input type="text" name="monthlyDepositTotal" id="monthlyDepositTotal"><br>
+        制卡状态：<input type="text" name="remitCardStatus" id="remitCardStatus"><br>
         二级管理辅助信息：<label><input type="checkbox" name="remitSmsgId" value="0">已开通</label>
         <label><input type="checkbox" name="remitSmsgId" value="1">未开通</label><br>
 
@@ -83,7 +88,7 @@
 
 </div>
 
-<table class="layui-table" lay-data="{width: 100%, height:330, url:'/demo/table/user/', page:true, id:'idTest'}" lay-filter="demo">
+<table class="layui-table" lay-data="{width: 100%, height:330, url:'<%=request.getContextPath()%>/secongmsg/selectRemitAll', page:true, id:'idTest'}" lay-filter="demo">
     <thead>
     <tr>
         <th lay-data="{type:'checkbox', fixed: 'left'}"></th>
@@ -99,6 +104,7 @@
         <th lay-data="{field:'personMonthlyDeposit', width:120}">个人月缴存额</th>
         <th lay-data="{field:'monthlyDepositTotal', width:120}">月缴存额合计</th>
         <th lay-data="{field:'remitSmsgId', width:140}">二级管理辅助信息</th>
+
 
         <th lay-data="{fixed: 'right', width:178, align:'center', toolbar: '#barDemo'}"></th>
     </tr>

@@ -2,14 +2,20 @@ package com.example.demo.cxr.controller;
 
 import com.example.demo.cxr.service.RemitService;
 import com.example.demo.cxr.service.SecondmsgService;
+import com.example.demo.entity.CxrPagination;
 import com.example.demo.entity.Remit;
 import com.example.demo.entity.Secondmsg;
+import com.example.demo.util.UUIDUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author 崔新睿
@@ -30,10 +36,18 @@ public class SecondmsgController {
      * @return
      */
     @RequestMapping("/insertSec")
+    @ResponseBody
+    public ModelAndView insertSec(Secondmsg secondmsg){
+        secondmsg.setSmsgId(UUIDUtil.getUUID());
+        int i=secondmsgService.insterSec(secondmsg);
+        ModelAndView mv=new ModelAndView();
+        if(i>0){
+            mv.setViewName("cxr/second");
+            return mv;
+        }else {
+            return null;
+        }
 
-    public String insertSec(Secondmsg secondmsg){
-         secondmsgService.insterSec(secondmsg);
-        return "";
     }
 
     /**
@@ -43,9 +57,20 @@ public class SecondmsgController {
      */
 
     @RequestMapping("/updateSec")
-    public Secondmsg update(Secondmsg secondmsg){
-       int i=secondmsgService.updateSec(secondmsg);
-        return null;
+    @ResponseBody
+    public ModelAndView update(Secondmsg secondmsg){
+        secondmsg.setSmsgId(UUIDUtil.getUUID());
+       int update=secondmsgService.updateSec(secondmsg);
+        ModelAndView mv=new ModelAndView();
+        if(update>0){
+            secondmsgService.updateSec(secondmsg);
+            mv.setViewName("cxr/second");
+            return mv;
+        }else{
+            return null;
+        }
+
+
     }
 
     /**
@@ -53,9 +78,19 @@ public class SecondmsgController {
      * @return
      */
     @RequestMapping("/selectAll")
-    public List<Secondmsg> selectAll(){
-       return secondmsgService.selectSecAll();
-
+    @ResponseBody
+    public Map<String,Object> selectAll(CxrPagination cxrPagination){
+        List<Secondmsg> list = secondmsgService.selectSecAll(cxrPagination);
+        Integer count = secondmsgService.findCount();
+        Map<String,Object> map = new HashMap();
+        map.put("code",0);
+        map.put("data",list);
+        map.put("count",count);
+        return map;
+    }
+    @RequestMapping(value = "/tosecond")
+    public String toSecond(){
+        return "cxr/second";
     }
 
     /**
@@ -73,22 +108,33 @@ public class SecondmsgController {
      * @param smsgId
      * @return
      */
-    @RequestMapping("/deleteSec/{smsgId}")
-    public String deleteSec(@PathVariable("{smsgId}") String smsgId){
+    @RequestMapping("/deleteSec")
+    @ResponseBody
+    public String deleteSec( String smsgId){
         int i=secondmsgService.deleteSec(smsgId);
-      return "";
+        if(i>0){
+            return "删除成功";
+        }
+      return "删除失败";
     }
 
     /**会缴清册页面
      * 新增remit
-     * @param remit
+     * @param
      * @return
      */
     @RequestMapping("/insertRemit")
-    public String insertRemit(Remit remit){
+    @ResponseBody
+    public ModelAndView insertRemit(Remit remit){
+        remit.setRemitId(UUIDUtil.getUUID());
         int i=remitService.insterRemit(remit);
+        ModelAndView mv=new ModelAndView();
+        if(i>0){
+            mv.setViewName("cxr/remitmsg");
+            return mv;
+        }
+        return null;
 
-        return "";
     }
 
     /**
@@ -97,8 +143,16 @@ public class SecondmsgController {
      * @return
      */
     @RequestMapping("/updateRemit")
-    public Remit updateRemit(Remit remit){
+    public ModelAndView updateRemit(Remit remit){
+        remit.setRemitId(UUIDUtil.getUUID());
         int i=remitService.updateRemit(remit);
+        ModelAndView mv=new ModelAndView();
+        if(i>0){
+            remitService.updateRemit(remit);
+            mv.setViewName("cxr/remitmsg");
+            return mv;
+        }
+
         return null;
     }
 
@@ -107,10 +161,21 @@ public class SecondmsgController {
      * @return
      */
     @RequestMapping("/selectRemitAll")
-    public List<Remit> selectRemitAll(){
-
-        return remitService.selectRemitAll();
+    @ResponseBody
+    public Map<String,Object> selectRemitAll(CxrPagination cxrPagination){
+            List<Remit> list1=remitService.selectRemitAll(cxrPagination);
+            Integer count1=remitService.findCount();
+            Map<String,Object> map1 = new HashMap();
+            map1.put("code",0);
+            map1.put("data",list1);
+            map1.put("count",count1);
+            return map1;
     }
+    @RequestMapping("/toremit")
+    public String toRemit(){
+        return "cxr/remitmsg";
+    }
+
 
     /**
      * 根据id查询单条记录

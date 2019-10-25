@@ -1,5 +1,6 @@
 package com.example.demo.cxr.service;
 
+import com.example.demo.entity.CxrPagination;
 import com.example.demo.entity.Remit;
 
 import java.util.List;
@@ -27,7 +28,7 @@ public interface RemitService {
      * 查询所有信息方法
      * @return
      */
-    public List<Remit> selectRemitAll();
+    public List<Remit> selectRemitAll(CxrPagination cxrPagination);
 
     /**
      * 通过id查询单个信息
@@ -35,6 +36,12 @@ public interface RemitService {
      * @return
      */
     public Remit selectRemitById(String remitId);
+
+    /**
+     * 查询总条数
+     * @return
+     */
+    public Integer findCount();
 
 
 }

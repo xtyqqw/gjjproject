@@ -18,6 +18,12 @@
             src="../../layui/layui.js"
             charset="utf-8"></script>
 
+    <%--<script>--%>
+        <%--layui.use('element',function(){--%>
+            <%--var element = layui.element;--%>
+        <%--});--%>
+    <%--</script>--%>
+
 
     <style type="text/css">
         /*  添加提交表单的样式 */
@@ -42,9 +48,10 @@
 <body>
 <!--  添加二级管理表单 -->
 <div class="inster">
-    <form id="insterSec" style="display: none; margin-top: 1vw;" action="" method="post" >
+    <form id="insterSec" style="display: none; margin-top: 1vw;" action="<%=request.getContextPath()%>/secongmsg/insertSec" method="post" >
+        序号:<input id="smsgId1" type="text" name="smsgId" value=""><br>
         部门编号：<input id="smsgSectionNum1" type="text" name="smsgSectionNum" value=""><br>
-        部门名称：<input id="smsgSctionName1" type="text" name="smsgSctionName" value=""><br>
+        部门名称：<input id="smsgSctionName1" type="text" name="smsgSectionName" value=""><br>
         部门代码：<input id="smsgCode1" type="text" name="smsgCode" value=""><br>
         <button type="submit">添加</button>
     </form>
@@ -54,9 +61,10 @@
 
 <!-- 修改二级管理表单 -->
 <div class="update">
-    <form id="updateSec" style="display: none;"  action="" method="post">
+    <form id="updateSec" style="display: none;"  action="<%=request.getContextPath()%>/secongmsg/updateSec" method="post">
+        序号:<input id="smsgId" type="text" name="smsgId" value=""><br>
         部门编号：<input id="smsgSectionNum" type="text" name="smsgSectionNum" value=""><br>
-        部门名称：<input id="smsgSctionName" type="text" name="smsgSctionName" value=""><br>
+        部门名称：<input id="smsgSctionName" type="text" name="smsgSectionName" value=""><br>
         部门代码：<input id="smsgCode" type="text" name="smsgCode" value=""><br>
         <button type="submit">修改</button>
     </form>
@@ -77,13 +85,13 @@
 
 </div>
 
-<table class="layui-table" lay-data="{width: 892, height:330, url:'/demo/table/user/', page:true, id:'idTest'}" lay-filter="demo">
+<table class="layui-table" lay-data="{width: 892, height:330, url:'<%=request.getContextPath()%>/secongmsg/selectAll', page:true, id:'idTest'}" lay-filter="demo">
     <thead>
     <tr>
         <th lay-data="{type:'checkbox', fixed: 'left'}"></th>
         <th lay-data="{field:'smsgId', width:80, fixed: true}">序号</th>
         <th lay-data="{field:'smsgSectionNum', width:160}">部门编号</th>
-        <th lay-data="{field:'smsgSctionName', width:160}">部门名称</th>
+        <th lay-data="{field:'smsgSectionName', width:160}">部门名称</th>
         <th lay-data="{field:'smsgCode', width:160}">部门代码</th>
 
         <th lay-data="{fixed: 'right', width:200, align:'center', toolbar: '#barDemo'}"></th>

@@ -27,13 +27,13 @@ public class Remit {
     /*证件号*/
     private String remitCertNum;
     /*缴存基数*/
-    private double remitMoney;
+    private Double remitMoney;
     /*单位月缴存额*/
-    private double unitMonthlyDeposit;
+    private Double unitMonthlyDeposit;
     /*个人月缴存额*/
-    private double personMonthlyDeposit;
+    private Double personMonthlyDeposit;
     /*月缴存额合计*/
-    private double monthlyDepositTotal;
+    private Double monthlyDepositTotal;
     /*二级管理*/
     private String remitSmsgId;
     /*制卡状态*/
@@ -41,7 +41,7 @@ public class Remit {
 
     public Remit(String remitUnitAccountNum,String remitLoginNum,String remitId,String remitPersonNum,
                  String name,String remitCertName,String remitCountry,String remitCertNum,
-                 double remitMoney,double unitMonthlyDeposit,double personMonthlyDeposit,double monthlyDepositTotal,
+                 Double remitMoney,Double unitMonthlyDeposit,Double personMonthlyDeposit,Double monthlyDepositTotal,
                  String remitSmsgId,String remitCardStatus){
         this.remitUnitAccountNum=remitUnitAccountNum;
         this.remitLoginNum=remitLoginNum;

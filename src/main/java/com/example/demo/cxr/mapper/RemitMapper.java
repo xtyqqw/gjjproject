@@ -1,5 +1,6 @@
 package com.example.demo.cxr.mapper;
 
+import com.example.demo.entity.CxrPagination;
 import com.example.demo.entity.Remit;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -29,7 +30,7 @@ public interface RemitMapper {
      * 查询所有信息方法
      * @return
      */
-    public List<Remit> selectRemitAll();
+    public List<Remit> selectRemitAll(CxrPagination cxrPagination);
 
     /**
      * 通过id查询单个信息
@@ -38,5 +39,10 @@ public interface RemitMapper {
      */
     public Remit selectRemitById(String remitId);
 
+    /**
+     *  查询总条数
+     * @return
+     */
+    public Integer findCount();
 
 }
