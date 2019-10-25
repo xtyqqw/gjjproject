@@ -132,8 +132,9 @@ public class SecondmsgController {
         if(i>0){
             mv.setViewName("cxr/remitmsg");
             return mv;
-        }
+        }else {
         return null;
+        }
 
     }
 
@@ -144,7 +145,7 @@ public class SecondmsgController {
      */
     @RequestMapping("/updateRemit")
     public ModelAndView updateRemit(Remit remit){
-        remit.setRemitId(UUIDUtil.getUUID());
+        //remit.setRemitId(UUIDUtil.getUUID());
         int i=remitService.updateRemit(remit);
         ModelAndView mv=new ModelAndView();
         if(i>0){

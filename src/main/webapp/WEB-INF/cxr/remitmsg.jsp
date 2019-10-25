@@ -61,8 +61,8 @@
 
 <!-- 修改信息表 -->
 <div class="updateRemit">
-    <form  id="updateRemit" style="display: none; margin-top: 1vw;" action="" method="post">
-
+    <form  id="updateRemit" style="display: none; margin-top: 1vw;" action="<%=request.getContextPath()%>/secongmsg/updateRemit" method="post">
+        <input type="text" name="remitId" id="remitId" style="display: none">
         职工编号：<input type="text" name="remitPersonNum" id="remitPersonNum"><br>
         姓名：    <input type="text" name="name" id="name"><br>
         证件名称：<input type="text" name="remitCertName" id="remitCertName"><br>
@@ -92,13 +92,21 @@
 
     </div>
 </script>
+
 <script type="text/html" id="barDemo">
     <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
 
 </script>
 
+
+
+
+
+
+
+
 <script>
-    layui.use('table', function(){
+    layui.use(['table','layer', 'laydate','form'], function(){
         var table = layui.table;
         var $=layui.$;
         table.render({
@@ -109,7 +117,7 @@
             ,totalRow: true
             ,cols: [[
                 {type: 'checkbox', fixed: 'left'}
-                ,{field:'remitId', title:'序号', width:80, fixed: 'left', unresize: true, sort: true, totalRowText: '合计'}
+                ,{field:'remitId', title:'ID', width:120, edit: 'text'}
                 ,{field:'remitPersonNum', title:'职工编号', width:120, edit: 'text'}
                 ,{field:'name', title:'姓名', width:120, edit: 'text'}
                 ,{field:'remitCertName', title:'证件名称', width:80, sort: true, totalRow: true}
@@ -149,8 +157,45 @@
                     break;
             };
         });
+
+        //监听行工具事件
+        table.on('tool(test)', function(obj){
+            var data = obj.data;
+            //console.log(obj)
+            if(obj.event === 'del'){
+                layer.confirm('真的删除行么', function(index){
+                    obj.del();
+                    layer.close(index);
+                });
+            } else if(obj.event === 'edit'){
+                $("#remitId").val(data.remitId);
+                $("#remitPersonNum").val(data.remitPersonNum);
+                $("#name").val(data.name);
+                $("#remitCertName").val(data.remitCertName);
+                $("#remitCountry").val(data.remitCountry);
+                $("#remitCertNum").val(data.remitCertNum);
+                $("#remitMoney").val(data.remitMoney);
+                $("#unitMonthlyDeposit").val(data.unitMonthlyDeposit);
+                $("#personMonthlyDeposit").val(data.personMonthlyDeposit);
+                $("#monthlyDepositTotal").val(data.unitMonthlyDeposit);
+                $("#remitCardStatus").val(data.remitCardStatus);
+                // $("#remitCardStatus").val(data.remitCardStatus);
+
+
+
+
+                layer.open({
+                    type:1,
+                    content:$("#updateRemit")
+                });
+            }
+        });
+
+
+
     });
 </script>
+
 
 </body>
 </html>
