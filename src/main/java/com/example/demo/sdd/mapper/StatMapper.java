@@ -8,8 +8,8 @@ import java.util.List;
 
 @Mapper
 public interface StatMapper {
-    /*查询*/
-    List<Stat> selectStat(String remitCardStatus);
+    /*查询*//*
+    List<Stat> selectStat(String remitCardStatus);*/
     /*查询表*/
     List<Stat> selectStatAll(Pagination pagination);
     /*分页*/

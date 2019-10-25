@@ -17,7 +17,7 @@ public class StatServiceImpl implements StatService {
     public List<Stat> selectStat(String remitCardStatus){
         return statMapper.selectStat(remitCardStatus);
     }*/
-    @Override
+    @Override/*分页查询表*/
     public List<Stat> selectStatAll(Pagination pagination){
         Integer page=pagination.getPage();
         Integer limit=pagination.getLimit();
@@ -26,11 +26,11 @@ public class StatServiceImpl implements StatService {
         List<Stat> statlist=statMapper.selectStatAll(pagination);
         return statlist;
     }
-    @Override
+    @Override/*分页*/
     public Integer findStat(Pagination pagination){
         return statMapper.findStat(pagination);
     }
-    @Override
+    @Override/*根据单位登记号和证件号码查询*/
     public Stat dimStat(Stat stat){
         return statMapper.dimStat(stat);
     }

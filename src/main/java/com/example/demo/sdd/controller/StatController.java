@@ -34,7 +34,6 @@ public class StatController {
     @RequestMapping(value = "/s")/*查询表格*/
     @ResponseBody
     public Map<String,Object> list(Pagination pagination)throws Exception{
-        /*pagination.setStartPage((pagination.getPage()-1)*pagination.getLimit());*/
         List<Stat> stats=statService.selectStatAll(pagination);
         Integer count=statService.findStat(pagination);
         Map<String,Object> map=new HashMap<>();
@@ -46,15 +45,10 @@ public class StatController {
     @RequestMapping(value = "/dim")/*查询单位登记号和证件号码*/
     public ModelAndView dimStat(Stat stat)throws Exception{
         ModelAndView mv=new ModelAndView();
-
-        /*Map<String,Object> map = new HashMap();*/
         Stat slist=statService.dimStat(stat);
         if(slist!=null){
             mv.addObject("slist",slist);
             mv.setViewName("sd/yes");
-
-            /*map.put("code","0");
-            map.put("data",slist);*/
             return mv;
         }else {
             mv.addObject("msg","您输入错误");

@@ -21,9 +21,10 @@
         <result property="remitCardStatus" column="remit_card_status" javaType="java.lang.String"/>
 
     </resultMap>
-    <select id="selectStat" parameterType="java.lang.String" resultMap="caseMap">
+    <!--<select id="selectStat" parameterType="java.lang.String" resultMap="caseMap">
         select * from remit where remit_card_status=#{remitCardStatus}
-    </select>
+    </select>-->
+    <!--查询表-->
     <select id="selectStatAll" resultType="com.example.demo.entity.Pagination" resultMap="caseMap">
         select * from remit
         <if test="remitUnitAccountNum!=null and remitCertNum!=null and remitUnitAccountNum!='' and remitCertNum!=''">
@@ -32,9 +33,11 @@
         </if>
         limit #{startPage},#{limit}
     </select>
+    <!--分页-->
     <select id="findStat" parameterType="com.example.demo.entity.Pagination" resultType="java.lang.Integer">
         select count(1) from remit
     </select>
+    <!--根据单位登记号和证件号码查询-->
     <select id="dimStat" resultMap="caseMap" parameterType="com.example.demo.entity.Stat">
         select * from remit where remit_unit_account_num=#{remitUnitAccountNum} and remit_cert_num=#{remitCertNum}
     </select>

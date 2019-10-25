@@ -18,6 +18,6 @@ public interface PersonMapper {
     Integer updatePerson(Person person);
     /*删除*/
     Integer deletePerson(Integer personId);
-    /*查询*/
+    /*根据名字和证件号码查询*/
     Person dimPerson(Person person);
 }

@@ -30,17 +30,15 @@
             var $ = layui.$;
             var table = layui.table;
             var layer = layui.layer;
-
-        table.render({
-            elem: '#test'
-            , code: 0
-            , url: '<%=request.getContextPath()%>/stat/s?remitUnitAccountNum=${slist.remitUnitAccountNum}&remitCertNum=${slist.remitCertNum}'
-            , cellMinWidth: 80
-            , toolbar: 'default'
+            table.render({
+                elem: '#test'
+                , code: 0
+                , url: '<%=request.getContextPath()%>/stat/s?remitUnitAccountNum=${slist.remitUnitAccountNum}&remitCertNum=${slist.remitCertNum}'
+                , cellMinWidth: 80
+                , toolbar: 'default'
             , cols: [[
                 {type:'numbers', width:30}
                 , {field: 'remitPersonNum', width: 120,align:'center', title: '个人编号', sort: true}
-                
                 , {field: 'name', width: 120,align:'center', title: '姓名'}
                 , {field: 'remitCertName', width: 120,align:'center', title: '证件名称'}
                 , {field: 'remitCertNum', width: 120,align:'center', title: '证件号码'}
@@ -49,7 +47,7 @@
 
             ]]
             ,page:true,
-            limits:[2,3,4]
+            limits:[10,20,30]
             ,toolbar:"<div class='layui-btn-group'>"+
                 "<div class='layui-inline'>"+
                 "<form action='<%=request.getContextPath()%>/stat/dim' method='post'>"+
