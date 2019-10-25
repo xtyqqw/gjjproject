@@ -24,4 +24,10 @@
     <select id="selectStat" parameterType="java.lang.String" resultMap="caseMap">
         select * from remit where remit_card_status=#{remitCardStatus}
     </select>
+    <select id="selectStatAll" resultType="com.example.demo.entity.Pagination" resultMap="caseMap">
+        select * from remit where limit #{startPage},#{limit}
+    </select>
+    <select id="findStat" parameterType="com.example.demo.entity.Pagination" resultMap="caseMap">
+        select count(1) from remit
+    </select>
 </mapper>

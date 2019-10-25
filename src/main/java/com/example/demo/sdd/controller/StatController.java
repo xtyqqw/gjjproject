@@ -1,5 +1,6 @@
 package com.example.demo.sdd.controller;
 
+import com.example.demo.entity.Pagination;
 import com.example.demo.entity.Stat;
 import com.example.demo.sdd.service.StatService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,4 +30,15 @@ public class StatController {
         map.put("data",list);
         return map;
     }
+    @RequestMapping(value = "/s")
+    @ResponseBody
+    public Map<String,Object> list(Pagination pagination)throws Exception{
+        List<Stat> stats=statService.selectStatAll(pagination);
+        Integer count=statService.findStat(pagination);
+        Map<String,Object> map=new HashMap<>();
+        map.put("code","0");
+        map.put("count",count);
+        return map;
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.example.demo.sdd.mapper;
 
 import com.example.demo.entity.Stat;
+import com.example.demo.entity.Pagination;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -9,4 +10,8 @@ import java.util.List;
 public interface StatMapper {
     /*查询*/
     List<Stat> selectStat(String remitCardStatus);
+    /*查询表*/
+    List<Stat> selectStatAll(Pagination pagination);
+    /*分页*/
+    Integer findStat(Pagination pagination);
 }
