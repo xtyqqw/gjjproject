@@ -12,9 +12,9 @@ public class Pagination {
     private Integer limit;
     /*起始页*/
     private Integer startPage;
-
+    /*名字*/
     private String personName;
-
+    /*证件号码*/
     private String personCertNum;
 
     public Pagination(Integer page, Integer limit, Integer startPage, String personName, String personCertNum) {

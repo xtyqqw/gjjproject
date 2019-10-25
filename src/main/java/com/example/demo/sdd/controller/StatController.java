@@ -4,10 +4,8 @@ import com.example.demo.entity.Stat;
 import com.example.demo.sdd.service.StatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.HashMap;
 import java.util.List;
@@ -20,9 +18,9 @@ public class StatController {
     private StatService statService;
     @RequestMapping(value = "/tostat")
     public String stat(){
-        return "sd/test1";
+        return "sd/yes";
     }
-    @RequestMapping(value = "/stats")
+    @RequestMapping(value = "/stats")/*查询已制卡*/
     @ResponseBody
     public Map<String,Object> selectStat(String remitCardStatus){
         Map<String,Object> map=new HashMap<>();

@@ -21,7 +21,7 @@ public class PersonController {
     private PersonService personService;
     @RequestMapping(value = "/totest")
     public String pe(){
-        return "sd/test";
+        return "sd/person";
     }
 
     @RequestMapping(value = "/personList")/*查询表*/
@@ -42,7 +42,7 @@ public class PersonController {
         Integer flag=personService.addPerson(person);
         ModelAndView mv=new ModelAndView();
         if(flag==1){
-            mv.setViewName("sd/test");
+            mv.setViewName("sd/person");
             return mv;
         }else {
             return null;
@@ -56,7 +56,7 @@ public class PersonController {
         ModelAndView mv=new ModelAndView();
         if(updates==1){
             personService.updatePerson(person);
-            mv.setViewName("sd/test");
+            mv.setViewName("sd/person");
             return mv;
         }else {
             return null;
@@ -73,13 +73,13 @@ public class PersonController {
         }
 
     }
-    @RequestMapping(value = "/dim")
+    @RequestMapping(value = "/dim")/*按照名字和证件号码查询*/
     public ModelAndView dimPerson(Person person)throws Exception{
         ModelAndView mv = new ModelAndView();
         Person slist=personService.dimPerson(person);
         if(slist!=null){
             mv.addObject("slist",slist);
-            mv.setViewName("sd/test");
+            mv.setViewName("sd/person");
             return mv;
         }else {
             mv.addObject("msg","可以直接登记");

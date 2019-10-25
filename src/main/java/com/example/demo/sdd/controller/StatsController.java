@@ -18,9 +18,9 @@ public class StatsController {
     private StatService statService;
     @RequestMapping(value = "tostats")
     public String stats(){
-        return "sd/test2";
+        return "sd/no";
     }
-    @RequestMapping(value = "statss")
+    @RequestMapping(value = "statss")/*查询未制卡*/
     @ResponseBody
     public Map<String,Object> selectStat(String remitCardStatus){
         Map<String,Object> map=new HashMap<>();
