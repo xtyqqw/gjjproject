@@ -116,6 +116,7 @@ public class UserController {
         Integer flagUser = userService.addUser(user);
         Integer flagUnit = userService.addUnit(unit);
         if (flagUser == 1 && flagUnit == 1) {
+            mv.addObject("wrong","注册成功，请注册单位信息！");
             mv.addObject("unit",unit);
             mv.setViewName("unitregis");
             return mv;

@@ -43,7 +43,7 @@
 <div class="div1">
     <form class="waik" action="<%=request.getContextPath()%>/user/openAccount">
         <h2>单位开户申请表</h2>
-        <span style="color: red;padding: 0px 70px;">${wrong}</span>
+        <span style="color: red;display: block;width: 260px;margin-left: 360px">${wrong}</span><br>
         <ul class="box box2">
             <li>
                 <label>单位登记号</label>

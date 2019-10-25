@@ -57,7 +57,7 @@
 <div class="div1">
     <form action="<%=request.getContextPath()%>/user/unitReg" class="waik" method="post">
         <h2>单位登记表</h2>
-        <span style="color: red;padding: 0px 70px;">${wrong}</span>
+        <span style="color: red;display: block;width: 200px;margin-left: 400px">${wrong}</span><br>
         <ul class="box box2">
             <li>
                 <label>单位编号---</label>
