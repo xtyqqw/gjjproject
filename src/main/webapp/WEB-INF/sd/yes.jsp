@@ -14,8 +14,8 @@
     <script src="/layui/layui.js" type="text/javascript"></script>
 
 </head>
-<body>
-<table class="layui-hide" id="test" ></table>
+<body style="padding: 0 10px;width: 95%;height: 600px;">
+<table class="layui-hide" id="test"></table>
 <script>
 
         layui.use('table', function () {
@@ -27,15 +27,17 @@
                 , url: '<%=request.getContextPath()%>/stat/stats'
                 , cellMinWidth: 80
                 , cols: [[
-                    {field: 'remitPersonNum', width: 100, title: 'id', sort: true}
-                    , {field: 'name', width: 120, title: '姓名', sort: true}
-                    , {field: 'remitCertName', width: 120, title: '证件名称', sort: true}
-                    , {field: 'remitCertNum', width: 120, title: '证件号码', sort: true}
-                    ,{field: 'remitSmsgId', width: 120, title: '部门', sort: true}
-                    , {field: 'remitCardStatus', width: 120, title: '制卡情况', sort: true}
+                    {type:'numbers', width:30}
+                    , {field: 'remitPersonNum', width: 120,align:'center', title: '个人编号', sort: true}
+                    , {field: 'name', width: 120,align:'center', title: '姓名'}
+                    , {field: 'remitCertName', width: 120,align:'center', title: '证件名称'}
+                    , {field: 'remitCertNum', width: 120,align:'center', title: '证件号码'}
+                    , {field: 'remitSmsgId', width: 120,align:'center', title: '所属部门'}
+                    , {field: 'remitCardStatus', width: 120,align:'center', title: '制卡情况'}
 
                 ]]
                 ,page:false
+                ,toolbar:"<h2>制卡（已制卡）人员清册</h2><div>单位登记号：${stat.remitUnitAccountNum}</div>"
             });
         });
 
