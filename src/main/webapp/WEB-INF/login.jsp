@@ -47,7 +47,7 @@
         //注册验证的js
         $(function(){
             //姓名错误
-            $(".box2 #user_name").blur(function(){
+            $(".box #user_name").blur(function(){
                 var nameVal = $(this).val();
                 if(nameVal == ""){
                     $(this).next().css("display","block").html("姓名不能为空");
@@ -56,7 +56,7 @@
                 }
             });
             //验证密码
-            $(".box2 #pwd1").blur(function(){
+            $(".box #pwd1").blur(function(){
                 pwd1Reg = /^[A-z0-9]{6}$/;
                 var pwd1Val = $(this).val();
                 if(pwd1Val == ""){
@@ -68,7 +68,7 @@
                 }
             });
             //确认密码
-            $(".box2 #pwd2").blur(function(){
+            $(".box #pwd2").blur(function(){
                 pwd2Reg = /^[A-z0-9]{6}$/;
                 var pwd1Val = $(".box2 #pwd1").val();
                 var pwd2Val = $(this).val();
@@ -83,7 +83,7 @@
                 }
             });
             //证件号码
-            $(".box2 #user_cert_num").blur(function(){
+            $(".box #user_cert_num").blur(function(){
                 var zjidVal = $(this).val();
                 if(zjidVal == ""){
                     $(this).next().css("display","block").html("证件号码不能为空");
@@ -92,7 +92,7 @@
                 }
             });
             //单位名称
-            $(".box2 #unit_name").blur(function(){
+            $(".box #unit_name").blur(function(){
                 var unameVal = $(this).val();
                 if(unameVal == ""){
                     $(this).next().css("display","block").html("单位名称不能为空");
@@ -101,7 +101,7 @@
                 }
             });
             //验证手机号码,通过正则表达式
-            $(".box2 #user_phonenum").blur(function(){
+            $(".box #user_phonenum").blur(function(){
                 phoneReg = /^0{0,1}(13[0-9]|15[7-9]|153|156|18[7-9])[0-9]{8}$/;
                 var phoneVal = $(this).val();
                 if(phoneVal == ""){
@@ -113,7 +113,7 @@
                 }
             });
             //验证邮箱
-            $(".box2 #user_email").blur(function(){
+            $(".box #user_email").blur(function(){
                 emailReg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
                 var emailVal = $(this).val();
                 if(emailVal == ""){

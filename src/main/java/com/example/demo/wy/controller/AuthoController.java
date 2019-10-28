@@ -2,6 +2,7 @@ package com.example.demo.wy.controller;
 
 import com.example.demo.entity.Unit;
 import com.example.demo.entity.User;
+import com.example.demo.util.MD5Utils;
 import com.example.demo.util.UUIDUtil;
 import com.example.demo.wy.service.AuthoService;
 import com.example.demo.xty.service.UnitService;
@@ -40,11 +41,11 @@ public class AuthoController {
         ModelAndView mv = new ModelAndView();
         String uuid = UUIDUtil.getUUID();
         user.setUserId(uuid);
-        user.getUserUnitId();
+        user.setUserPwd(MD5Utils.md5Encrypt32Lower("123456"));
         user.setUserCreatetime(new Date());
-        String uuid1 = UUIDUtil.getUUID();
-        user.setUserUnitId(uuid1);
-        unit.setUnitId(uuid1);
+        user.setUserUnitId(unit.getUnitId());
+        user.setUserStatus("普通");
+        Unit unit1 = authoService.findUnitById(unit);
         List<User> userList = authoService.findUserAll();
         for (User users : userList) {
             if (users.getUserCertNum().equals(user.getUserCertNum())) {
@@ -53,14 +54,22 @@ public class AuthoController {
                 return mv;
             }
         }
-
-        Integer flagUser = authoService.addAutho(user);
-        if (flagUser == 1) {
-            mv.addObject("wrong", "注册失败，请检查输入信息");
-            mv.setViewName("authsecces");
+        List<User> users = authoService.findUserByUnitId(unit.getUnitId());
+        if(users.size()>=3){
+            mv.addObject("wrong","该单位经办人已达上限！");
+            mv.setViewName("authorization");
             return mv;
         }else {
-            return null;
+            Integer flagUser = authoService.addAutho(user);
+            if (flagUser == 1) {
+                mv.addObject("wrong", "注册成功");
+                mv.addObject("user",user);
+                mv.addObject("unit",unit1);
+                mv.setViewName("authsecces");
+                return mv;
+            }else {
+                return null;
+            }
         }
     }
 

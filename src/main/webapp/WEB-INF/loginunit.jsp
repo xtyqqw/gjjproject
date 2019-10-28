@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="/layui/css/layui.css"/>
     <link rel="shortcut icon" href="/img/favicon.ico" />
     <script src="/layui/layui.js" type="text/javascript"></script>
+
     <style type="text/css">
         body{background: #F2F2F2;padding: 0;margin: 0;}
         .headimg{width: 100%;height: 150px;}

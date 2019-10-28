@@ -1,5 +1,6 @@
 package com.example.demo.wy.mapper;
 
+import com.example.demo.entity.Unit;
 import com.example.demo.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -26,5 +27,19 @@ public interface AuthoMapper {
      * @return
      */
     List<User> findUserAll();
+
+    /**
+     * 通过单位id查询单位
+     * @param unit
+     * @return
+     */
+    Unit findUnitById(Unit unit);
+
+    /**
+     * 根据单位id查询该单位所有的经办人
+     * @param id
+     * @return
+     */
+    List<User> findUserByUnitId(String id);
 
 }

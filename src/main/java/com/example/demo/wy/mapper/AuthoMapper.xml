@@ -17,16 +17,43 @@
         <result property="userStatus" column="user_status" javaType="java.lang.String"></result>
         <result property="userUnitId" column="user_unit_id" javaType="java.lang.String"></result>
     </resultMap>
+    <resultMap id="unitEntityMap" type="com.example.demo.entity.Unit">
+        <id property="unitId" column="unit_id" javaType="java.lang.String"></id>
+        <result property="unitName" column="unit_name" javaType="java.lang.String"></result>
+        <result property="unitNum" column="unit_num" javaType="java.lang.String"></result>
+        <result property="unitCertName" column="unit_cert_name" javaType="java.lang.String"></result>
+        <result property="unitCertNum" column="unit_cert_num" javaType="java.lang.String"></result>
+        <result property="unitType" column="unit_type" javaType="java.lang.String"></result>
+        <result property="unitLegal" column="unit_legal" javaType="java.lang.String"></result>
+        <result property="unitLegalCertName" column="unit_legal_cert_name" javaType="java.lang.String"></result>
+        <result property="unitLegalCertNum" column="unit_legal_cert_num" javaType="java.lang.String"></result>
+        <result property="unitLoginAdd" column="unit_login_add" javaType="java.lang.String"></result>
+        <result property="unitWorkAdd" column="unit_work_add" javaType="java.lang.String"></result>
+        <result property="unitCondition" column="unit_condition" javaType="java.lang.String"></result>
+        <result property="unitCreatetime" column="unit_createtime" javaType="java.util.Date"></result>
+        <result property="superUnitName" column="super_unit_name" javaType="java.lang.String"></result>
+        <result property="unitUserId" column="unit_user_id" javaType="java.lang.String"></result>
+        <result property="unitAccountNum" column="unit_account_num" javaType="java.lang.String"></result>
+    </resultMap>
 
-    <insert id="addUser" parameterType="com.example.demo.entity.User">
-        insert into user(user_id,user_name,user_cert_name,user_cert_num,user_phonenum,user_email,
-          user_createtime,user_unit_id)
-        values (#{userId},#{userName},#{userCertName},#{userCertNum},#{userPhonenum},#{userEmail},
-          #{userCreatetime},#{userUnitId})
+    <insert id="addAutho" parameterType="com.example.demo.entity.User">
+        insert into user(user_id,user_name,user_pwd,user_cert_name,user_cert_num,user_phonenum,
+          user_email,user_createtime,user_status,user_unit_id)
+        values (#{userId},#{userName},#{userPwd},#{userCertName},#{userCertNum},#{userPhonenum},
+          #{userEmail},#{userCreatetime},#{userStatus},#{userUnitId})
     </insert>
 
     <select id="findUserAll" parameterType="com.example.demo.entity.User" resultMap="userEntityMap">
        select user_cert_num from user
     </select>
+
+    <select id="findUnitById" parameterType="com.example.demo.entity.Unit" resultMap="unitEntityMap">
+        select * from unit where unit_id = #{unitId}
+    </select>
+
+    <select id="findUserByUnitId" parameterType="com.example.demo.entity.User" resultMap="userEntityMap">
+        select user_name from user,unit where user_unit_id = unit_id and unit_id = #{unitId}
+    </select>
+
 
 </mapper>

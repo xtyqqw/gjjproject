@@ -43,7 +43,7 @@
         //注册验证的js
         $(function(){
             //单位名称框
-            $(".box2 #unit_name").blur(function(){
+            $(".box #unit_name").blur(function(){
                 var nameVal = $(this).val();
                 if(nameVal == ""){
                     $(this).next().css("display","block").html("单位名称不能为空");
@@ -52,7 +52,7 @@
                 }
             });
             //组织代码机构框
-            $(".box2 #unit_num").blur(function(){
+            $(".box #unit_num").blur(function(){
                 var nameVal = $(this).val();
                 if(nameVal == ""){
                     $(this).next().css("display","block").html("组织代码机构不能为空");
@@ -61,7 +61,7 @@
                 }
             });
             //经办人姓名框
-            $(".box2 #user_name").blur(function(){
+            $(".box #user_name").blur(function(){
                 var nameVal = $(this).val();
                 if(nameVal == ""){
                     $(this).next().css("display","block").html("经办人姓名不能为空");
@@ -70,7 +70,7 @@
                 }
             });
             //证件号码
-            $(".box2 #user_cert_num").blur(function(){
+            $(".box #user_cert_num").blur(function(){
                 var zjidVal = $(this).val();
                 if(zjidVal == ""){
                     $(this).next().css("display","block").html("证件号码不能为空");
@@ -79,7 +79,7 @@
                 }
             });
             //验证手机号码
-            $(".box2 #user_phonenum").blur(function(){
+            $(".box #user_phonenum").blur(function(){
                 phoneReg = /^0{0,1}(13[0-9]|15[7-9]|153|156|18[7-9])[0-9]{8}$/;
                 var phoneVal = $(this).val();
                 if(phoneVal == ""){
@@ -91,7 +91,7 @@
                 }
             });
             //验证邮箱
-            $(".box2 #user_email").blur(function(){
+            $(".box #user_email").blur(function(){
                 emailReg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
                 var emailVal = $(this).val();
                 if(emailVal == ""){
@@ -110,31 +110,32 @@
 </head>
 <body>
 <div class="div1">
-    <form class="waik" action="<%=request.getContextPath()%>/login/toAuthsecces" method="post">
+    <form class="waik" action="<%=request.getContextPath()%>/wy/addAutho" method="post">
         <h2>《单位网上业务授权申请书》</h2><br />
 
         <ul class="box">
             <li>
                 <label for="unit_name">单位名称</label>
-                <input type="text" id="unit_name" disabled="true"
-                       value="${unit.unitName}" name="" />
-                <span class="danwei">单位id${userUnitId}</span>
-            </li>
+                <input type="text" id="unit_name" readonly
+                       value="${unit.unitName}" name="unitName" />
+                <input class="danwei" value="${unit.unitId}" name="unitId">
+                <input class="danwei" value="${user.userUnitId}" name="userUnitId">
+            </li><br>
             <li>
                 <label for="unit_num">组织机构代码</label>
-                <input type="text" id="unit_num" disabled="true"
-                       value="${unit.unitNum}" name="" />
+                <input type="text" id="unit_num" readonly
+                       value="${unit.unitNum}" name="unitNum" />
                 <span class="error"></span>
             </li>
             <li>
                 <label for="user_name">经办人姓名</label>
                 <input type="text" placeholder="请输入经办人姓名" id="user_name"  required="required"
-                       value="" name="" />
+                       name="userName" />
                 <span class="error">${wrong}</span>
             </li>
             <li>
                 <label for="user_cert_name">证件名称</label>
-                <select name="user_cert_name" id="user_cert_name" class="xlInput">
+                <select name="userCertName" id="user_cert_name" class="xlInput">
                     <option value="身份证">身份证</option>
                     <option value="军官证">军官证</option>
                     <option value="护照">护照</option>
@@ -143,19 +144,19 @@
             <li>
                 <label for="user_cert_num">证件号码</label>
                 <input type="text" placeholder="请输入证件号码" id="user_cert_num" required="required"
-                       value="" name="" />
+                       name="userCertNum" />
                 <span class="error"></span>
             </li>
             <li>
                 <label for="user_phonenum">手机号码</label>
                 <input type="text" placeholder="请输入手机号码" id="user_phonenum" required="required"
-                       value="" name=""/>
+                       name="userPhonenum"/>
                 <span class="error"></span>
             </li>
             <li>
                 <label for="user_email">电子邮箱</label>
                 <input type="email" placeholder="请输入电子邮箱" id="user_email" required="required"
-                       value="" name=""/>
+                       name="userEmail"/>
                 <span class="error"></span>
             </li>
         </ul>
