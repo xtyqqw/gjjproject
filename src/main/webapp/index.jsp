@@ -33,7 +33,7 @@
     <%--个人公积金弹窗--%>
     <script type="text/javascript">
         $(document).ready(function(){
-            $("#persons,#person").click(function(){
+            $("#persons").click(function(){
                 alert("温馨提示：个人住房公积金请到各网点办理！");
             })
         });
