@@ -9,7 +9,7 @@ public interface UnitService {
      * @param id
      * @return
      */
-    Account findAccountById(String id);
+    Account findAccountByUnitId(String id);
 
     /**
      * 通过unitId查找单位注册信息

@@ -18,7 +18,7 @@ public class AccountServiceImpl implements UnitService {
     @Autowired
     XtyUnitMapper unitMapper;
     @Override
-    public Account findAccountById(String id) {
+    public Account findAccountByUnitId(String id) {
         return unitMapper.findAccountById(id);
     }
 

@@ -30,7 +30,7 @@ public class XController {
     @GetMapping(value = "/findaccount")
     public ModelAndView findAccount(String id){
         ModelAndView mv = new ModelAndView();
-        Account account = unitService.findAccountById(id);
+        Account account = unitService.findAccountByUnitId(id);
 //        Account account = new Account();
 //        account.setAccountId("123");
         mv.addObject("account",account);
