@@ -32,8 +32,10 @@
             border: 1px solid #dddddd;text-indent: 0.5em;float: left;border-radius: 5px;}
         .submit input{display: inline-block;width: 100px;height: 50px;background-color: #01AAED;
             color: #FFFFFF;font-size: 17px;line-height: 40px;outline: none;border: none;
-            border-radius: 5px;cursor: pointer;margin-left: 400px;}
-
+            border-radius: 5px;cursor: pointer;}
+        .submit .login{margin-left: 300px;}
+        .submit .reset{margin-left: 100px;position: absolute;background-color: #dddddd;
+            border: 1px solid #dddddd;color: #000000;}
     </style>
 
 </head>
@@ -145,9 +147,9 @@
             </li>
             <li>
                 <label>缴款方式</label>
-                <input type="radio" name="account_way" value="" title="" class="dan">
-                    &nbsp;主动汇款&nbsp;&nbsp;&nbsp;
                 <input type="radio" name="account_way" value="" title="" class="dan" checked>
+                    &nbsp;主动汇款&nbsp;&nbsp;&nbsp;
+                <input type="radio" name="account_way" value="" title="" class="dan">
                     &nbsp;委托收款&nbsp;&nbsp;&nbsp;
                 <input type="radio" name="account_way" value="" title="" class="dan">
                     &nbsp;转账支票&nbsp;&nbsp;&nbsp;
@@ -163,7 +165,8 @@
                 <input type="text" name="accountUnitId" value="${unit.unitId}" style="display: none" />
         </ul>
         <div class="submit">
-            <input type="submit" value="提交" />
+            <input class="login" type="submit" id="submit" value="提交" />
+            <input class="reset" type="reset" value="重置">
         </div>
     </form>
 

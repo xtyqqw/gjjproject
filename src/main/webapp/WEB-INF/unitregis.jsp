@@ -36,8 +36,10 @@
         }
         .submit input{display: inline-block;width: 100px;height: 50px;background-color: #01AAED;
             color: #FFFFFF;font-size: 17px;line-height: 40px;outline: none;border: none;
-            border-radius: 5px;cursor: pointer;margin-left: 400px;}
-
+            border-radius: 5px;cursor: pointer;}
+        .submit .login{margin-left: 300px;}
+        .submit .reset{margin-left: 100px;position: absolute;background-color: #dddddd;
+            border: 1px solid #dddddd;color: #000000;}
     </style>
 
     <script>
@@ -160,7 +162,8 @@
             </li>
         </ul>
         <div class="submit">
-            <input type="submit" value="保存" />
+            <input class="login" type="submit" id="submit" value="保存" />
+            <input class="reset" type="reset" value="重置">
         </div>
     </form>
 </div>
