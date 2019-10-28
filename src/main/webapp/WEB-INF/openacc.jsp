@@ -28,7 +28,7 @@
         .box li label {width: 150px;height: 50px;float: left;line-height: 50px;text-align: right;
             padding-right: 20px;}
         /* 输入框的样式 */
-        .box li .input{padding: 6px 0;font-size: 16px;width: 296px;height: 50px;line-height: 28px;
+        .box li .input{padding: 6px 0;font-size: 16px;width: 300px;height: 50px;line-height: 28px;
             border: 1px solid #dddddd;text-indent: 0.5em;float: left;border-radius: 5px;}
         .submit input{display: inline-block;width: 100px;height: 50px;background-color: #01AAED;
             color: #FFFFFF;font-size: 17px;line-height: 40px;outline: none;border: none;
