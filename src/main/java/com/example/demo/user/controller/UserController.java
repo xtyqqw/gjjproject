@@ -4,6 +4,7 @@ import com.example.demo.entity.Account;
 import com.example.demo.entity.Unit;
 import com.example.demo.entity.User;
 import com.example.demo.user.service.UserService;
+import com.example.demo.util.MD5Utils;
 import com.example.demo.util.RandomUtil;
 import com.example.demo.util.UUIDUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,7 +54,9 @@ public class UserController {
     public ModelAndView login(User user)throws Exception {
         ModelAndView mv = new ModelAndView();
         String magic = "认证";
-        if (user.getUserName()!=null && user.getUserPwd()!=null && user.getUserName()!="" && user.getUserPwd()!=""){
+        if (user.getUserName()!=null && user.getUserPwd()!=null
+                && user.getUserName()!="" && user.getUserPwd()!=""){
+            user.setUserPwd(MD5Utils.md5Encrypt32Lower(user.getUserPwd()));
             User user1 = userService.findUserByNameAndPwd(user);
             if (user1 != null) {
                 if (magic.equals(user1.getUserStatus())) {
@@ -101,6 +104,7 @@ public class UserController {
         unit.setUnitUserId(uuid1);
         user.setUserCreatetime(new Date());
         user.setUserStatus("普通");
+        user.setUserPwd(MD5Utils.md5Encrypt32Lower(user.getUserPwd()));
 
         String uuid = UUIDUtil.getUUID();
         user.setUserUnitId(uuid);
