@@ -62,7 +62,7 @@ public class UserController {
                     return mv;
                 } else if(user1.getUserUnitId()!=null){
                     Unit unit = userService.findUnitByUser(user1);
-                    if (unit.getUnitNum()!=null || unit.getUnitNum()!=""){
+                    if (unit.getUnitNum()!=null && unit.getUnitNum()!=""){
                         mv.addObject("wrong", "单位登记成功，请开户");
                         mv.addObject("unit",unit);
                         mv.setViewName("openacc");
