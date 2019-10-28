@@ -61,21 +61,21 @@
         <span style="color: red;display: block;width: 200px;margin-left: 400px">${wrong}</span><br>
         <ul class="box box2">
             <li>
-                <label>单位编号---</label>
-                <input type="text" placeholder="请输入单位编号" class="input" id="unit_id" readonly="readonly"
+                <label>单位编号</label>
+                <input type="text" placeholder="请输入单位编号" class="input" id="unit_id"
                        value="${unit.unitId}" name="unitId" />
                 <span class="error"></span>
             </li>
             <li>
-                <label>单位名称---</label>
-                <input type="text" placeholder="请输入单位名称" class="input" id="unit_name" readonly="readonly"
+                <label>单位名称</label>
+                <input type="text" placeholder="请输入单位名称" class="input" id="unit_name"
                        value="${unit.unitName}" name="unitName"/>
                 <span class="error"></span>
             </li>
             <li>
-                <label>组织代码机构</label>
+                <label>组织机构代码</label>
                 <input type="text" placeholder="请输入组织代码机构" class="input" id="unit_num"
-                       name="unitNum"/>
+                       required="required" name="unitNum"/>
                 <span class="error"></span>
             </li>
             <li>
@@ -87,24 +87,24 @@
                 </select>
             </li><br />
             <li>
-                <label>单位证件名</label>
+                <label>单位证件名称</label>
                 <select name="unitCertName" class="input" id="unit_cert_name">
-                    <option value="身份证">身份证</option>
-                    <option value="军人证">军人证</option>
-                    <option value="护照">护照</option>
+                    <option value="营业执照">营业执照</option>
+                    <option value="税务登记证">税务登记证</option>
+                    <option value="组织机构代码证">组织机构代码证</option>
                 </select>
                 <span class="error"></span>
             </li>
             <li>
                 <label>单位证件号</label>
-                <input type="text" placeholder="请输入单位证件号" class="input"
+                <input type="text" placeholder="请输入单位证件号" class="input" required="required"
                        id="unit_cert_num" name="unitCertNum" />
                 <span class="error"></span>
             </li>
             <li>
                 <label>法人</label>
                 <input type="text" placeholder="请输入法人" class="input" id="unit_legal"
-                       value="" name="unitLegal"/>
+                       required="required" name="unitLegal"/>
                 <span class="error"></span>
             </li>
             <li>
@@ -118,7 +118,7 @@
             </li>
             <li>
                 <label>法人证件号码</label>
-                <input type="text" placeholder="请输入法人证件号码" class="input"
+                <input type="text" placeholder="请输入法人证件号码" class="input" required="required"
                        id="unit_legal_cert_num" name="unitLegalCertNum" />
                 <span class="error"></span>
             </li>
@@ -126,24 +126,24 @@
                 <label>单位成立时间</label>
                 <div class="layui-input-inline">
                     <input type="text" name="unitCreatetime" id="date" lay-verify="date"
-                           placeholder="yyyy-MM-dd" class="input">
+                           required="required" placeholder="yyyy-MM-dd" class="input">
                 </div>
             </li><br />
             <li>
                 <label>单位注册地址</label>
-                <input type="text" placeholder="请输入单位注册地址" class="input"
+                <input type="text" placeholder="请输入单位注册地址" class="input" required="required"
                        id="unit_login_add" name="unitLoginAdd" />
                 <span class="error"></span>
             </li>
             <li>
                 <label>单位办公地址</label>
-                <input type="text" placeholder="请输入单位办公地址" class="input"
+                <input type="text" placeholder="请输入单位办公地址" class="input" required="required"
                        id="unit_work_add" name="unitWorkAdd" />
                 <span class="error"></span>
             </li>
             <li>
                 <label>上级主管单位</label>
-                <input type="text" placeholder="请输入上级主管单位" class="input"
+                <input type="text" placeholder="请输入上级主管单位" class="input" required="required"
                        id="super_unit_name" name="superUnitName" />
                 <span class="error"></span>
             </li>
@@ -153,7 +153,7 @@
                 <input type="radio" name="unitCondition" value="否" title="否" class="dan">&nbsp;否
             </li><br />
             <li>
-                <label>单位登记经办人编号---</label>
+                <label>单位登记经办人编号</label>
                 <input type="text" class="input" id="unit_user_id" readonly="readonly"
                        value="${unit.unitUserId}" name="unit_user_id" />
                 <span class="error"></span>

@@ -128,7 +128,7 @@
             </li>
             <li>
                 <label for="user_name">经办人姓名</label>
-                <input type="text" placeholder="请输入经办人姓名" id="user_name"
+                <input type="text" placeholder="请输入经办人姓名" id="user_name"  required="required"
                        value="" name="" />
                 <span class="error">${wrong}</span>
             </li>
@@ -142,19 +142,19 @@
             </li><br />
             <li>
                 <label for="user_cert_num">证件号码</label>
-                <input type="text" placeholder="请输入证件号码" id="user_cert_num"
+                <input type="text" placeholder="请输入证件号码" id="user_cert_num" required="required"
                        value="" name="" />
                 <span class="error"></span>
             </li>
             <li>
                 <label for="user_phonenum">手机号码</label>
-                <input type="text" placeholder="请输入手机号码" id="user_phonenum"
+                <input type="text" placeholder="请输入手机号码" id="user_phonenum" required="required"
                        value="" name=""/>
                 <span class="error"></span>
             </li>
             <li>
                 <label for="user_email">电子邮箱</label>
-                <input type="email" placeholder="请输入电子邮箱" id="user_email"
+                <input type="email" placeholder="请输入电子邮箱" id="user_email" required="required"
                        value="" name=""/>
                 <span class="error"></span>
             </li>

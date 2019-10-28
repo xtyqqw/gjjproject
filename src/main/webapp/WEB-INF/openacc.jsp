@@ -58,18 +58,18 @@
             </li><br>
             <li>
                 <label>业务种类</label>
-                <input type="radio" name="accountJtype" value="住房公积金" class="dan">
+                <input type="radio" name="accountJtype" value="住房公积金" class="dan" checked>
                     &nbsp;住房公积金&nbsp;&nbsp;&nbsp;
                 <input type="radio" name="accountJtype" value="住房补贴" class="dan">
                     &nbsp;住房补贴&nbsp;&nbsp;&nbsp;
                 <input type="radio" name="accountJtype" value="住房基金" class="dan">
                     &nbsp;住房基金&nbsp;&nbsp;&nbsp;
-                <input type="radio" name="accountJtype" value="radio" class="dan">
+                <input type="radio" name="accountJtype" value="住房维修基金" class="dan">
                     &nbsp;住房维修基金
             </li>
             <li>
                 <label>资金来源</label>
-                <input type="radio" name="accountMfrom" value="单位自筹" class="dan">
+                <input type="radio" name="accountMfrom" value="单位自筹" class="dan" checked>
                     &nbsp;单位自筹&nbsp;&nbsp;&nbsp;
                 <input type="radio" name="accountMfrom" value="财政拨款" class="dan">
                     &nbsp;财政拨款&nbsp;&nbsp;&nbsp;
@@ -78,63 +78,67 @@
             </li>
             <li>
                 <label>开通二级辅助信息</label>
-                <input type="radio" name="accountIsopen" value="是" class="dan">
+                <input type="radio" name="accountIsopen" value="是" class="dan" checked>
                     &nbsp;是&nbsp;&nbsp;&nbsp;
                 <input type="radio" name="accountIsopen" value="否" class="dan">
                     &nbsp;否
             </li>
             <li>
                 <label>财政拨款单位</label>
-                <input type="radio" name="accountMunit" value="市财政" class="dan">
+                <input type="radio" name="accountMunit" value="市财政" class="dan" checked>
                     &nbsp;市财政&nbsp;&nbsp;&nbsp;
                 <input type="radio" name="accountMunit" value="区县财政" class="dan">
                     &nbsp;区县财政
             </li>
             <li>
                 <label>业务经办部门</label>
-                <input type="text" placeholder="请输入业务经办部门" class="input"
+                <input type="text" placeholder="请输入业务经办部门" class="input" required="required"
                        name="accountBussinessSection" id="account_bussiness_section" />
             </li><br>
             <li>
                 <label>单位预算代码</label>
-                <input type="text" placeholder="请输入单位预算代码" class="input"
+                <input type="text" placeholder="请输入单位预算代码" class="input" required="required"
                        value="" name="" id="unit_budget_num" />
             </li><br>
             <li>
                 <label>联系电话</label>
-                <input type="text" placeholder="请输入联系电话" class="input"
+                <input type="text" placeholder="请输入联系电话" class="input" required="required"
                        value="" name="" id="phone" />
             </li><br>
             <li>
                 <label>发薪日期</label>
-                <input type="text" placeholder="请输入发薪日期" class="input"
+                <input type="text" placeholder="请输入发薪日期" class="input" required="required"
                        name="accountMdate" id="account_mdate" />
             </li><br>
             <li>
                 <label>首次汇缴月份</label>
-                <input type="text" placeholder="请输入首次汇缴月份" class="input"
+                <input type="text" placeholder="请输入首次汇缴月份" class="input" required="required"
                        name="accountFirstmonth" id="account_firtmonth">
             </li><br>
             <li>
                 <label>跨年清册核定月份</label>
-                <input type="radio" name="accountClearMonth" value="1" class="dan">
+                <input type="radio" name="accountClearMonth" value="1" class="dan" checked>
                     &nbsp;1月&nbsp;&nbsp;&nbsp;
                 <input type="radio" name="accountClearMonth" value="7" class="dan">
                     &nbsp;7月
             </li>
             <li>
                 <label>单位缴存比例</label>
-                <input type="text" placeholder="请输入单位缴存比例" class="input"
-                       name="accountRatio" id="unit_account_ratio">
+                <select name="accountRatio" class="input" id="unit_account_ratio">
+                    <option value="0.8">0.08</option>
+                    <option value="0.12">0.12</option>
+                </select>
             </li><br>
             <li>
                 <label>个人缴存比例</label>
-                <input type="text" placeholder="请输入个人缴存比例" class="input" value=""
-                       id="user_account_ratio">
+                <select class="input" id="user_account_ratio">
+                    <option value="0.8">0.08</option>
+                    <option value="0.12">0.12</option>
+                </select>
             </li><br>
             <li>
                 <label>每月汇缴是否需要确认人员清册</label>
-                <input type="radio" name="accountIsclean" value="是" class="dan">
+                <input type="radio" name="accountIsclean" value="是" class="dan" checked>
                     &nbsp;是&nbsp;&nbsp;&nbsp;
                 <input type="radio" name="accountIsclean" value="否" class="dan">
                     &nbsp;否
@@ -142,9 +146,9 @@
             <li>
                 <label>缴款方式</label>
                 <input type="radio" name="account_way" value="" title="" class="dan">
-                    &nbsp;委托收款&nbsp;&nbsp;&nbsp;
-                <input type="radio" name="account_way" value="" title="" class="dan">
                     &nbsp;主动汇款&nbsp;&nbsp;&nbsp;
+                <input type="radio" name="account_way" value="" title="" class="dan" checked>
+                    &nbsp;委托收款&nbsp;&nbsp;&nbsp;
                 <input type="radio" name="account_way" value="" title="" class="dan">
                     &nbsp;转账支票&nbsp;&nbsp;&nbsp;
                 <input type="radio" name="account_way" value="" title="" class="dan">

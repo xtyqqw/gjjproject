@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="/layui/css/layui.css"/>
     <link rel="shortcut icon" href="/img/favicon.ico" />
     <script src="/layui/layui.js" type="text/javascript"></script>
+    <script src="/layui/lay/modules/form.js"></script>
 
     <style type="text/css">
         body{background: #F2F2F2;padding: 0;margin: 0;}
@@ -36,7 +37,6 @@
         .submit input{display: inline-block;width: 100px;height: 50px;background-color: #01AAED;
             color: #FFFFFF;font-size: 17px;line-height: 40px;outline: none;border: none;
             border-radius: 5px;cursor: pointer;margin-left: 400px;}
-
     </style>
 
     <!-- 验证输入框的信息 -->
@@ -48,7 +48,6 @@
                 var nameVal = $(this).val();
                 if(nameVal == ""){
                     $(this).next().css("display","block").html("姓名不能为空");
-                    return false;
                 }else{
                     $(this).next().empty();
                 }
@@ -141,17 +140,19 @@
         <ul class="box box2">
             <li>
                 <label>姓名</label>
-                <input type="text" placeholder="请输入姓名" name="userName" id="user_name" />
-                <span class="error"></span>
+                <input type="text" placeholder="请输入姓名" required="required"
+                       name="userName" id="user_name" onchange="checkusrn()" />
+                <span class="error" id="error"></span>
             </li>
             <li>
                 <label>密码</label>
-                <input type="password" placeholder="请输入密码" name="userPwd" id="pwd1" />
+                <input type="password" placeholder="请输入密码" required="required"
+                       name="userPwd" id="pwd1" />
                 <span class="error"></span>
             </li>
             <li>
                 <label>确认密码</label>
-                <input type="password" placeholder="请确认密码" id="pwd2" />
+                <input type="password" placeholder="请确认密码" required="required" id="pwd2" />
                 <span class="error"></span>
             </li>
             <li>
@@ -164,27 +165,31 @@
             </li><br />
             <li>
                 <label>证件号码</label>
-                <input type="text" placeholder="请确认证件号码" name="userCertNum" id="user_cert_num" />
+                <input type="text" placeholder="请确认证件号码" required="required"
+                       name="userCertNum" id="user_cert_num" />
                 <span class="error"></span>
             </li>
             <li>
                 <label>单位名称</label>
-                <input type="text" placeholder="请输入单位名称" name="unitName" id="unit_name" />
+                <input type="text" placeholder="请输入单位名称" required="required"
+                       name="unitName" id="unit_name" />
                 <span class="error"></span>
             </li>
             <li>
                 <label>手机号码</label>
-                <input type="text" placeholder="请输入手机号码" name="userPhonenum" id="user_phonenum" />
+                <input type="text" placeholder="请输入手机号码" required="required"
+                       name="userPhonenum" id="user_phonenum" />
                 <span class="error"></span>
             </li>
             <li>
                 <label>电子邮箱</label>
-                <input type="user_email" placeholder="请输入电子邮箱" name="userEmail" id="user_email" />
+                <input type="user_email" placeholder="请输入电子邮箱" required="required"
+                       name="userEmail" id="user_email" />
                 <span class="error"></span>
             </li>
         </ul>
         <div class="submit">
-            <input type="submit" value="立即注册" />
+            <input type="submit" id="submit" value="立即注册" />
         </div>
     </form>
 </div>
