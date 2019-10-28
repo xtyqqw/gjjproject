@@ -42,6 +42,9 @@ public class XController {
     public ModelAndView updateAccount(Account account){
         ModelAndView mv = new ModelAndView();
         unitService.updateAccount(account);
+        String accountId = account.getAccountId();
+        Account account1 = unitService.findAccountById(accountId);
+        mv.addObject("account",account1);
         mv.setViewName("xty/updateaccount");
         return mv;
     }
@@ -65,6 +68,8 @@ public class XController {
     public ModelAndView updateUnit(Unit unit){
         ModelAndView mv = new ModelAndView();
         unitService.updateUnit(unit);
+        Unit unit1 = unitService.findUnitByUnitId(unit.getUnitId());
+        mv.addObject("unit",unit1);
         mv.setViewName("xty/updateunit");
         return mv;
     }

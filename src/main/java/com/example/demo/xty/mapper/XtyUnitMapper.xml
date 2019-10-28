@@ -37,8 +37,12 @@
         <result property="unitAccountNum" column="unit_account_num" javaType="java.lang.String"></result>
     </resultMap>
     
-    <select id="findAccountById" resultMap="accountMap" parameterType="java.lang.String">
+    <select id="findAccountByUnitId" resultMap="accountMap" parameterType="java.lang.String">
         select * from account where account_unit_id = #{id} limit 0,1
+    </select>
+
+    <select id="findAccountById" resultMap="accountMap" parameterType="java.lang.String">
+        select * from account where account_id = #{accountId} limit 0,1
     </select>
 
     <select id="findUnitByUnitId" resultMap="unitmap" parameterType="java.lang.String">

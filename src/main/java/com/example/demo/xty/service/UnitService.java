@@ -11,6 +11,8 @@ public interface UnitService {
      */
     Account findAccountByUnitId(String id);
 
+    Account findAccountById(String accountId);
+
     /**
      * 通过unitId查找单位注册信息
      * @param unitId

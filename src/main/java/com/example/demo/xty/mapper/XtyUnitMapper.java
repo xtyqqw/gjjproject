@@ -11,7 +11,9 @@ public interface XtyUnitMapper {
      * @param id
      * @return
      */
-    Account findAccountById(String id);
+    Account findAccountByUnitId(String id);
+
+    Account findAccountById(String accountId);
 
     /**
      * 通过unitId查询单位信息
