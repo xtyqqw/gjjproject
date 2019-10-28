@@ -11,6 +11,7 @@
     <title>单位用户登录</title>
     <script src="/js/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/layui/css/layui.css"/>
+    <link rel="shortcut icon" href="/img/favicon.ico" />
     <script src="/layui/layui.js" type="text/javascript"></script>
     <style type="text/css">
         body{background: #F2F2F2;padding: 0;margin: 0;}

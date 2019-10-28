@@ -11,6 +11,7 @@
     <title>单位开户</title>
     <script src="/js/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/layui/css/layui.css"/>
+    <link rel="shortcut icon" href="/img/favicon.ico" />
     <script src="/layui/layui.js" type="text/javascript"></script>
 
     <style type="text/css">
@@ -41,7 +42,7 @@
     <img src="../img/head.png">
 </div>
 <div class="div1">
-    <form class="waik" action="<%=request.getContextPath()%>/user/openAccount">
+    <form class="waik" action="<%=request.getContextPath()%>/user/openAccount" method="post">
         <h2>单位开户申请表</h2>
         <span style="color: red;display: block;width: 260px;margin-left: 360px">${wrong}</span><br>
         <ul class="box box2">

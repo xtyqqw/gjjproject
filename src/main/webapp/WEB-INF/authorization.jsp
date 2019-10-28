@@ -11,6 +11,7 @@
     <title>单位网上业务授权申请</title>
     <script src="/js/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/layui/css/layui.css"/>
+    <link rel="shortcut icon" href="/img/favicon.ico" />
     <script src="/layui/layui.js" type="text/javascript"></script>
 
     <style type="text/css">
@@ -109,7 +110,7 @@
 </head>
 <body>
 <div class="div1">
-    <form class="waik" action="<%=request.getContextPath()%>/login/toAuthsecces">
+    <form class="waik" action="<%=request.getContextPath()%>/login/toAuthsecces" method="post">
         <h2>《单位网上业务授权申请书》</h2><br />
 
         <ul class="box box2">

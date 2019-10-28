@@ -11,6 +11,7 @@
     <title>单位用户注册</title>
     <script src="/js/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/layui/css/layui.css"/>
+    <link rel="shortcut icon" href="/img/favicon.ico" />
     <script src="/layui/layui.js" type="text/javascript"></script>
 
     <style type="text/css">
@@ -47,6 +48,7 @@
                 var nameVal = $(this).val();
                 if(nameVal == ""){
                     $(this).next().css("display","block").html("姓名不能为空");
+                    return false;
                 }else{
                     $(this).next().empty();
                 }
