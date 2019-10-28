@@ -35,7 +35,7 @@
 <div class="div1">
     <div class="waik">
         <h2>《单位经办人授权书》</h2>
-        <ul class="box box2">
+        <ul class="box">
             <li>
                 <label>单位名称：</label>
                 <span class="massage">${unit.unitName}</span>

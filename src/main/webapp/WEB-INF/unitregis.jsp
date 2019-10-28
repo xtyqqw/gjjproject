@@ -61,7 +61,7 @@
     <form action="<%=request.getContextPath()%>/user/unitReg" class="waik" method="post">
         <h2>单位登记表</h2>
         <span style="color: red;display: block;width: 200px;margin-left: 400px">${wrong}</span><br>
-        <ul class="box box2">
+        <ul class="box">
             <li>
                 <label>单位编号</label>
                 <input type="text" placeholder="请输入单位编号" class="input" id="unit_id"

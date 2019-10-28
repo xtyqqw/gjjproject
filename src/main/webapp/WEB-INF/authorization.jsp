@@ -113,7 +113,7 @@
     <form class="waik" action="<%=request.getContextPath()%>/login/toAuthsecces" method="post">
         <h2>《单位网上业务授权申请书》</h2><br />
 
-        <ul class="box box2">
+        <ul class="box">
             <li>
                 <label for="unit_name">单位名称</label>
                 <input type="text" id="unit_name" disabled="true"

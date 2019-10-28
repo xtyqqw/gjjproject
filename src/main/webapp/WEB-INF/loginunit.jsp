@@ -50,7 +50,7 @@
         <h2>单位登录</h2>
         <!-- 错误信息 -->
         <span class="error">${wrong}</span><br />
-        <ul class="box box2">
+        <ul class="box">
             <li>
                 <label>用户名：</label>
                 <input type="text" placeholder="请输入用户名" name="userName" />

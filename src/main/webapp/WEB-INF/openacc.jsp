@@ -47,7 +47,7 @@
     <form class="waik" action="<%=request.getContextPath()%>/user/openAccount" method="post">
         <h2>单位开户申请表</h2>
         <span style="color: red;display: block;width: 260px;margin-left: 360px">${wrong}</span><br>
-        <ul class="box box2">
+        <ul class="box">
             <li>
                 <label>单位登记号</label>
                 <input type="text" placeholder="单位登记号" class="input" id="account_unit_id"

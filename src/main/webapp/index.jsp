@@ -22,7 +22,7 @@
         .div3{background: #FFFFFF;width: 400px;height: 350px;margin: 0 auto;margin-top: 50px;
             box-shadow: 2px 2px 5px #737383;}
         .ddi{padding: 60px 80px;}
-        .div31{background: url(img/user.png) no-repeat;width: 230px;height: 115px;}
+        .div31{background: url(img/user.png) no-repeat;width: 230px;margin-bottom: 75px}
         .div31,.div32 a{font-size: 16px;font-family: "ms sans serif";text-align: center;
             line-height: 42px;display: block;padding-top: 30px;}
         a{color: #FFFFFF;text-decoration: none;}

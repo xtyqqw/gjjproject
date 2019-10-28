@@ -140,7 +140,7 @@
     <form action="<%=request.getContextPath()%>/user/register" class="waik" method="post">
         <h2>单位用户注册</h2>
         <span style="color: red;padding: 0px 70px;">${wrong}</span>
-        <ul class="box box2">
+        <ul class="box">
             <li>
                 <label>姓名</label>
                 <input type="text" placeholder="请输入姓名" required="required"
