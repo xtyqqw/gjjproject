@@ -53,7 +53,7 @@ public class UserController {
     public ModelAndView login(User user)throws Exception {
         ModelAndView mv = new ModelAndView();
         String magic = "认证";
-        if (user.getUserName()!=null && user.getUserPwd()!=null){
+        if (user.getUserName()!=null && user.getUserPwd()!=null && user.getUserName()!="" && user.getUserPwd()!=""){
             User user1 = userService.findUserByNameAndPwd(user);
             if (user1 != null) {
                 if (magic.equals(user1.getUserStatus())) {
