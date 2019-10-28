@@ -24,7 +24,11 @@ public class Person {
     /*个人登记号*/
     private String personRegister;
 
-    public Person(Integer personId, String personName, String personCertname, String personCertnum, String personUnit, Double personBase, Double personRatio, Double personAmount, String personRegister) {
+    public Person(Integer personId, String personName,
+                  String personCertname, String personCertnum,
+                  String personUnit, Double personBase,
+                  Double personRatio, Double personAmount,
+                  String personRegister) {
         this.personId = personId;
         this.personName = personName;
         this.personCertName = personCertname;
