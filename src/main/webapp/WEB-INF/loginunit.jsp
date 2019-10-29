@@ -54,13 +54,13 @@
         <span class="error">${wrong}</span><br />
         <ul class="box">
             <li>
-                <label>用户名：</label>
-                <input type="text" placeholder="请输入用户名" name="userName" />
+                <label>证件号：</label>
+                <input type="text" placeholder="请输入证件号" />
                 <span class="error"></span>
             </li>
             <li>
                 <label>密码：</label>
-                <input type="password" placeholder="请输入密码" name="userPwd" />
+                <input type="password" placeholder="请输入密码" />
                 <span class="error"></span>
             </li>
         </ul>
