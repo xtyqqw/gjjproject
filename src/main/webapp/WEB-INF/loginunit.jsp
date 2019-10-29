@@ -19,9 +19,9 @@
         .headimg{width: 100%;height: 150px;}
         .headimg img{width: 100%;}
         .div1{width: 100%;height: 70%;}
-        .waik{background: #FFFFFF;width: 30%;height: 400px;box-shadow: 2px 2px 5px #737383;
+        .waik{background: #FFFFFF;width: 30%;height: 380px;box-shadow: 2px 2px 5px #737383;
             margin: 0px auto;text-align: center;padding-bottom: 20px;}
-        h2{padding: 40px;letter-spacing: 20px;padding-bottom: 20px;}
+        h2{padding: 60px 40px 40px 40px;letter-spacing: 20px;padding-bottom: 20px;margin-top: 30px}
         .box{padding-left: 80px; }
         .box li{line-height: 44px;width: 100%;overflow: hidden;list-style: none;}
         /* 账号 密码 验证码的样式 */
@@ -49,6 +49,7 @@
 <div class="div1">
     <form class="waik" action="<%=request.getContextPath()%>/user/login" method="post">
         <h2>单位登录</h2>
+        <div style="clear: both"></div>
         <!-- 错误信息 -->
         <span class="error">${wrong}</span><br />
         <ul class="box">

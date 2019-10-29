@@ -103,12 +103,12 @@
             <li>
                 <label>单位登记号</label>
                 <input type="text" placeholder="单位登记号" class="input" id="account_unit_id"
-                       value="${unit.unitAccountNum}"/>
+                       value="${unit.unitAccountNum}" readonly="readonly" />
             </li><br>
             <li>
                 <label>单位名称</label>
                 <input type="text" placeholder="单位名称" class="input" id="unit_name"
-                       value="${unit.unitName}"/>
+                       value="${unit.unitName}" readonly="readonly" />
             </li><br>
             <li>
                 <label>业务种类</label>

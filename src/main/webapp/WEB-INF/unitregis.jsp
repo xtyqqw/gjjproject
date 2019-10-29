@@ -66,13 +66,13 @@
             <li>
                 <label>单位编号</label>
                 <input type="text" placeholder="请输入单位编号" class="input" id="unit_id"
-                       value="${unit.unitId}" name="unitId" />
+                       value="${unit.unitId}" name="unitId" readonly="readonly" />
                 <span class="error"></span>
             </li>
             <li>
                 <label>单位名称</label>
                 <input type="text" placeholder="请输入单位名称" class="input" id="unit_name"
-                       value="${unit.unitName}" name="unitName"/>
+                       value="${unit.unitName}" name="unitName" readonly="readonly" />
                 <span class="error"></span>
             </li>
             <li>
