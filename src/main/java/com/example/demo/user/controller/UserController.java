@@ -60,7 +60,9 @@ public class UserController {
             User user1 = userService.findUserByNameAndPwd(user);
             if (user1 != null) {
                 if (magic.equals(user1.getUserStatus())) {
+                    Unit unit = userService.findUnitByUser(user1);
                     mv.addObject("user", user1);
+                    mv.addObject("unit", unit);
                     mv.setViewName("home");
                     return mv;
                 } else if(user1.getUserUnitId()!=null){
