@@ -54,8 +54,8 @@ public class UserController {
     public ModelAndView login(User user)throws Exception {
         ModelAndView mv = new ModelAndView();
         String magic = "认证";
-        if (user.getUserName()!=null && user.getUserPwd()!=null
-                && user.getUserName()!="" && user.getUserPwd()!=""){
+        if (user.getUserCertNum()!=null && user.getUserPwd()!=null
+                && user.getUserCertNum()!="" && user.getUserPwd()!=""){
             user.setUserPwd(MD5Utils.md5Encrypt32Lower(user.getUserPwd()));
             User user1 = userService.findUserByNameAndPwd(user);
             if (user1 != null) {

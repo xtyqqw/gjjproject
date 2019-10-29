@@ -51,11 +51,11 @@
 </resultMap>
 
     <select id="findUserByNameAndPwd" parameterType="com.example.demo.entity.User" resultMap="userEntityMap">
-       select * from user where user_name = #{userName} and user_pwd = #{userPwd}
+       select * from user where user_cert_num = #{userCertNum} and user_pwd = #{userPwd}
     </select>
 
     <select id="findUserAll" parameterType="com.example.demo.entity.User" resultMap="userEntityMap">
-       select user_cert_num from user
+       select user_cert_num,user_name from user
     </select>
 
     <insert id="addUser" parameterType="com.example.demo.entity.User">
