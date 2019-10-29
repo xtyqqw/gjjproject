@@ -55,8 +55,36 @@
                 return false;
             }
         }
+        //发薪日期
+        function date() {
+            var regDate = /^([12][0-9]|30|[1-9])$/;
+            var date = document.getElementById("account_mdate").value;
+            var bool = regDate.test(date);
+            if(bool == true){
+                document.getElementById("dateError").innerHTML="";
+                return true;
+            } else {
+                document.getElementById("dateError").innerHTML="请输入正确的日期号";
+                document.getElementById("dateError").style.color="red";
+                return false;
+            }
+        }
+        //首次汇缴月份
+        function month() {
+            var regMonth = /^(?:1[0-2]|[1-9])$/;
+            var month = document.getElementById("account_firtmonth").value;
+            var bool = regMonth.test(month);
+            if (bool == true) {
+                document.getElementById("monthError").innerHTML = "";
+                return true;
+            } else {
+                document.getElementById("monthError").innerHTML = "请输入正确的月份";
+                document.getElementById("monthError").style.color = "red";
+                return false;
+            }
+        }
         function check() {
-            var check = phone();
+            var check = phone() && date() && month();
             return check;
         }
     </script>
@@ -135,13 +163,15 @@
             <li>
                 <label>发薪日期</label>
                 <input type="text" placeholder="请输入发薪日期" class="input" required="required"
-                       name="accountMdate" id="account_mdate" />
-            </li><br>
+                       name="accountMdate" id="account_mdate" onchange="date()" />
+                <span class="error" id="dateError"></span>
+            </li>
             <li>
                 <label>首次汇缴月份</label>
                 <input type="text" placeholder="请输入首次汇缴月份" class="input" required="required"
-                       name="accountFirstmonth" id="account_firtmonth">
-            </li><br>
+                       name="accountFirstmonth" id="account_firtmonth" onchange="month()">
+                <span class="error" id="monthError"></span>
+            </li>
             <li>
                 <label>跨年清册核定月份</label>
                 <input type="radio" name="accountClearMonth" value="1" class="dan" checked>
