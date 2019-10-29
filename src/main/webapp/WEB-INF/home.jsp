@@ -16,6 +16,7 @@
     <style type="text/css">
         /* 处理兼容问题 */
         *{-moz-user-select: none;-ms-user-select: none;-webkit-user-select: none;}
+        .layui-side ul a:hover{background-color: #8D8D8D !important;}
     </style>
     <script>
         //JavaScript代码区域
@@ -39,28 +40,35 @@
         </ul>
     </div>
     <div class="layui-side layui-bg-black">
-        <div class="layui-side-scroll">
-            <ul class="layui-nav layui-nav-tree" lay-filter="demoNav">
+        <div class="layui-side-scroll" style="background-color: #dddddd;">
+            <ul class="layui-nav layui-nav-tree" lay-filter="demoNav" style="background-color: #dddddd;color: #000000">
                 <li class="layui-nav-item layui-nav-itemed">
-                    <a href="<%=request.getContextPath()%>/login/toAuthorization?userUnitId=${user.userUnitId}" target="biao">单位网上业务授权申请</a>
+                    <a style="color: #000000 !important;"
+                       href="<%=request.getContextPath()%>/login/toAuthorization?userUnitId=${user.userUnitId}" target="biao">单位网上业务授权申请</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="<%=request.getContextPath()%>/secongmsg/tosecond" target="biao">二级管理辅助信息定义</a>
+                    <a style="color: #000000 !important;"
+                       href="<%=request.getContextPath()%>/secongmsg/tosecond" target="biao">二级管理辅助信息定义</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="<%=request.getContextPath()%>/secongmsg/toremit" target="biao">单位编辑汇缴清册</a>
+                    <a style="color: #000000 !important;"
+                       href="<%=request.getContextPath()%>/secongmsg/toremit" target="biao">单位编辑汇缴清册</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="<%=request.getContextPath()%>/persons/totest" target="biao">个人登记功能（无单位）</a>
+                    <a style="color: #000000 !important;"
+                       href="<%=request.getContextPath()%>/persons/totest" target="biao">个人登记功能（无单位）</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="<%=request.getContextPath()%>/stat/tostat" target="biao">公积金制卡情况查询</a>
+                    <a style="color: #000000 !important;"
+                       href="<%=request.getContextPath()%>/stat/tostat" target="biao">公积金制卡情况查询</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="<%=request.getContextPath()%>/account/findunit?userUnitId=${user.userUnitId}" target="biao">单位登记信息变更</a>
+                    <a style="color: #000000 !important;"
+                       href="<%=request.getContextPath()%>/account/findunit?userUnitId=${user.userUnitId}" target="biao">单位登记信息变更</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="<%=request.getContextPath()%>/account/findaccount?id=${user.userUnitId}" target="biao">单位开户信息变更</a>
+                    <a style="color: #000000 !important;"
+                       href="<%=request.getContextPath()%>/account/findaccount?id=${user.userUnitId}" target="biao">单位开户信息变更</a>
                 </li>
             </ul>
         </div>
