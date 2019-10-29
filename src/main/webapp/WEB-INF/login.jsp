@@ -147,7 +147,7 @@
             </li><br />
             <li>
                 <label>证件号码</label>
-                <input type="text" placeholder="请确认证件号码" required="required"
+                <input type="text" placeholder="请输入证件号码" required="required"
                        name="userCertNum" id="user_cert_num" />
                 <span class="error"></span>
             </li>

@@ -65,19 +65,19 @@
         <ul class="box">
             <li>
                 <label>单位编号</label>
-                <input type="text" placeholder="请输入单位编号" class="input" id="unit_id"
+                <input type="text" class="input" id="unit_id"
                        value="${unit.unitId}" name="unitId" readonly="readonly" />
                 <span class="error"></span>
             </li>
             <li>
                 <label>单位名称</label>
-                <input type="text" placeholder="请输入单位名称" class="input" id="unit_name"
+                <input type="text" class="input" id="unit_name"
                        value="${unit.unitName}" name="unitName" readonly="readonly" />
                 <span class="error"></span>
             </li>
             <li>
                 <label>组织机构代码</label>
-                <input type="text" placeholder="请输入组织代码机构" class="input" id="unit_num"
+                <input type="text" placeholder="请输入组织机构代码" class="input" id="unit_num"
                        required="required" name="unitNum"/>
                 <span class="error"></span>
             </li>
