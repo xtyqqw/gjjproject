@@ -176,8 +176,8 @@ public class UserController {
             User user = userService.findUserByAccountId(accId);
             user.setUserStatus("认证");
             userService.updateUserStatus(user);
-            mv.addObject("user",user);
-            mv.setViewName("home");
+            mv.addObject("wrong","您已开户认证成功，请重新登陆");
+            mv.setViewName("loginunit");
             return mv;
         }else {
             mv.addObject("wrong", "开户失败，请检查录入信息");
