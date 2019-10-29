@@ -44,89 +44,66 @@
 
     <!-- 验证输入框的信息 -->
     <script type="text/javascript">
-        //注册验证的js
-        $(function(){
-            //姓名错误
-            $(".box #user_name").blur(function(){
-                var nameVal = $(this).val();
-                if(nameVal == ""){
-                    $(this).next().css("display","block").html("姓名不能为空");
-                }else{
-                    $(this).next().empty();
-                }
-            });
-            //验证密码
-            $(".box #pwd1").blur(function(){
-                pwd1Reg = /^[A-z0-9]{6}$/;
-                var pwd1Val = $(this).val();
-                if(pwd1Val == ""){
-                    $(this).next().css("display","block").html("密码不能为空");
-                }else if(!pwd1Reg.test(pwd1Val)){
-                    $(this).next().css("display","block").html("请输入六位有效字符");
-                }else{
-                    $(this).next().empty();
-                }
-            });
-            //确认密码
-            $(".box #pwd2").blur(function(){
-                pwd2Reg = /^[A-z0-9]{6}$/;
-                var pwd1Val = $(".box2 #pwd1").val();
-                var pwd2Val = $(this).val();
-                if(pwd1Val == ""){
-                    $(this).next().css("display","block").html("密码不能为空");
-                }else if(!pwd2Reg.test(pwd2Val)){
-                    $(this).next().css("display","block").html("请输入正确的密码");
-                }else if(pwd1Val != pwd2Val){
-                    $(this).next().css("display","block").html("两次输入的密码不一致");
-                }else{
-                    $(this).next().empty();
-                }
-            });
-            //证件号码
-            $(".box #user_cert_num").blur(function(){
-                var zjidVal = $(this).val();
-                if(zjidVal == ""){
-                    $(this).next().css("display","block").html("证件号码不能为空");
-                }else{
-                    $(this).next().empty();
-                }
-            });
-            //单位名称
-            $(".box #unit_name").blur(function(){
-                var unameVal = $(this).val();
-                if(unameVal == ""){
-                    $(this).next().css("display","block").html("单位名称不能为空");
-                }else{
-                    $(this).next().empty();
-                }
-            });
-            //验证手机号码,通过正则表达式
-            $(".box #user_phonenum").blur(function(){
-                phoneReg = /^0{0,1}(13[0-9]|15[7-9]|153|156|18[7-9])[0-9]{8}$/;
-                var phoneVal = $(this).val();
-                if(phoneVal == ""){
-                    $(this).next().css("display","block").html("手机号码不能为空");
-                }else if(!phoneReg.test(phoneVal)){
-                    $(this).next().css("display","block").html("请输入正确的手机号码");
-                }else{
-                    $(this).next().empty();
-                }
-            });
-            //验证邮箱
-            $(".box #user_email").blur(function(){
-                emailReg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
-                var emailVal = $(this).val();
-                if(emailVal == ""){
-                    $(this).next().css("display","block").html("邮箱不能为空");
-                }else if(!emailReg.test(emailVal)){
-                    $(this).next().css("display","block").html("请输入正确的邮箱");
-                }else{
-                    $(this).next().empty();
-                }
-            });
-
-        });
-
+        //密码
+        function checkpwd1() {
+            var check = false;
+            //获取密码输入框输入的值
+            var password = document.getElementById("pwd1").value;
+            if (password.length == 6) {
+                document.getElementById("checktext2").innerHTML = "";
+                check = true;
+            } else {
+                document.getElementById("checktext2").innerHTML = "密码必须是六位";
+                check = false;
+            }
+            return check;
+        }
+        //确认密码
+        function checkpwd2() {
+            var check = false;
+            var pwd1 = document.getElementById("pwd1").value;
+            var pwd2 = document.getElementById("pwd2").value;
+            if (pwd1 != pwd2) {
+                document.getElementById("checktext3").innerHTML = "两次输入密码不一致";
+                check = false;
+            } else {
+                document.getElementById("checktext3").innerHTML = "";
+                check = true;
+            }
+            return check;
+        }
+        //验证手机号
+        function phone() {
+            var regPhone = /^1([356789]\d|5[0-35-9]|7[3678])\d{8}$/;
+            var phone = document.getElementById("user_phonenum").value;
+            var bool = regPhone.test(phone);
+            if(bool == true){
+                document.getElementById("phoneError").innerHTML="";
+                return true;
+            } else {
+                document.getElementById("phoneError").innerHTML="请输入正确的手机号";
+                document.getElementById("phoneError").style.color="red";
+                return false;
+            }
+        }
+        //验证邮箱
+        function email() {
+            var id = /^[A-Za-z0-9-._]+@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,6})$/;
+            var txtemail= document.getElementById("user_email").value;
+            var bool = id.test(txtemail);
+            if(bool == true){
+                document.getElementById("emailError").innerHTML="";
+                return true;
+            }else{
+                document.getElementById("emailError").innerHTML="格式不对如jack@163.com";
+                document.getElementById("emailError").style.color="red";
+                return false;
+            }
+        }
+        function check(){
+            var check = checkpwd1() && checkpwd2() && email() && phone();
+            return check;
+        }
     </script>
 
 </head>
@@ -137,26 +114,28 @@
 </div>
 
 <div class="div1">
-    <form action="<%=request.getContextPath()%>/user/register" class="waik" method="post">
+    <form action="<%=request.getContextPath()%>/user/register" class="waik" method="post"
+          onsubmit="return check()">
         <h2>单位用户注册</h2>
         <span style="color: red;padding: 0px 70px;">${wrong}</span>
         <ul class="box">
             <li>
                 <label>姓名</label>
                 <input type="text" placeholder="请输入姓名" required="required"
-                       name="userName" id="user_name" onchange="checkusrn()" />
+                       name="userName" id="user_name" />
                 <span class="error" id="error"></span>
             </li>
             <li>
                 <label>密码</label>
                 <input type="password" placeholder="请输入密码" required="required"
-                       name="userPwd" id="pwd1" />
-                <span class="error"></span>
+                       name="userPwd" id="pwd1" onchange="checkpwd1()" />
+                <span class="error" id="checktext2"></span>
             </li>
             <li>
                 <label>确认密码</label>
-                <input type="password" placeholder="请确认密码" required="required" id="pwd2" />
-                <span class="error"></span>
+                <input type="password" placeholder="请确认密码" required="required"
+                       id="pwd2" onchange="checkpwd2()" />
+                <span class="error" id="checktext3"></span>
             </li>
             <li>
                 <label>证件名称</label>
@@ -181,14 +160,14 @@
             <li>
                 <label>手机号码</label>
                 <input type="text" placeholder="请输入手机号码" required="required"
-                       name="userPhonenum" id="user_phonenum" />
-                <span class="error"></span>
+                       name="userPhonenum" id="user_phonenum" onchange="phone()" />
+                <span class="error" id="phoneError"></span>
             </li>
             <li>
                 <label>电子邮箱</label>
                 <input type="user_email" placeholder="请输入电子邮箱" required="required"
-                       name="userEmail" id="user_email" />
-                <span class="error"></span>
+                       name="userEmail" id="user_email" onchange="email()" />
+                <span class="error" id="emailError"></span>
             </li>
         </ul>
         <div class="submit">

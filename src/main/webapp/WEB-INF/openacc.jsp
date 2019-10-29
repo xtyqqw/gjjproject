@@ -30,6 +30,8 @@
         /* 输入框的样式 */
         .box li .input{padding: 6px 0;font-size: 16px;width: 300px;height: 50px;line-height: 28px;
             border: 1px solid #dddddd;text-indent: 0.5em;float: left;border-radius: 5px;}
+        .error{clear: both;display: block;color: red;padding-left: 170px;padding-bottom: 5px;
+            height: 20px;float: left;font-size: 12px;line-height: 20px;}
         .submit input{display: inline-block;width: 100px;height: 50px;background-color: #01AAED;
             color: #FFFFFF;font-size: 17px;line-height: 40px;outline: none;border: none;
             border-radius: 5px;cursor: pointer;}
@@ -38,13 +40,35 @@
             border: 1px solid #dddddd;color: #000000;}
     </style>
 
+    <script type="text/javascript">
+        //验证手机号
+        function phone() {
+            var regPhone = /^1([356789]\d|5[0-35-9]|7[3678])\d{8}$/;
+            var phone = document.getElementById("unitPhone").value;
+            var bool = regPhone.test(phone);
+            if(bool == true){
+                document.getElementById("phoneError").innerHTML="";
+                return true;
+            } else {
+                document.getElementById("phoneError").innerHTML="请输入正确的手机号";
+                document.getElementById("phoneError").style.color="red";
+                return false;
+            }
+        }
+        function check() {
+            var check = phone();
+            return check;
+        }
+    </script>
+
 </head>
 <body>
 <div class="headimg">
     <img src="../img/head.png">
 </div>
 <div class="div1">
-    <form class="waik" action="<%=request.getContextPath()%>/user/openAccount" method="post">
+    <form class="waik" action="<%=request.getContextPath()%>/user/openAccount" method="post"
+          onsubmit="return check()">
         <h2>单位开户申请表</h2>
         <span style="color: red;display: block;width: 260px;margin-left: 360px">${wrong}</span><br>
         <ul class="box">
@@ -105,8 +129,9 @@
             <li>
                 <label>联系电话</label>
                 <input type="text" placeholder="请输入联系电话" class="input" required="required"
-                       value="" name="" id="phone" />
-            </li><br>
+                       value="" name="" id="unitPhone" onchange="phone()" />
+                <span class="error" id="phoneError"></span>
+            </li>
             <li>
                 <label>发薪日期</label>
                 <input type="text" placeholder="请输入发薪日期" class="input" required="required"

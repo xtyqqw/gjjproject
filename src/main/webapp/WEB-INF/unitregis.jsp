@@ -152,7 +152,7 @@
             </li>
             <li>
                 <label>是否具有法人资格</label>
-                <input type="radio" name="unitCondition" value="是" title="是" class="dan">&nbsp;是&nbsp;&nbsp;&nbsp;
+                <input type="radio" name="unitCondition" value="是" title="是" class="dan" checked>&nbsp;是&nbsp;&nbsp;&nbsp;
                 <input type="radio" name="unitCondition" value="否" title="否" class="dan">&nbsp;否
             </li><br />
             <li>
