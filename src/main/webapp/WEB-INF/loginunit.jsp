@@ -55,12 +55,12 @@
         <ul class="box">
             <li>
                 <label>证件号：</label>
-                <input type="text" placeholder="请输入证件号" />
+                <input type="text" placeholder="请输入证件号" name="userCertNum" />
                 <span class="error"></span>
             </li>
             <li>
                 <label>密码：</label>
-                <input type="password" placeholder="请输入密码" />
+                <input type="password" placeholder="请输入密码" name="userPwd" />
                 <span class="error"></span>
             </li>
         </ul>
