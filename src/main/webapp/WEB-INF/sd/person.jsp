@@ -33,6 +33,21 @@
 
 </head>
 <body style="padding: 0 10px;width: 95%;height: 600px;">
+<script type="text/javascript">
+    function idCard() {
+        var regPhone=/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+        var idCard=document.getElementById("certNum").value;
+        var bool=regPhone.test(idCard);
+        if(bool==true){
+            document.getElementById("idCardError").innerHTML="";
+            return true
+        }else {
+            document.getElementById("idCardError").innerHTML="请输入正确身份证号";
+            document.getElementById("idCardError").style.color="red";
+            return false;
+        }
+    }
+</script>
 <span style="color: red">${msg}</span>
 <table class="layui-hide" id="person" lay-filter="test"></table>
 <%--<span style="color: red">${msg}</span>--%>
@@ -42,7 +57,7 @@
         <ul class="box box2">
             <li>
                 <label>姓名：</label>
-                <input type="text" placeholder="请输入姓名" name="personName" /><br><br>
+                <input type="text" placeholder="请输入姓名" name="personName" required="required"/><br><br>
             </li>
             <li>
                 <label>证件名称：</label>
@@ -54,11 +69,14 @@
             </li>
             <li>
                 <label>证件号码：</label>
-                <input type="text" placeholder="请输入证件号码" name="personCertNum" /><br><br>
+                <input type="text" placeholder="请输入证件号码" name="personCertNum" id="certNum"
+                       required="required" onchange="idCard()"/>
+                <span class="error" id="idCardError"></span>
+                <br><br>
             </li>
             <li>
                 <label>职业：</label>
-                <input type="text" placeholder="请输入职业" name="personUnit" /><br><br>
+                <input type="text" placeholder="请输入职业" name="personUnit" required="required"/><br><br>
             </li>
             <li>
                 <label>缴存基数：</label>
@@ -72,7 +90,7 @@
             <li>
                 <label>缴存比例：</label>
                 <%--<input type="text" placeholder="请输入缴存比例" name="personRatio" /><br><br>--%>
-                <select name="personBase" class="xlInput">
+                <select name="personRatio" class="xlInput">
                     <option value="0.8">0.8</option>
                     <option value="0.9">0.9</option>
                     <option value="0.10">0.10</option>
@@ -81,7 +99,7 @@
             <li>
                 <label>系统计算缴存额：</label>
                 <%--<input type="text" placeholder="请输入系统计算缴存额" name="personAmount" /><br>--%>
-                <select name="personBase" class="xlInput">
+                <select name="personAmount" class="xlInput">
                     <option value="0.10">0.10</option>
                     <option value="0.11">0.11</option>
                     <option value="0.12">0.12</option>
