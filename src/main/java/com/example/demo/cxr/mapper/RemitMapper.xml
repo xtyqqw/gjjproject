@@ -18,11 +18,12 @@
         <result property="monthlyDepositTotal" column="monthly_deposit_total" javaType="java.lang.Double"></result>
         <result property="remitSmsgId" column="remit_smsg_id" javaType="java.lang.String"></result>
         <result property="remitCardStatus" column="remit_card_status" javaType="java.lang.String"></result>
+        <result property="accountRatio" column="account_ratio" javaType="java.lang.Double"></result>
     </resultMap>
     <!--新增方法-->
     <insert id="insterRemit" parameterType="com.example.demo.entity.Remit">
-         insert into gjj_demo.remit(remit_unit_account_num, remit_login_num, remit_person_num, name, remit_cert_name, remit_country, remit_cert_num, remit_money, unit_monthly_deposit, person_monthly_deposit, monthly_deposit_total, remit_smsg_id, remit_card_status)
-        values (#{remitUnitAccountNum}, #{remitLoginNum}, #{remitPersonNum}, #{name}, #{remitCertName}, #{remitCountry}, #{remitCertNum}, #{remitMoney}, #{unitMonthlyDeposit}, #{personMonthlyDeposit}, #{monthlyDepositTotal}, #{remitSmsgId}, #{remitCardStatus})
+         insert into gjj_demo.remit(remit_unit_account_num, remit_login_num, remit_person_num, name, remit_cert_name, remit_country, remit_cert_num, remit_money, unit_monthly_deposit, person_monthly_deposit, monthly_deposit_total, remit_smsg_id, remit_card_status,account_ratio)
+        values (#{remitUnitAccountNum}, #{remitLoginNum}, #{remitPersonNum}, #{name}, #{remitCertName}, #{remitCountry}, #{remitCertNum}, #{remitMoney}, #{unitMonthlyDeposit}, #{personMonthlyDeposit}, #{monthlyDepositTotal}, #{remitSmsgId}, #{remitCardStatus},#{accountRatio})
     </insert>
     <!--修改方法-->
     <update id="updateRemit" parameterType="com.example.demo.entity.Remit">
@@ -67,6 +68,9 @@
             <if test="remitCardStatus != null and remitCardStatus != ''">
                 remit_card_status = #{remitCardStatus},
             </if>
+            <if test="accountRatio !=null and accountRatio != ''">
+                account_ratio = #{accountRatio},
+            </if>
         </set>
         where remit_id = #{remitId}
     </update>
@@ -74,13 +78,17 @@
     <select id="selectRemitAll" parameterType="com.example.demo.entity.CxrPagination" resultMap="remitEntityMap">
         select * from remit limit #{startPage},#{limit};
     </select>
-    <!--根据id查询单个信息-->
+    <!--根据职工编号查询单个信息-->
     <select id="selectRemitById" parameterType="com.example.demo.entity.Remit" resultMap="remitEntityMap">
-        select * from remit where remit_id=#{remitId}
+        select * from remit where remit_person_num=#{remitPersonNum}
     </select>
     <!--查询总条数-->
     <select id="findCount" parameterType="com.example.demo.entity.CxrPagination" resultType="java.lang.Integer">
         select count(1) from remit
     </select>
+    <!--根据id删除信息-->
+    <delete id="deleteById" parameterType="com.example.demo.entity.Remit">
+        delete from remit where remit_id = #{remitId}
+    </delete>
 
 </mapper>

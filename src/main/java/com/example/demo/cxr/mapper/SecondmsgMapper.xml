@@ -18,9 +18,9 @@
     <select id="selectSecAll" parameterType="com.example.demo.entity.CxrPagination" resultMap="secondmsgEntityMap">
         select * from secondmsg limit #{startPage},#{limit}
     </select>
-    <!--根据id查询方法-->
+    <!--根据部门编号查询方法-->
     <select id="selectById" parameterType="com.example.demo.entity.Secondmsg" resultMap="secondmsgEntityMap">
-        select * from secondmsg where smsg_id=#{smsgId}
+        select * from secondmsg where smsg_section_num=#{smsgSectionNum}
     </select>
     <!--根据id删除方法-->
     <delete id="deleteSec" parameterType="com.example.demo.entity.Secondmsg">

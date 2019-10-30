@@ -37,12 +37,18 @@ public class RemitServiceImpl implements RemitService {
     }
 
     @Override
-    public Remit selectRemitById(String remitId) {
-        return remitMapper.selectRemitById(remitId);
+    public List<Remit> selectRemitById(String remitPersonNum) {
+
+        return remitMapper.selectRemitById(remitPersonNum);
     }
 
     @Override
     public Integer findCount() {
         return remitMapper.findCount();
+    }
+
+    @Override
+    public int deleteById(String remitId) {
+        return remitMapper.deleteById(remitId);
     }
 }

@@ -100,11 +100,40 @@
             <version>1.4.0</version>
         </dependency>
 
+        <!--热启动-->
+        <dependency>
+
+            <groupId>org.springframework.boot</groupId>
+
+            <artifactId>spring-boot-devtools</artifactId>
+
+            <optional>true</optional>
+
+        </dependency>
+
     </dependencies>
 
     <build>
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
             <plugins>
+
+                <!--热启动-->
+                <plugin>
+
+                    <groupId>org.springframework.boot</groupId>
+
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+
+                    <configuration>
+
+                        <fork>true</fork>
+
+                    </configuration>
+
+                </plugin>
+
+
+
                 <plugin>
                     <artifactId>maven-clean-plugin</artifactId>
                     <version>3.1.0</version>

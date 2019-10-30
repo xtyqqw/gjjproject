@@ -32,29 +32,82 @@
             font-size: 1vw;
 
         }
+
+        #remitCertName1{
+            margin-top: 1vw;
+            height: 1.5vw;
+            font-size: 1vw;
+        }
+        #remitCertName{
+            margin-top: 1vw;
+            height: 1.5vw;
+            font-size: 1vw;
+        }
+        #remitSmsgId1{
+            margin-top: 1vw;
+            height: 1.5vw;
+            font-size: 1vw;
+        }
+        .updateRemit input{
+            margin-top: 1vw;
+            height: 1.5vw;
+            font-size: 1vw;
+        }
+        .updateRemit button{
+            margin-top: 1vw;
+            float: right;
+            font-size: 1vw;
+
+        }
+        #remitSmsgId{
+            margin-top: 1vw;
+            height: 1.5vw;
+            font-size: 1vw;
+        }
+        .msg{
+            font-size: 1.5vw;
+            color: red;
+
+            text-align: center;
+        }
+        h2{
+            text-align: center;
+        }
+
     </style>
 </head>
 <body>
+<p>${msg}</p>
+<h2>汇缴清册管理</h2>
+
 
 <!-- 添加信息表单 -->
 <div class="insterRemit">
     <form  id="insterRemit" style="display: none; margin-top: 1vw;" action="<%=request.getContextPath()%>/secongmsg/insertRemit" method="post">
 
-        职工编号：<input type="text" name="remitPersonNum" id="remitPersonNum1"><br>
-        姓名：    <input type="text" name="name" id="name1"><br>
-        证件名称：<input type="text" name="remitCertName" id="remitCertName1"><br>
-        国别：    <input type="text" name="remitCountry" id="remitCountry1"><br>
-        证件号码：<input type="text" name="remitCertNum" id="remitCertNum1"><br>
-        缴存基数：<input type="text" name="remitMoney" id="remitMoney1"><br>
-        单位月缴存额：<input type="text" name="unitMonthlyDeposit" id="unitMonthlyDeposit1"><br>
-        个人月缴存额：<input type="text" name="personMonthlyDeposit" id="personMonthlyDeposit1"><br>
-        月缴存额合计：<input type="text" name="monthlyDepositTotal" id="monthlyDepositTotal1"><br>
-        制卡状态：<input type="text" name="remitCardStatus" id="remitCardStatus1"><br>
+        职工编号：<input type="text" name="remitPersonNum" id="remitPersonNum1" style="margin-left: 2vw" required="required"><br>
+        姓名：    <input type="text" name="name" id="name1" style="margin-left: 3.8vw" required="required"><br>
+        证件名称：<label style="margin-left: 2vw"><select name="remitCertName" id="remitCertName1" required="required">
+                        <option value="身份证">身份证</option>
+                        <option value="军官证">军官证</option>
+                        <option value="护照">护照</option>
+                        </select>
+                </label><br>
+        国别：    <input type="text" name="remitCountry" id="remitCountry1" style="margin-left: 3.8vw" required="required"><br>
+        证件号码：<input type="text" name="remitCertNum" id="remitCertNum1" style="margin-left: 2vw" required="required"><br>
+        缴存基数：<input type="text" name="remitMoney" id="remitMoney1" style="margin-left: 2vw" required="required"><br>
+        单位月缴存额：<input type="text" name="unitMonthlyDeposit" id="unitMonthlyDeposit1" readonly="readonly"><br>
+        个人月缴存额：<input type="text" name="personMonthlyDeposit" id="personMonthlyDeposit1" readonly="readonly"><br>
+        月缴存额合计：<input type="text" name="monthlyDepositTotal" id="monthlyDepositTotal1" readonly="readonly"><br>
+        <%--制卡状态：<input type="text" name="remitCardStatus" id="remitCardStatus1"><br>--%>
 
-        二级管理辅助信息：<label><input type="checkbox" name="remitSmsgId" value="0">已开通</label>
-        <label><input type="checkbox" name="remitSmsgId" value="1">未开通</label><br>
+        二级管理辅助信息：<label style="margin-left:2vw"><select name="remitSmsgId" id="remitSmsgId1">
+                                <option value="已开通">已开通</option>
+                                <option value="未开通">未开通</option>
+                                </select>
+                        </label><br>
 
-        <button type="submit">添加</button>
+                    <button type="submit" class="layui-btn">添加</button>
     </form>
 </div>
 
@@ -63,20 +116,28 @@
 <div class="updateRemit">
     <form  id="updateRemit" style="display: none; margin-top: 1vw;" action="<%=request.getContextPath()%>/secongmsg/updateRemit" method="post">
         <input type="text" name="remitId" id="remitId" style="display: none">
-        职工编号：<input type="text" name="remitPersonNum" id="remitPersonNum"><br>
-        姓名：    <input type="text" name="name" id="name"><br>
-        证件名称：<input type="text" name="remitCertName" id="remitCertName"><br>
-        国别：    <input type="text" name="remitCountry" id="remitCountry"><br>
-        证件号码：<input type="text" name="remitCertNum" id="remitCertNum"><br>
-        缴存基数：<input type="text" name="remitMoney" id="remitMoney"><br>
-        单位月缴存额：<input type="text" name="unitMonthlyDeposit" id="unitMonthlyDeposit"><br>
-        个人月缴存额：<input type="text" name="personMonthlyDeposit" id="personMonthlyDeposit"><br>
-        月缴存额合计：<input type="text" name="monthlyDepositTotal" id="monthlyDepositTotal"><br>
-        制卡状态：<input type="text" name="remitCardStatus" id="remitCardStatus"><br>
-        二级管理辅助信息：<label><input type="checkbox" name="remitSmsgId" value="0">已开通</label>
-        <label><input type="checkbox" name="remitSmsgId" value="1">未开通</label><br>
+        职工编号：<input type="text" name="remitPersonNum" id="remitPersonNum" readonly="readonly" style="margin-left: 2vw"><br>
+        姓名：    <input type="text" name="name" id="name" style="margin-left: 3.8vw"><br>
+        证件名称：<label style="margin-left: 2vw"><select name="remitCertName" id="remitCertName">
+                        <option value="身份证">身份证</option>
+                        <option value="军官证">军官证</option>
+                        <option value="护照">护照</option>
+                        </select>
+                </label><br>
+        国别：    <input type="text" name="remitCountry" id="remitCountry" style="margin-left: 3.8vw"><br>
+        证件号码：<input type="text" name="remitCertNum" id="remitCertNum" style="margin-left: 2vw"><br>
+        缴存基数：<input type="text" name="remitMoney" id="remitMoney" style="margin-left:2vw"><br>
+        单位月缴存额：<input type="text" name="unitMonthlyDeposit" id="unitMonthlyDeposit" readonly="readonly" ><br>
+        个人月缴存额：<input type="text" name="personMonthlyDeposit" id="personMonthlyDeposit" readonly="readonly" ><br>
+        月缴存额合计：<input type="text" name="monthlyDepositTotal" id="monthlyDepositTotal" readonly="readonly" ><br>
+       <%-- 制卡状态：<input type="text" name="remitCardStatus" id="remitCardStatus"><br>--%>
+        二级管理辅助信息：<label style="margin-left: 6vw"><select name="remitSmsgId" id="remitSmsgId">
+                                     <option value="已开通">已开通</option>
+                                     <option value="未开通">未开通</option>
+                                 </select>
+                         </label><br>
 
-        <button type="submit">修改</button>
+        <button type="submit" class="layui-btn" data-method="xiugai">修改</button>
     </form>
 </div>
 
@@ -95,6 +156,7 @@
 
 <script type="text/html" id="barDemo">
     <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
 
 </script>
 
@@ -116,18 +178,18 @@
             ,title: '用户数据表'
             ,totalRow: true
             ,cols: [[
-                {type: 'checkbox', fixed: 'left'}
-                ,{field:'remitId', title:'ID', width:120, edit: 'text'}
-                ,{field:'remitPersonNum', title:'职工编号', width:120, edit: 'text'}
-                ,{field:'name', title:'姓名', width:120, edit: 'text'}
-                ,{field:'remitCertName', title:'证件名称', width:80, sort: true, totalRow: true}
-                ,{field:'remitCountry', title:'国别', width:80, sort: true, totalRow: true}
-                ,{field:'remitCertNum', title:'证件号码', width:80, sort: true, totalRow: true}
-                ,{field:'remitMoney', title:'缴存基数', width:80, sort: true, totalRow: true}
-                ,{field:'unitMonthlyDeposit', title:'单位月缴存额', width:80, sort: true, totalRow: true}
-                ,{field:'personMonthlyDeposit', title:'个人月缴存额', width:80, sort: true, totalRow: true}
-                ,{field:'monthlyDepositTotal', title:'月缴存额合计', width:80, sort: true, totalRow: true}
-                ,{field:'remitSmsgId', title:'二级管理辅助信息', width:80, sort: true, totalRow: true}
+               {type: 'checkbox', fixed: 'left'}
+                // ,{field:'remitId', title:'序号', width:80, edit: 'text'}
+                ,{field:'remitPersonNum', title:'职工编号', width:120}
+                ,{field:'name', title:'姓名', width:80}
+                ,{field:'remitCertName', title:'证件名称', width:120, sort: true}
+                ,{field:'remitCountry', title:'国别', width:80, sort: true}
+                ,{field:'remitCertNum', title:'证件号码', width:120, sort: true}
+                ,{field:'remitMoney', title:'缴存基数', width:120, sort: true}
+                ,{field:'unitMonthlyDeposit', title:'单位月缴存额', width:160, sort: true}
+                ,{field:'personMonthlyDeposit', title:'个人月缴存额', width:160, sort: true}
+                ,{field:'monthlyDepositTotal', title:'月缴存额合计', width:160, sort: true}
+                ,{field:'remitSmsgId', title:'二级管理辅助信息', width:160, sort: true}
 
                 ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:150}
             ]]
@@ -144,16 +206,18 @@
                         type:1,
                         content:$("#insterRemit")
                     });
+
                     break;
                 case 'edit':
                     var data = checkStatus.data;
                     layer.open({
                         type:1,
-                        content:$("#updateRemit")
+                        content:$("#updateRemit"),
+                        success:function () {
+                            
+                        }
+
                     });
-                    break;
-                case 'isAll':
-                    layer.msg(checkStatus.isAll ? '全选': '未全选')
                     break;
             };
         });
@@ -162,34 +226,49 @@
         table.on('tool(test)', function(obj){
             var data = obj.data;
             //console.log(obj)
+            //删除方法
             if(obj.event === 'del'){
                 layer.confirm('真的删除行么', function(index){
+                    var remitId=data.remitId;
+                    $.ajax({
+                        type:"post",
+                        url:"<%=request.getContextPath()%>/secongmsg/deleteRemit?remitId="+remitId,
+                        contentType:'application/json;charset=utf-8',
+                        data:'{remitId:'+remitId+'}',
+                        success:function (str) {
+                            layer.msg(str);
+                        }
+                    });
                     obj.del();
                     layer.close(index);
                 });
+                //修改方法
             } else if(obj.event === 'edit'){
+
                 $("#remitId").val(data.remitId);
                 $("#remitPersonNum").val(data.remitPersonNum);
                 $("#name").val(data.name);
                 $("#remitCertName").val(data.remitCertName);
+
                 $("#remitCountry").val(data.remitCountry);
                 $("#remitCertNum").val(data.remitCertNum);
                 $("#remitMoney").val(data.remitMoney);
                 $("#unitMonthlyDeposit").val(data.unitMonthlyDeposit);
                 $("#personMonthlyDeposit").val(data.personMonthlyDeposit);
                 $("#monthlyDepositTotal").val(data.unitMonthlyDeposit);
+                //$("#remitCardStatus").val(data.remitCardStatus);
                 $("#remitCardStatus").val(data.remitCardStatus);
-                // $("#remitCardStatus").val(data.remitCardStatus);
-
-
-
-
                 layer.open({
                     type:1,
-                    content:$("#updateRemit")
+
+                    content:$("#updateRemit"),
+
                 });
-            }
+
+    }
+
         });
+
 
 
 

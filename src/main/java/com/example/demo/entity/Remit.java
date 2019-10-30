@@ -38,11 +38,13 @@ public class Remit {
     private String remitSmsgId;
     /*制卡状态*/
     private String remitCardStatus;
+    /*缴存率*/
+    private Double accountRatio;
 
     public Remit(String remitUnitAccountNum,String remitLoginNum,String remitId,String remitPersonNum,
                  String name,String remitCertName,String remitCountry,String remitCertNum,
                  Double remitMoney,Double unitMonthlyDeposit,Double personMonthlyDeposit,Double monthlyDepositTotal,
-                 String remitSmsgId,String remitCardStatus){
+                 String remitSmsgId,String remitCardStatus,Double accountRatio){
         this.remitUnitAccountNum=remitUnitAccountNum;
         this.remitLoginNum=remitLoginNum;
         this.remitId=remitId;
@@ -57,5 +59,11 @@ public class Remit {
         this.monthlyDepositTotal=monthlyDepositTotal;
         this.remitSmsgId=remitSmsgId;
         this.remitCardStatus=remitCardStatus;
+        this.accountRatio=accountRatio;
+    }
+
+    public Remit() {
+
+
     }
 }

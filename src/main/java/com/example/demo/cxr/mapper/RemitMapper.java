@@ -33,16 +33,23 @@ public interface RemitMapper {
     public List<Remit> selectRemitAll(CxrPagination cxrPagination);
 
     /**
-     * 通过id查询单个信息
-     * @param remitId
+     * 通过职工编号查询单个信息
+     * @param remitPersonNum
      * @return
      */
-    public Remit selectRemitById(String remitId);
+    public List<Remit> selectRemitById(String remitPersonNum);
 
     /**
      *  查询总条数
      * @return
      */
     public Integer findCount();
+
+    /**
+     * 根据id删除信息
+     * @param remitId
+     * @return
+     */
+    public int deleteById(String remitId);
 
 }

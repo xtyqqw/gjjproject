@@ -34,7 +34,7 @@
         .inster input{
             margin-top: 1vw;
             height: 1.5vw;
-            font-size: 1.5vw;
+            font-size: 1vw;
         }
         .inster button{
             margin-top: 1vw;
@@ -42,18 +42,43 @@
             font-size: 1vw;
 
         }
+        .update button{
+            margin-top: 1vw;
+            float: right;
+            font-size: 1vw;
+            float: right;
+
+        }
+        .update input{
+            margin-top: 1vw;
+            height: 1.5vw;
+            font-size: 1vw;
+        }
+        .msg{
+            font-size: 1.5vw;
+            color: red;
+
+            text-align: center;
+        }
+    h2{
+        text-align: center;
+    }
 
     </style>
 </head>
 <body>
+
+<p class="msg">${msg}</p>
+<h2>二级管理辅助信息</h2>
+
 <!--  添加二级管理表单 -->
 <div class="inster">
     <form id="insterSec" style="display: none; margin-top: 1vw;" action="<%=request.getContextPath()%>/secongmsg/insertSec" method="post" >
-        序号:<input id="smsgId1" type="text" name="smsgId" value=""><br>
-        部门编号：<input id="smsgSectionNum1" type="text" name="smsgSectionNum" value=""><br>
-        部门名称：<input id="smsgSctionName1" type="text" name="smsgSectionName" value=""><br>
-        部门代码：<input id="smsgCode1" type="text" name="smsgCode" value=""><br>
-        <button type="submit">添加</button>
+        <input id="smsgId1" type="text" name="smsgId" value="" style="display: none;" ><br>
+        部门编号：<input id="smsgSectionNum1" type="text" name="smsgSectionNum" value="" required="required"><br>
+        部门名称：<input id="smsgSctionName1" type="text" name="smsgSectionName" value="" required="required"><br>
+        部门代码：<input id="smsgCode1" type="text" name="smsgCode" value="" required="required"><br>
+        <button type="submit" class="layui-btn">添加</button>
     </form>
 </div>
 
@@ -62,11 +87,11 @@
 <!-- 修改二级管理表单 -->
 <div class="update">
     <form id="updateSec" style="display: none;"  action="<%=request.getContextPath()%>/secongmsg/updateSec" method="post">
-        序号:<input id="smsgId" readonly="readonly" type="text" name="smsgId" value=""><br>
+        <input id="smsgId" readonly="readonly" type="text" name="smsgId" value="" style="display: none" ><br>
         部门编号：<input id="smsgSectionNum" type="text" name="smsgSectionNum" value=""><br>
         部门名称：<input id="smsgSectionName" type="text" name="smsgSectionName" value=""><br>
         部门代码：<input id="smsgCode" type="text" name="smsgCode" value=""><br>
-        <button type="submit">修改</button>
+        <button type="submit" class="layui-btn">修改</button>
     </form>
 </div>
 
@@ -85,11 +110,18 @@
 
 </div>
 
-<table class="layui-table" lay-data="{width: 892, height:330, url:'<%=request.getContextPath()%>/secongmsg/selectAll', page:true, id:'idTest'}" lay-filter="demo">
+
+<div class="biaoge">
+<table class="layui-table"
+       lay-data="{
+
+                    url:'<%=request.getContextPath()%>/secongmsg/selectAll',
+                     page:true, id:'idTest'}"
+                        lay-filter="demo">
     <thead>
     <tr>
         <th lay-data="{type:'checkbox', fixed: 'left'}"></th>
-        <th lay-data="{field:'smsgId', width:80, fixed: true}">序号</th>
+        <%--<th lay-data="{field:'smsgId', width:80, fixed: true}">序号</th>--%>
         <th lay-data="{field:'smsgSectionNum', width:160}">部门编号</th>
         <th lay-data="{field:'smsgSectionName', width:160}">部门名称</th>
         <th lay-data="{field:'smsgCode', width:160}">部门代码</th>
@@ -98,6 +130,7 @@
     </tr>
     </thead>
 </table>
+</div>
 
 <script type="text/html" id="barDemo">
 
@@ -121,7 +154,7 @@
             var data = obj.data;
             if(obj.event === 'detail'){
                 layer.msg('ID：'+ data.id + ' 的查看操作');
-            } else if(obj.event === 'del'){
+            } else if(obj.event === 'del'){//删除方法
                 layer.confirm('真的删除行么', function(index){
                     var smsgId=data.smsgId;
                     $.ajax({
@@ -136,7 +169,7 @@
                     obj.del();
                     layer.close(index);
                 });
-            } else if(obj.event === 'edit'){
+            } else if(obj.event === 'edit'){//修改方法
                 $("#smsgId").val(data.smsgId);
                 $("#smsgSectionNum").val(data.smsgSectionNum);
                 $("#smsgSectionName").val(data.smsgSectionName);
@@ -155,7 +188,7 @@
 
 
         var $ = layui.$, active = {
-            getCheckData: function(){ //获取选中数据
+            getCheckData: function(){ //添加新增方法
                 var checkStatus = table.checkStatus('idTest')
                     ,data = checkStatus.data;
                 layer.open({

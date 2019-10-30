@@ -42,10 +42,10 @@ public interface SecondmsgMapper {
 
     /**
      * 根据id查询单个对象
-     * @param smsgId
+     * @param smsgSectionNum
      * @return
      */
-    public Secondmsg selectById(String smsgId);
+    public List<Secondmsg> selectById(String smsgSectionNum);
 
     Integer findCount();
 

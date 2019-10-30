@@ -38,9 +38,16 @@ public class SecondmsgController {
     @RequestMapping("/insertSec")
     @ResponseBody
     public ModelAndView insertSec(Secondmsg secondmsg){
-        secondmsg.setSmsgId(UUIDUtil.getUUID());
-        int i=secondmsgService.insterSec(secondmsg);
         ModelAndView mv=new ModelAndView();
+        List<Secondmsg> list=secondmsgService.selectById(secondmsg.getSmsgSectionNum());
+        if(list.size()!=0){
+            mv.addObject("msg","部门编号重复，请重新输入");
+            mv.setViewName("cxr/second");
+            return mv;
+        }
+        //调用新增方法
+        int i=secondmsgService.insterSec(secondmsg);
+
         if(i>0){
             mv.setViewName("cxr/second");
             return mv;
@@ -59,9 +66,16 @@ public class SecondmsgController {
     @RequestMapping("/updateSec")
     @ResponseBody
     public ModelAndView update(Secondmsg secondmsg){
-//        secondmsg.setSmsgId(UUIDUtil.getUUID());
-       int update=secondmsgService.updateSec(secondmsg);
         ModelAndView mv=new ModelAndView();
+        List<Secondmsg> list=secondmsgService.selectById(secondmsg.getSmsgSectionNum());
+        if(list.size()!=0){
+            mv.addObject("msg"," 部门编号重复，请重新输入");
+            mv.setViewName("cxr/second");
+            return mv;
+        }
+        //调用修改方法
+        int update=secondmsgService.updateSec(secondmsg);
+
         if(update>0){
             secondmsgService.updateSec(secondmsg);
             mv.setViewName("cxr/second");
@@ -80,14 +94,22 @@ public class SecondmsgController {
     @RequestMapping("/selectAll")
     @ResponseBody
     public Map<String,Object> selectAll(CxrPagination cxrPagination){
+        //查询所有信息并分页显示
         List<Secondmsg> list = secondmsgService.selectSecAll(cxrPagination);
+        //查询记录条数
         Integer count = secondmsgService.findCount();
+
         Map<String,Object> map = new HashMap();
         map.put("code",0);
         map.put("data",list);
         map.put("count",count);
         return map;
     }
+
+    /**
+     * 返回展示页面
+     * @return
+     */
     @RequestMapping(value = "/tosecond")
     public String toSecond(){
         return "cxr/second";
@@ -95,12 +117,12 @@ public class SecondmsgController {
 
     /**
      * 根据id查询对象
-     * @param smsgId
+     * @param smsgSectionNum
      * @return
      */
-    @RequestMapping("/selectById/{smsgId}")
-    public Secondmsg selectById(@PathVariable("{smsgId}") String smsgId){
-        return secondmsgService.selectById(smsgId);
+    @RequestMapping("/selectById/{smsgSectionNum}")
+    public List<Secondmsg> selectById(@PathVariable("{smsgSectionNum}") String smsgSectionNum){
+        return secondmsgService.selectById(smsgSectionNum);
     }
 
     /**
@@ -126,9 +148,24 @@ public class SecondmsgController {
     @RequestMapping("/insertRemit")
     @ResponseBody
     public ModelAndView insertRemit(Remit remit){
-//        remit.setRemitId(UUIDUtil.getUUID());
-        int i=remitService.insterRemit(remit);
         ModelAndView mv=new ModelAndView();
+         List<Remit> list = remitService.selectRemitById(remit.getRemitPersonNum());
+        if(list.size() !=0){
+           mv.addObject("msg","职工编号重复，请重新输入");
+            mv.setViewName("cxr/remitmsg");
+
+            return mv;
+        }
+        remit.setAccountRatio(0.12);
+        //单位月缴存额=缴存基数*缴存率
+        remit.setUnitMonthlyDeposit(remit.getRemitMoney()*remit.getAccountRatio());
+        //个人月缴存额=缴存基数*缴存率
+        remit.setPersonMonthlyDeposit(remit.getRemitMoney()*remit.getAccountRatio());
+        //月缴存额=个人月存额+单位月存额
+        remit.setMonthlyDepositTotal(remit.getPersonMonthlyDeposit()+remit.getUnitMonthlyDeposit());
+        //调用修改方法
+        int i=remitService.insterRemit(remit);
+
         if(i>0){
             mv.setViewName("cxr/remitmsg");
             return mv;
@@ -145,7 +182,16 @@ public class SecondmsgController {
      */
     @RequestMapping("/updateRemit")
     public ModelAndView updateRemit(Remit remit){
-        //remit.setRemitId(UUIDUtil.getUUID());
+
+        //设置缴存率12%
+        remit.setAccountRatio(0.12);
+        //单位月缴存额=缴存基数*缴存率
+        remit.setUnitMonthlyDeposit(remit.getRemitMoney()*remit.getAccountRatio());
+        //个人月缴存额=缴存基数*缴存率
+        remit.setPersonMonthlyDeposit(remit.getRemitMoney()*remit.getAccountRatio());
+        //月缴存额=个人月存额+单位月存额
+        remit.setMonthlyDepositTotal(remit.getPersonMonthlyDeposit()+remit.getUnitMonthlyDeposit());
+       //调用修改方法
         int i=remitService.updateRemit(remit);
         ModelAndView mv=new ModelAndView();
         if(i>0){
@@ -181,12 +227,20 @@ public class SecondmsgController {
 
     /**
      * 根据id查询单条记录
-     * @param remitId
+     * @param remitPersonNum
      * @return
      */
-    @RequestMapping("/selectRemitById/{remitId}")
-    public Remit selectRemitById(@PathVariable("{remitId}") String remitId){
-        return remitService.selectRemitById(remitId);
+    @RequestMapping("/selectRemitById/{remitPersonNum}")
+    public List<Remit> selectRemitById(@PathVariable("{remitPersonNum}") String remitPersonNum){
+        return remitService.selectRemitById(remitPersonNum);
     }
-
+    @RequestMapping("/deleteRemit")
+    @ResponseBody
+    public String deleteRemit( String remitId){
+        int i=remitService.deleteById(remitId);
+        if(i>0){
+            return "删除成功";
+        }
+        return "删除失败";
+    }
 }

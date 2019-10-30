@@ -43,8 +43,8 @@ public class SecondmsgServiceImpl implements SecondmsgService {
     }
 
     @Override
-    public Secondmsg selectById(String smsgId) {
-        return secondmsgMapper.selectById(smsgId);
+    public List<Secondmsg> selectById(String smsgSectionNum) {
+        return (List<Secondmsg>) secondmsgMapper.selectById(smsgSectionNum);
     }
 
 

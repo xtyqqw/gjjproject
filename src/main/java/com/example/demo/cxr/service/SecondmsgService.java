@@ -40,10 +40,10 @@ public interface SecondmsgService {
 
     /**
      * 根据id查询单个对象
-     * @param smsgId
+     * @param smsgSectionNum
      * @return
      */
-    public Secondmsg selectById(String smsgId);
+    public List<Secondmsg> selectById(String smsgSectionNum);
     /**
      * 查询总条数
      * @param
