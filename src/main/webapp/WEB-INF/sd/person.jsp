@@ -133,7 +133,7 @@
             <li>
                 <label>缴存比例：</label>
                 <%--<input type="text" id="personRatio" name="personRatio" /><br><br>--%>
-                <select name="personBase" class="xlInput">
+                <select name="personRatio" class="xlInput">
                     <option value="0.8">0.8</option>
                     <option value="0.9">0.9</option>
                     <option value="0.10">0.10</option>
@@ -142,7 +142,7 @@
             <li>
                 <label>系统计算缴存额：</label>
                 <%--<input type="text" id="personAmount" name="personAmount" /><br>--%>
-                <select name="personBase" class="xlInput">
+                <select name="personAmount" class="xlInput">
                     <option value="0.10">0.10</option>
                     <option value="0.11">0.11</option>
                     <option value="0.12">0.12</option>
