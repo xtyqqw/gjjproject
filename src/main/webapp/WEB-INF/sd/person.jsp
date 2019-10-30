@@ -92,7 +92,10 @@
             </li>
             <li>
                 <label>职业：</label>
-                <input type="text" placeholder="请输入职业" name="personUnit" required="required"/><br><br>
+                <%--<input type="text" placeholder="请输入职业" name="personUnit" required="required"/><br><br>--%>
+                <select name="personUnit" class="xlInput">
+                    <option value="个人">个人</option>
+                </select><br>
             </li>
             <li>
                 <label>缴存基数：</label>
@@ -155,7 +158,10 @@
             </li>
             <li>
                 <label>职业：</label>
-                <input type="text" id="personUnit" name="personUnit" required="required"/><br><br>
+                <%--<input type="text" id="personUnit" name="personUnit" required="required"/><br><br>--%>
+                <select name="personUnit" class="xlInput">
+                    <option value="个人">个人</option>
+                </select><br>
             </li>
             <li>
                 <label>缴存基数：</label>
