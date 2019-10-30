@@ -18,15 +18,16 @@
         *{-moz-user-select: none;-ms-user-select: none;-webkit-user-select: none;}
         .layui-side ul a:hover{background-color: #8D8D8D !important;}
     </style>
-    <script>
-        //JavaScript代码区域
-        layui.use('element', function() {
-            var element = layui.element;
 
-        });
-    </script>
 </head>
 <body class="layui-layout-body">
+<script>
+    //JavaScript代码区域
+    layui.use('element', function() {
+        var element = layui.element;
+
+    });
+</script>
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header">
         <div class="layui-logo" style="color: #FFFFFF;">北京住房公积金管理中心</div>

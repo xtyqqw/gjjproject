@@ -42,72 +42,72 @@
             border: 1px solid #dddddd;color: #000000;}
     </style>
 
-    <!-- 验证输入框的信息 -->
-    <script type="text/javascript">
-        //密码
-        function checkpwd1() {
-            var check = false;
-            //获取密码输入框输入的值
-            var password = document.getElementById("pwd1").value;
-            if (password.length == 6) {
-                document.getElementById("checktext2").innerHTML = "";
-                check = true;
-            } else {
-                document.getElementById("checktext2").innerHTML = "密码必须是六位";
-                check = false;
-            }
-            return check;
-        }
-        //确认密码
-        function checkpwd2() {
-            var check = false;
-            var pwd1 = document.getElementById("pwd1").value;
-            var pwd2 = document.getElementById("pwd2").value;
-            if (pwd1 != pwd2) {
-                document.getElementById("checktext3").innerHTML = "两次输入密码不一致";
-                check = false;
-            } else {
-                document.getElementById("checktext3").innerHTML = "";
-                check = true;
-            }
-            return check;
-        }
-        //验证手机号
-        function phone() {
-            var regPhone = /^1([356789]\d|5[0-35-9]|7[3678])\d{8}$/;
-            var phone = document.getElementById("user_phonenum").value;
-            var bool = regPhone.test(phone);
-            if(bool == true){
-                document.getElementById("phoneError").innerHTML="";
-                return true;
-            } else {
-                document.getElementById("phoneError").innerHTML="请输入正确的手机号";
-                document.getElementById("phoneError").style.color="red";
-                return false;
-            }
-        }
-        //验证邮箱
-        function email() {
-            var id = /^[A-Za-z0-9-._]+@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,6})$/;
-            var txtemail= document.getElementById("user_email").value;
-            var bool = id.test(txtemail);
-            if(bool == true){
-                document.getElementById("emailError").innerHTML="";
-                return true;
-            }else{
-                document.getElementById("emailError").innerHTML="格式不对如jack@163.com";
-                document.getElementById("emailError").style.color="red";
-                return false;
-            }
-        }
-        function check(){
-            var check = checkpwd1() && checkpwd2() && email() && phone();
-            return check;
-        }
-    </script>
-
 </head>
 <body>
+
+<!-- 验证输入框的信息 -->
+<script type="text/javascript">
+    //密码
+    function checkpwd1() {
+        var check = false;
+        //获取密码输入框输入的值
+        var password = document.getElementById("pwd1").value;
+        if (password.length == 6) {
+            document.getElementById("checktext2").innerHTML = "";
+            check = true;
+        } else {
+            document.getElementById("checktext2").innerHTML = "密码必须是六位";
+            check = false;
+        }
+        return check;
+    }
+    //确认密码
+    function checkpwd2() {
+        var check = false;
+        var pwd1 = document.getElementById("pwd1").value;
+        var pwd2 = document.getElementById("pwd2").value;
+        if (pwd1 != pwd2) {
+            document.getElementById("checktext3").innerHTML = "两次输入密码不一致";
+            check = false;
+        } else {
+            document.getElementById("checktext3").innerHTML = "";
+            check = true;
+        }
+        return check;
+    }
+    //验证手机号
+    function phone() {
+        var regPhone = /^1([356789]\d|5[0-35-9]|7[3678])\d{8}$/;
+        var phone = document.getElementById("user_phonenum").value;
+        var bool = regPhone.test(phone);
+        if(bool == true){
+            document.getElementById("phoneError").innerHTML="";
+            return true;
+        } else {
+            document.getElementById("phoneError").innerHTML="请输入正确的手机号";
+            document.getElementById("phoneError").style.color="red";
+            return false;
+        }
+    }
+    //验证邮箱
+    function email() {
+        var id = /^[A-Za-z0-9-._]+@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,6})$/;
+        var txtemail= document.getElementById("user_email").value;
+        var bool = id.test(txtemail);
+        if(bool == true){
+            document.getElementById("emailError").innerHTML="";
+            return true;
+        }else{
+            document.getElementById("emailError").innerHTML="格式不对如jack@163.com";
+            document.getElementById("emailError").style.color="red";
+            return false;
+        }
+    }
+    function check(){
+        var check = checkpwd1() && checkpwd2() && email() && phone();
+        return check;
+    }
+</script>
 
 <div class="headimg">
     <img src="../img/head.png">
@@ -159,7 +159,7 @@
             </li>
             <li>
                 <label>手机号码</label>
-                <input type="text" placeholder="请输入手机号码" required="required"
+                <input type="number" placeholder="请输入手机号码" required="required"
                        name="userPhonenum" id="user_phonenum" onchange="phone()" />
                 <span class="error" id="phoneError"></span>
             </li>

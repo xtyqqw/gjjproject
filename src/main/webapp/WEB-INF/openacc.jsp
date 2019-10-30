@@ -40,57 +40,58 @@
             border: 1px solid #dddddd;color: #000000;}
     </style>
 
-    <script type="text/javascript">
-        //验证手机号
-        function phone() {
-            var regPhone = /^1([356789]\d|5[0-35-9]|7[3678])\d{8}$/;
-            var phone = document.getElementById("unitPhone").value;
-            var bool = regPhone.test(phone);
-            if(bool == true){
-                document.getElementById("phoneError").innerHTML="";
-                return true;
-            } else {
-                document.getElementById("phoneError").innerHTML="请输入正确的手机号";
-                document.getElementById("phoneError").style.color="red";
-                return false;
-            }
-        }
-        //发薪日期
-        function date() {
-            var regDate = /^([12][0-9]|30|[1-9])$/;
-            var date = document.getElementById("account_mdate").value;
-            var bool = regDate.test(date);
-            if(bool == true){
-                document.getElementById("dateError").innerHTML="";
-                return true;
-            } else {
-                document.getElementById("dateError").innerHTML="请输入正确的日期号";
-                document.getElementById("dateError").style.color="red";
-                return false;
-            }
-        }
-        //首次汇缴月份
-        function month() {
-            var regMonth = /^(?:1[0-2]|[1-9])$/;
-            var month = document.getElementById("account_firtmonth").value;
-            var bool = regMonth.test(month);
-            if (bool == true) {
-                document.getElementById("monthError").innerHTML = "";
-                return true;
-            } else {
-                document.getElementById("monthError").innerHTML = "请输入正确的月份";
-                document.getElementById("monthError").style.color = "red";
-                return false;
-            }
-        }
-        function check() {
-            var check = phone() && date() && month();
-            return check;
-        }
-    </script>
-
 </head>
 <body>
+
+<script type="text/javascript">
+    //验证手机号
+    function phone() {
+        var regPhone = /^1([356789]\d|5[0-35-9]|7[3678])\d{8}$/;
+        var phone = document.getElementById("unitPhone").value;
+        var bool = regPhone.test(phone);
+        if(bool == true){
+            document.getElementById("phoneError").innerHTML="";
+            return true;
+        } else {
+            document.getElementById("phoneError").innerHTML="请输入正确的手机号";
+            document.getElementById("phoneError").style.color="red";
+            return false;
+        }
+    }
+    //发薪日期
+    function date() {
+        var regDate = /^([12][0-9]|30|[1-9])$/;
+        var date = document.getElementById("account_mdate").value;
+        var bool = regDate.test(date);
+        if(bool == true){
+            document.getElementById("dateError").innerHTML="";
+            return true;
+        } else {
+            document.getElementById("dateError").innerHTML="请输入正确的日期号";
+            document.getElementById("dateError").style.color="red";
+            return false;
+        }
+    }
+    //首次汇缴月份
+    function month() {
+        var regMonth = /^(?:1[0-2]|[1-9])$/;
+        var month = document.getElementById("account_firtmonth").value;
+        var bool = regMonth.test(month);
+        if (bool == true) {
+            document.getElementById("monthError").innerHTML = "";
+            return true;
+        } else {
+            document.getElementById("monthError").innerHTML = "请输入正确的月份";
+            document.getElementById("monthError").style.color = "red";
+            return false;
+        }
+    }
+    function check() {
+        var check = phone() && date() && month();
+        return check;
+    }
+</script>
+
 <div class="headimg">
     <img src="../img/head.png">
 </div>
@@ -156,7 +157,7 @@
             </li><br>
             <li>
                 <label>联系电话</label>
-                <input type="text" placeholder="请输入联系电话" class="input" required="required"
+                <input type="number" placeholder="请输入联系电话" class="input" required="required"
                        value="" name="" id="unitPhone" onchange="phone()" />
                 <span class="error" id="phoneError"></span>
             </li>

@@ -42,19 +42,20 @@
             border: 1px solid #dddddd;color: #000000;}
     </style>
 
-    <script>
-        layui.use(['laydate'], function(){
-            var laydate = layui.laydate;
 
-            //日期
-            laydate.render({
-                elem: '#date'
-            });
-        });
-    </script>
 
 </head>
 <body>
+<script>
+    layui.use(['laydate'], function(){
+        var laydate = layui.laydate;
+
+        //日期
+        laydate.render({
+            elem: '#date'
+        });
+    });
+</script>
 <div class="headimg">
     <img src="../img/head.png">
 </div>
