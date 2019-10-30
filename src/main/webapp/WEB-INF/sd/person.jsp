@@ -61,7 +61,8 @@
         }
     }
     function check() {
-        var check = idCard();
+        var check = idCard() && idCards();
+        return check;
     }
 </script>
 <span style="color: red">${msg}</span>
