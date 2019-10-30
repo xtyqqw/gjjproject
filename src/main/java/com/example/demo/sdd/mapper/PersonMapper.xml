@@ -34,8 +34,33 @@
     </insert>
     <!--修改-->
     <update id="updatePerson" parameterType="com.example.demo.entity.Person">
-        update person set
-        person_name=#{personName},person_cert_name=#{personCertName},person_cert_num=#{personCertNum},person_base=#{personBase},person_ratio=#{personRatio},person_amount=#{personAmount},person_register=#{personRegister}
+        update person
+        <set>
+            <if test="personName!=null and personName!=''">
+                person_name=#{personName},
+            </if>
+            <if test="personCertName!=null and personCertName!=''">
+                person_cert_name=#{personCertName},
+            </if>
+            <if test="personCertNum!=null and personCertNum!=''">
+                person_cert_num=#{personCertNum},
+            </if>
+            <if test="personBase!=null and personBase!=''">
+                person_base=#{personBase},
+            </if>
+            <if test="personRatio!=null and personRatio!=''">
+                person_ratio=#{personRatio},
+            </if>
+            <if test="personAmount!=null and personAmount!=''">
+                person_amount=#{personAmount},
+            </if>
+            <if test="personRegister!=null and personRegister!=''">
+                person_register=#{personRegister},
+            </if>
+            <if test="personUnit!=null and personUnit!=''">
+                person_unit=#{personUnit}
+            </if>
+        </set>
         where person_id=#{personId}
     </update>
     <!--删除-->

@@ -36,16 +36,32 @@
 <script type="text/javascript">
     function idCard() {
         var regPhone=/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
-        var idCard=document.getElementById("certNum").value;
+        var idCard=document.getElementById("certNum1").value;
         var bool=regPhone.test(idCard);
         if(bool==true){
-            document.getElementById("idCardError").innerHTML="";
+            document.getElementById("idCardError1").innerHTML="";
             return true
         }else {
-            document.getElementById("idCardError").innerHTML="请输入正确身份证号";
-            document.getElementById("idCardError").style.color="red";
+            document.getElementById("idCardError1").innerHTML="请输入正确身份证号";
+            document.getElementById("idCardError1").style.color="red";
             return false;
         }
+    }
+    function idCards() {
+        var regPhone=/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+        var idCards=document.getElementById("personCertNumm").value;
+        var bool=regPhone.test(idCards);
+        if(bool==true){
+            document.getElementById("idCardsError").innerHTML="";
+            return true
+        }else {
+            document.getElementById("idCardsError").innerHTML="请输入正确身份证号";
+            document.getElementById("idCardsError").style.color="red";
+            return false;
+        }
+    }
+    function check() {
+        var check = idCard();
     }
 </script>
 <span style="color: red">${msg}</span>
@@ -53,7 +69,7 @@
 <%--<span style="color: red">${msg}</span>--%>
 <%--添加的弹出框--%>
 <div hidden="hidden" id="sadd">
-    <form action="<%=request.getContextPath()%>/persons/add" method="post">
+    <form action="<%=request.getContextPath()%>/persons/add" method="post" onsubmit="check()">
         <ul class="box box2">
             <li>
                 <label>姓名：</label>
@@ -69,9 +85,9 @@
             </li>
             <li>
                 <label>证件号码：</label>
-                <input type="text" placeholder="请输入证件号码" name="personCertNum" id="certNum"
+                <input type="text" placeholder="请输入证件号码" name="personCertNum" id="certNum1"
                        required="required" onchange="idCard()"/>
-                <span class="error" id="idCardError"></span>
+                <span class="error" id="idCardError1"></span>
                 <br><br>
             </li>
             <li>
@@ -121,7 +137,7 @@
             </li>
             <li>
                 <label>姓名：</label>
-                <input type="text" id="personNamee" name="personName" /><br><br>
+                <input type="text" id="personNamee" name="personName" required="required"/><br><br>
             </li>
             <li>
                 <label>证件名称：</label>
@@ -133,11 +149,13 @@
             </li>
             <li>
                 <label>证件号码：</label>
-                <input type="text" id="personCertNumm"value="" name="personCertNum" /><br><br>
+                <input type="text" id="personCertNumm" value="" name="personCertNum"
+                        onchange="idCards()"/>
+                <span class="error" id="idCardsError"></span><br><br>
             </li>
             <li>
                 <label>职业：</label>
-                <input type="text" id="personUnit" name="personUnit" /><br><br>
+                <input type="text" id="personUnit" name="personUnit" required="required"/><br><br>
             </li>
             <li>
                 <label>缴存基数：</label>
